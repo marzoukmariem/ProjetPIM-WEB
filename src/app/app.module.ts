@@ -3,16 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login/login.component';
-import {DashboardModule} from "./dashboard/dashboard.module";
-import {LoginRoutingModule} from "./login--rounting/login--rounting.module";
+import { LoginComponent } from './views/login/login/login.component';
+import {DashboardModule} from "./views/dashboard/dashboard.module";
+import {LoginRoutingModule} from "./views/login--rounting/login--rounting.module";
+import { ParentComponent } from './Models/parent/parent.component';
+import { UtilisateurComponent } from './Models/utilisateur/utilisateur.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    ParentComponent,
+    UtilisateurComponent
   ],
   imports: [
     BrowserModule,
