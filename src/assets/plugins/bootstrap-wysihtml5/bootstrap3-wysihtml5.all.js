@@ -24,7 +24,8 @@ if(!Array.isArray) {
   Array.isArray = function(arg) {
     return Object.prototype.toString.call(arg) === '[object Array]';
   };
-};/**
+}
+/**
  * @license wysihtml5x v0.4.15
  * https://github.com/Edicy/wysihtml5
  *
@@ -60,7 +61,7 @@ var wysihtml5 = {
   SPACE_KEY:      32,
   DELETE_KEY:     46
 };
-;/**
+/**
  * Rangy, a cross-browser JavaScript range and selection library
  * http://code.google.com/p/rangy/
  *
@@ -3793,7 +3794,8 @@ var wysihtml5 = {
     /*----------------------------------------------------------------------------------------------------------------*/
 
     return api;
-}, this);;/**
+}, this);
+/**
  * Selection save and restore module for Rangy.
  * Saves and restores user selections using marker invisible elements in the DOM.
  *
@@ -4041,8 +4043,8 @@ var wysihtml5 = {
             removeMarkers: removeMarkers
         });
     });
-    
-}, this);;/*
+
+}, this);/*
 	Base.js, version 1.1a
 	Copyright 2006-2010, Dean Edwards
 	License: http://www.opensource.org/licenses/mit-license.php
@@ -4180,7 +4182,8 @@ Base = Base.extend({
 	toString: function() {
 		return String(this.valueOf());
 	}
-});;/**
+});
+/**
  * Detect browser support for specific features
  */
 wysihtml5.browser = (function() {
@@ -4574,7 +4577,7 @@ wysihtml5.browser = (function() {
     }
   };
 })();
-;wysihtml5.lang.array = function(arr) {
+wysihtml5.lang.array = function (arr) {
   return {
     /**
      * Check whether a given object exists in an array
@@ -4700,7 +4703,7 @@ wysihtml5.browser = (function() {
 
   };
 };
-;wysihtml5.lang.Dispatcher = Base.extend(
+wysihtml5.lang.Dispatcher = Base.extend(
   /** @scope wysihtml5.lang.Dialog.prototype */ {
   on: function(eventName, handler) {
     this.events = this.events || {};
@@ -4750,7 +4753,7 @@ wysihtml5.browser = (function() {
     return this.off.apply(this, arguments);
   }
 });
-;wysihtml5.lang.object = function(obj) {
+wysihtml5.lang.object = function (obj) {
   return {
     /**
      * @example
@@ -4818,7 +4821,7 @@ wysihtml5.browser = (function() {
     }
   };
 };
-;(function() {
+(function () {
   var WHITE_SPACE_START = /^\s+/,
       WHITE_SPACE_END   = /\s+$/,
       ENTITY_REG_EXP    = /[&<>\t"]/g,
@@ -4884,7 +4887,7 @@ wysihtml5.browser = (function() {
     };
   };
 })();
-;/**
+/**
  * Find urls in descendant text nodes of an element and auto-links them
  * Inspired by http://james.padolsey.com/javascript/find-and-replace-text-with-javascript/
  *
@@ -5033,7 +5036,7 @@ wysihtml5.browser = (function() {
   // Reveal url reg exp to the outside
   wysihtml5.dom.autoLink.URL_REG_EXP = URL_REG_EXP;
 })(wysihtml5);
-;(function(wysihtml5) {
+(function (wysihtml5) {
   var api = wysihtml5.dom;
 
   api.addClass = function(element, className) {
@@ -5066,7 +5069,7 @@ wysihtml5.browser = (function() {
     return (elementClassName.length > 0 && (elementClassName == className || new RegExp("(^|\\s)" + className + "(\\s|$)").test(elementClassName)));
   };
 })(wysihtml5);
-;wysihtml5.dom.contains = (function() {
+wysihtml5.dom.contains = (function () {
   var documentElement = document.documentElement;
   if (documentElement.contains) {
     return function(container, element) {
@@ -5082,7 +5085,7 @@ wysihtml5.browser = (function() {
     };
   }
 })();
-;/**
+/**
  * Converts an HTML fragment/element into a unordered/ordered list
  *
  * @param {Element} element The element which should be turned into a list
@@ -5188,7 +5191,7 @@ wysihtml5.dom.convertToList = (function() {
 
   return convertToList;
 })();
-;/**
+/**
  * Copy a set of attributes from one element to another
  *
  * @param {Array} attributesToCopy List of attributes which should be copied
@@ -5223,7 +5226,7 @@ wysihtml5.dom.copyAttributes = function(attributesToCopy) {
     }
   };
 };
-;/**
+/**
  * Copy a set of styles from one element to another
  * Please note that this only works properly across browsers when the element from which to copy the styles
  * is in the dom
@@ -5296,7 +5299,7 @@ wysihtml5.dom.copyAttributes = function(attributesToCopy) {
     };
   };
 })(wysihtml5.dom);
-;/**
+/**
  * Event Delegation
  *
  * @example
@@ -5322,7 +5325,7 @@ wysihtml5.dom.copyAttributes = function(attributesToCopy) {
   };
 
 })(wysihtml5);
-;// TODO: Refactor dom tree traversing here
+// TODO: Refactor dom tree traversing here
 (function(wysihtml5) {
   wysihtml5.dom.domNode = function(node) {
     var defaultNodeTypes = [wysihtml5.ELEMENT_NODE, wysihtml5.TEXT_NODE];
@@ -5375,7 +5378,8 @@ wysihtml5.dom.copyAttributes = function(attributesToCopy) {
 
     };
   };
-})(wysihtml5);;/**
+})(wysihtml5);
+/**
  * Returns the given html wrapped in a div element
  *
  * Fixing IE's inability to treat unknown elements (HTML5 section, article, ...) correctly
@@ -5439,7 +5443,7 @@ wysihtml5.dom.getAsDom = (function() {
     return tempElement;
   };
 })();
-;/**
+/**
  * Walks the dom tree from the given node up until it finds a match
  * Designed for optimal performance.
  *
@@ -5506,7 +5510,7 @@ wysihtml5.dom.getParentElement = (function() {
     return null;
   };
 })();
-;/**
+/**
  * Get element's style for a specific css property
  *
  * @param {Element} element The element on which to retrieve the style
@@ -5579,7 +5583,7 @@ wysihtml5.dom.getStyle = (function() {
     };
   };
 })();
-;wysihtml5.dom.getTextNodes = function(node, ingoreEmpty){
+wysihtml5.dom.getTextNodes = function (node, ingoreEmpty) {
   var all = [];
   for (node=node.firstChild;node;node=node.nextSibling){
     if (node.nodeType == 3) {
@@ -5591,7 +5595,8 @@ wysihtml5.dom.getStyle = (function() {
     }
   }
   return all;
-};;/**
+};
+/**
  * High performant way to check whether an element with a specific tag name is in the given document
  * Optimized for being heavily executed
  * Unleashes the power of live node lists
@@ -5619,7 +5624,7 @@ wysihtml5.dom.hasElementWithTagName = (function() {
     return cacheEntry.length > 0;
   };
 })();
-;/**
+/**
  * High performant way to check whether an element with a specific class name is in the given document
  * Optimized for being heavily executed
  * Unleashes the power of live node lists
@@ -5653,7 +5658,7 @@ wysihtml5.dom.hasElementWithTagName = (function() {
     return cacheEntry.length > 0;
   };
 })(wysihtml5);
-;wysihtml5.dom.insert = function(elementToInsert) {
+wysihtml5.dom.insert = function (elementToInsert) {
   return {
     after: function(element) {
       element.parentNode.insertBefore(elementToInsert, element.nextSibling);
@@ -5668,7 +5673,7 @@ wysihtml5.dom.hasElementWithTagName = (function() {
     }
   };
 };
-;wysihtml5.dom.insertCSS = function(rules) {
+wysihtml5.dom.insertCSS = function (rules) {
   rules = rules.join("\n");
 
   return {
@@ -5685,7 +5690,7 @@ wysihtml5.dom.hasElementWithTagName = (function() {
       var link = doc.querySelector("head link");
       if (link) {
         link.parentNode.insertBefore(styleElement, link);
-        return;
+
       } else {
         var head = doc.querySelector("head");
         if (head) {
@@ -5695,7 +5700,7 @@ wysihtml5.dom.hasElementWithTagName = (function() {
     }
   };
 };
-;// TODO: Refactor dom tree traversing here
+// TODO: Refactor dom tree traversing here
 (function(wysihtml5) {
   wysihtml5.dom.lineBreaks = function(node) {
 
@@ -5756,7 +5761,8 @@ wysihtml5.dom.hasElementWithTagName = (function() {
       }
     };
   };
-})(wysihtml5);;/**
+})(wysihtml5);
+/**
  * Method to set dom events
  *
  * @example
@@ -5807,7 +5813,7 @@ wysihtml5.dom.observe = function(element, eventNames, handler) {
     }
   };
 };
-;/**
+/**
  * HTML Sanitizer
  * Rewrites the HTML based on given rules
  *
@@ -6251,8 +6257,7 @@ wysihtml5.dom.parse = function(elementOrHtml_current, config_current) {
         }
       }
     }
-  };
-
+  }
   function _getAttributesBeginningWith(beginning, attributes) {
     var returnAttributes = [];
     for (var attr in attributes) {
@@ -6645,7 +6650,7 @@ wysihtml5.dom.parse = function(elementOrHtml_current, config_current) {
 
   return parse(elementOrHtml_current, config_current);
 };
-;/**
+/**
  * Checks for empty text node childs and removes them
  *
  * @param {Element} node The element in which to cleanup
@@ -6664,7 +6669,7 @@ wysihtml5.dom.removeEmptyTextNodes = function(node) {
     }
   }
 };
-;/**
+/**
  * Renames an element (eg. a <div> to a <p>) and keeps its childs
  *
  * @param {Element} element The list element which should be renamed
@@ -6699,7 +6704,7 @@ wysihtml5.dom.renameElement = function(element, newNodeName) {
   element.parentNode.replaceChild(newElement, element);
   return newElement;
 };
-;/**
+/**
  * Takes an element, removes it and replaces it with it's childs
  *
  * @param {Object} node The node which to replace with it's child nodes
@@ -6729,7 +6734,7 @@ wysihtml5.dom.replaceWithChildNodes = function(node) {
   node.parentNode.replaceChild(fragment, node);
   node = fragment = null;
 };
-;/**
+/**
  * Unwraps an unordered/ordered list
  *
  * @param {Element} element The list element which should be unwrapped
@@ -6822,7 +6827,7 @@ wysihtml5.dom.replaceWithChildNodes = function(node) {
 
   dom.resolveList = resolveList;
 })(wysihtml5.dom);
-;/**
+/**
  * Sandbox for executing javascript, parsing css styles and doing dom operations in a secure way
  *
  * Browser Compatibility:
@@ -7074,7 +7079,7 @@ wysihtml5.dom.replaceWithChildNodes = function(node) {
     }
   });
 })(wysihtml5);
-;(function(wysihtml5) {
+(function (wysihtml5) {
   var doc = document;
   wysihtml5.dom.ContentEditableArea = Base.extend({
       getContentEditable: function() {
@@ -7143,7 +7148,7 @@ wysihtml5.dom.replaceWithChildNodes = function(node) {
 
   });
 })(wysihtml5);
-;(function() {
+(function () {
   var mapping = {
     "className": "class"
   };
@@ -7157,7 +7162,7 @@ wysihtml5.dom.replaceWithChildNodes = function(node) {
     };
   };
 })();
-;wysihtml5.dom.setStyles = function(styles) {
+wysihtml5.dom.setStyles = function (styles) {
   return {
     on: function(element) {
       var style = element.style;
@@ -7176,7 +7181,7 @@ wysihtml5.dom.replaceWithChildNodes = function(node) {
     }
   };
 };
-;/**
+/**
  * Simulate HTML5 placeholder attribute
  *
  * Needed since
@@ -7228,7 +7233,7 @@ wysihtml5.dom.replaceWithChildNodes = function(node) {
     set();
   };
 })(wysihtml5.dom);
-;(function(dom) {
+(function (dom) {
   var documentElement = document.documentElement;
   if ("textContent" in documentElement) {
     dom.setTextContent = function(element, text) {
@@ -7257,7 +7262,7 @@ wysihtml5.dom.replaceWithChildNodes = function(node) {
   }
 })(wysihtml5.dom);
 
-;/**
+/**
  * Get a set of attribute from one element
  *
  * IE gives wrong results for hasAttribute/getAttribute, for example:
@@ -7288,7 +7293,7 @@ wysihtml5.dom.getAttribute = function(node, attributeName) {
     return node.getAttribute(attributeName);
   }
 };
-;/**
+/**
  * Get all attributes of an element
  *
  * IE gives wrong results for hasAttribute/getAttribute, for example:
@@ -7320,8 +7325,9 @@ wysihtml5.dom.getAttributes = function(node) {
     }
   }
   return attributes;
-};;/**
-   * Check whether the given node is a proper loaded image
+};
+/**
+ * Check whether the given node is a proper loaded image
    * FIXME: Returns undefined when unknown (Chrome, Safari)
 */
 
@@ -7334,9 +7340,8 @@ wysihtml5.dom.isLoadedImage = function (node) {
     }
   }
 };
-;(function(wysihtml5) {
-
-    var api = wysihtml5.dom;
+(function (wysihtml5) {
+  var api = wysihtml5.dom;
 
     var MapCell = function(cell) {
       this.el = cell;
@@ -8212,8 +8217,7 @@ wysihtml5.dom.isLoadedImage = function (node) {
 
 
 })(wysihtml5);
-;// does a selector query on element or array of elements
-
+// does a selector query on element or array of elements
 wysihtml5.dom.query = function(elements, query) {
     var ret = [],
         q;
@@ -8230,7 +8234,7 @@ wysihtml5.dom.query = function(elements, query) {
     }
     return ret;
 };
-;wysihtml5.dom.compareDocumentPosition = (function() {
+wysihtml5.dom.compareDocumentPosition = (function () {
   var documentElement = document.documentElement;
   if (documentElement.compareDocumentPosition) {
     return function(container, element) {
@@ -8294,14 +8298,14 @@ wysihtml5.dom.query = function(elements, query) {
     };
   }
 })();
-;wysihtml5.dom.unwrap = function(node) {
+wysihtml5.dom.unwrap = function (node) {
   if (node.parentNode) {
     while (node.lastChild) {
       wysihtml5.dom.insert(node.lastChild).after(node);
     }
     node.parentNode.removeChild(node);
   }
-};;/* 
+};/*
  * Methods for fetching pasted html before it gets inserted into content
 **/
 
@@ -8341,7 +8345,8 @@ wysihtml5.dom.getPastedHtmlWithDiv = function (composer, f) {
     f(cleanerDiv.innerHTML);
     cleanerDiv.parentNode.removeChild(cleanerDiv);
   }, 0);
-};;/**
+};
+/**
  * Fix most common html formatting misbehaviors of browsers implementation when inserting
  * content via copy & paste contentEditable
  *
@@ -8417,7 +8422,8 @@ wysihtml5.quirks.cleanPastedHTML = (function() {
     return newHtml;
   };
 
-})();;/**
+})();
+/**
  * IE and Opera leave an empty paragraph in the contentEditable element after clearing it
  *
  * @param {Object} contentEditableElement The contentEditable element to observe for clearing events
@@ -8440,7 +8446,7 @@ wysihtml5.quirks.ensureProperClearing = (function() {
     wysihtml5.dom.observe(composer.element, ["cut", "keydown"], clearIfNecessary);
   };
 })();
-;// See https://bugzilla.mozilla.org/show_bug.cgi?id=664398
+// See https://bugzilla.mozilla.org/show_bug.cgi?id=664398
 //
 // In Firefox this:
 //      var d = document.createElement("div");
@@ -8470,7 +8476,7 @@ wysihtml5.quirks.ensureProperClearing = (function() {
     return innerHTML;
   };
 })(wysihtml5);
-;/**
+/**
  * Force rerendering of a given element
  * Needed to fix display misbehaviors of IE
  *
@@ -8493,9 +8499,8 @@ wysihtml5.quirks.ensureProperClearing = (function() {
     } catch(e) {}
   };
 })(wysihtml5);
-;wysihtml5.quirks.tableCellsSelection = function(editable, editor) {
-
-    var dom = wysihtml5.dom,
+wysihtml5.quirks.tableCellsSelection = function (editable, editor) {
+  var dom = wysihtml5.dom,
         select = {
             table: null,
             start: null,
@@ -8610,7 +8615,7 @@ wysihtml5.quirks.ensureProperClearing = (function() {
     return init();
 
 };
-;(function(wysihtml5) {
+(function (wysihtml5) {
   var RGBA_REGEX     = /^rgba\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*([\d\.]+)\s*\)/i,
       RGB_REGEX      = /^rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)/i,
       HEX6_REGEX     = /^#([0-9a-f][0-9a-f])([0-9a-f][0-9a-f])([0-9a-f][0-9a-f])/i,
@@ -8695,7 +8700,7 @@ wysihtml5.quirks.ensureProperClearing = (function() {
   };
 
 })(wysihtml5);
-;/**
+/**
  * Selection API
  *
  * @example
@@ -9544,7 +9549,7 @@ wysihtml5.quirks.ensureProperClearing = (function() {
   });
 
 })(wysihtml5);
-;/**
+/**
  * Inspired by the rangy CSS Applier module written by Tim Down and licensed under the MIT license.
  * http://code.google.com/p/rangy/
  *
@@ -10188,7 +10193,7 @@ wysihtml5.quirks.ensureProperClearing = (function() {
   wysihtml5.selection.HTMLApplier = HTMLApplier;
 
 })(wysihtml5, rangy);
-;/**
+/**
  * Rich Text Query/Formatting Commands
  *
  * @example
@@ -10283,7 +10288,7 @@ wysihtml5.Commands = Base.extend(
     }
   }
 });
-;wysihtml5.commands.bold = {
+wysihtml5.commands.bold = {
   exec: function(composer, command) {
     wysihtml5.commands.formatInline.execWithToggle(composer, command, "b");
   },
@@ -10298,7 +10303,7 @@ wysihtml5.Commands = Base.extend(
   }
 };
 
-;(function(wysihtml5) {
+(function (wysihtml5) {
   var undef,
       NODE_NAME = "A",
       dom       = wysihtml5.dom;
@@ -10400,7 +10405,7 @@ wysihtml5.Commands = Base.extend(
     }
   };
 })(wysihtml5);
-;(function(wysihtml5) {
+(function (wysihtml5) {
   var dom = wysihtml5.dom;
 
   function _removeFormat(composer, anchors) {
@@ -10448,7 +10453,7 @@ wysihtml5.Commands = Base.extend(
     }
   };
 })(wysihtml5);
-;/**
+/**
  * document.execCommand("fontSize") will create either inline styles (firefox, chrome) or use font tags
  * which we don't want
  * Instead we set a css class
@@ -10466,7 +10471,7 @@ wysihtml5.Commands = Base.extend(
     }
   };
 })(wysihtml5);
-;/* In case font size adjustment to any number defined by user is preferred, we cannot use classes and must use inline styles. */
+/* In case font size adjustment to any number defined by user is preferred, we cannot use classes and must use inline styles. */
 (function(wysihtml5) {
   var REG_EXP = /(\s|^)font-size\s*:\s*[^;\s]+;?/gi;
 
@@ -10500,7 +10505,7 @@ wysihtml5.Commands = Base.extend(
     }
   };
 })(wysihtml5);
-;/**
+/**
  * document.execCommand("foreColor") will create either inline styles (firefox, chrome) or use font tags
  * which we don't want
  * Instead we set a css class
@@ -10518,7 +10523,7 @@ wysihtml5.Commands = Base.extend(
     }
   };
 })(wysihtml5);
-;/**
+/**
  * document.execCommand("foreColor") will create either inline styles (firefox, chrome) or use font tags
  * which we don't want
  * Instead we set a css class
@@ -10566,7 +10571,7 @@ wysihtml5.Commands = Base.extend(
 
   };
 })(wysihtml5);
-;/* In case background adjustment to any color defined by user is preferred, we cannot use classes and must use inline styles. */
+/* In case background adjustment to any color defined by user is preferred, we cannot use classes and must use inline styles. */
 (function(wysihtml5) {
   var REG_EXP = /(\s|^)background-color\s*:\s*[^;\s]+;?/gi;
 
@@ -10609,7 +10614,7 @@ wysihtml5.Commands = Base.extend(
 
   };
 })(wysihtml5);
-;(function(wysihtml5) {
+(function (wysihtml5) {
   var dom                     = wysihtml5.dom,
       // Following elements are grouped
       // when the caret is within a H1 and the H4 is invoked, the H1 should turn into H4
@@ -10832,7 +10837,7 @@ wysihtml5.Commands = Base.extend(
 
   };
 })(wysihtml5);
-;/* Formats block for as a <pre><code class="classname"></code></pre> block
+/* Formats block for as a <pre><code class="classname"></code></pre> block
  * Useful in conjuction for sytax highlight utility: highlight.js
  *
  * Usage:
@@ -10881,7 +10886,8 @@ wysihtml5.commands.formatCode = {
       return wysihtml5.dom.getParentElement(selectedNode, { nodeName: "CODE" }) && wysihtml5.dom.getParentElement(selectedNode, { nodeName: "PRE" });
     }
   }
-};;/**
+};
+/**
  * formatInline scenarios for tag "B" (| = caret, |foo| = selected text)
  *
  *   #1 caret in unformatted text:
@@ -11031,8 +11037,7 @@ wysihtml5.commands.formatCode = {
     }
   };
 })(wysihtml5);
-;(function(wysihtml5) {
-
+(function (wysihtml5) {
   wysihtml5.commands.insertBlockQuote = {
     exec: function(composer, command) {
       var state = this.state(composer, command),
@@ -11068,7 +11073,8 @@ wysihtml5.commands.formatCode = {
     }
   };
 
-})(wysihtml5);;wysihtml5.commands.insertHTML = {
+})(wysihtml5);
+wysihtml5.commands.insertHTML = {
   exec: function(composer, command, html) {
     if (composer.commands.support(command)) {
       composer.doc.execCommand(command, false, html);
@@ -11081,7 +11087,7 @@ wysihtml5.commands.formatCode = {
     return false;
   }
 };
-;(function(wysihtml5) {
+(function (wysihtml5) {
   var NODE_NAME = "IMG";
 
   wysihtml5.commands.insertImage = {
@@ -11179,7 +11185,7 @@ wysihtml5.commands.formatCode = {
     }
   };
 })(wysihtml5);
-;(function(wysihtml5) {
+(function (wysihtml5) {
   var LINE_BREAK = "<br>" + (wysihtml5.browser.needsSpaceAfterLineBreak() ? " " : "");
 
   wysihtml5.commands.insertLineBreak = {
@@ -11199,7 +11205,7 @@ wysihtml5.commands.formatCode = {
     }
   };
 })(wysihtml5);
-;wysihtml5.commands.insertOrderedList = {
+wysihtml5.commands.insertOrderedList = {
   exec: function(composer, command) {
     wysihtml5.commands.insertList.exec(composer, command, "OL");
   },
@@ -11208,7 +11214,7 @@ wysihtml5.commands.formatCode = {
     return wysihtml5.commands.insertList.state(composer, command, "OL");
   }
 };
-;wysihtml5.commands.insertUnorderedList = {
+wysihtml5.commands.insertUnorderedList = {
   exec: function(composer, command) {
     wysihtml5.commands.insertList.exec(composer, command, "UL");
   },
@@ -11217,8 +11223,7 @@ wysihtml5.commands.formatCode = {
     return wysihtml5.commands.insertList.state(composer, command, "UL");
   }
 };
-;wysihtml5.commands.insertList = (function(wysihtml5) {
-
+wysihtml5.commands.insertList = (function (wysihtml5) {
   var isNode = function(node, name) {
     if (node && node.nodeName) {
       if (typeof name === 'string') {
@@ -11375,7 +11380,8 @@ wysihtml5.commands.formatCode = {
     }
   };
 
-})(wysihtml5);;wysihtml5.commands.italic = {
+})(wysihtml5);
+wysihtml5.commands.italic = {
   exec: function(composer, command) {
     wysihtml5.commands.formatInline.execWithToggle(composer, command, "i");
   },
@@ -11389,7 +11395,7 @@ wysihtml5.commands.formatCode = {
     return wysihtml5.commands.formatInline.state(composer, command, "i");
   }
 };
-;(function(wysihtml5) {
+(function (wysihtml5) {
   var CLASS_NAME  = "wysiwyg-text-align-center",
       REG_EXP     = /wysiwyg-text-align-[0-9a-z]+/g;
 
@@ -11403,7 +11409,7 @@ wysihtml5.commands.formatCode = {
     }
   };
 })(wysihtml5);
-;(function(wysihtml5) {
+(function (wysihtml5) {
   var CLASS_NAME  = "wysiwyg-text-align-left",
       REG_EXP     = /wysiwyg-text-align-[0-9a-z]+/g;
 
@@ -11417,7 +11423,7 @@ wysihtml5.commands.formatCode = {
     }
   };
 })(wysihtml5);
-;(function(wysihtml5) {
+(function (wysihtml5) {
   var CLASS_NAME  = "wysiwyg-text-align-right",
       REG_EXP     = /wysiwyg-text-align-[0-9a-z]+/g;
 
@@ -11431,7 +11437,7 @@ wysihtml5.commands.formatCode = {
     }
   };
 })(wysihtml5);
-;(function(wysihtml5) {
+(function (wysihtml5) {
   var CLASS_NAME  = "wysiwyg-text-align-justify",
       REG_EXP     = /wysiwyg-text-align-[0-9a-z]+/g;
 
@@ -11445,7 +11451,7 @@ wysihtml5.commands.formatCode = {
     }
   };
 })(wysihtml5);
-;(function(wysihtml5) {
+(function (wysihtml5) {
   var STYLE_STR  = "text-align: right;",
       REG_EXP = /(\s|^)text-align\s*:\s*[^;\s]+;?/gi;
 
@@ -11459,7 +11465,7 @@ wysihtml5.commands.formatCode = {
     }
   };
 })(wysihtml5);
-;(function(wysihtml5) {
+(function (wysihtml5) {
   var STYLE_STR  = "text-align: left;",
       REG_EXP = /(\s|^)text-align\s*:\s*[^;\s]+;?/gi;
 
@@ -11473,7 +11479,7 @@ wysihtml5.commands.formatCode = {
     }
   };
 })(wysihtml5);
-;(function(wysihtml5) {
+(function (wysihtml5) {
   var STYLE_STR  = "text-align: center;",
       REG_EXP = /(\s|^)text-align\s*:\s*[^;\s]+;?/gi;
 
@@ -11487,7 +11493,7 @@ wysihtml5.commands.formatCode = {
     }
   };
 })(wysihtml5);
-;wysihtml5.commands.redo = {
+wysihtml5.commands.redo = {
   exec: function(composer) {
     return composer.undoManager.redo();
   },
@@ -11496,7 +11502,7 @@ wysihtml5.commands.formatCode = {
     return false;
   }
 };
-;wysihtml5.commands.underline = {
+wysihtml5.commands.underline = {
   exec: function(composer, command) {
     wysihtml5.commands.formatInline.execWithToggle(composer, command, "u");
   },
@@ -11505,7 +11511,7 @@ wysihtml5.commands.formatCode = {
     return wysihtml5.commands.formatInline.state(composer, command, "u");
   }
 };
-;wysihtml5.commands.undo = {
+wysihtml5.commands.undo = {
   exec: function(composer) {
     return composer.undoManager.undo();
   },
@@ -11514,7 +11520,7 @@ wysihtml5.commands.formatCode = {
     return false;
   }
 };
-;wysihtml5.commands.createTable = {
+wysihtml5.commands.createTable = {
   exec: function(composer, command, value) {
       var col, row, html;
       if (value && value.cols && value.rows && parseInt(value.cols, 10) > 0 && parseInt(value.rows, 10) > 0) {
@@ -11543,7 +11549,7 @@ wysihtml5.commands.formatCode = {
       return false;
   }
 };
-;wysihtml5.commands.mergeTableCells = {
+wysihtml5.commands.mergeTableCells = {
   exec: function(composer, command) {
       if (composer.tableSelection && composer.tableSelection.start && composer.tableSelection.end) {
           if (this.state(composer, command)) {
@@ -11573,7 +11579,7 @@ wysihtml5.commands.formatCode = {
       return false;
   }
 };
-;wysihtml5.commands.addTableCells = {
+wysihtml5.commands.addTableCells = {
   exec: function(composer, command, value) {
       if (composer.tableSelection && composer.tableSelection.start && composer.tableSelection.end) {
 
@@ -11594,7 +11600,7 @@ wysihtml5.commands.formatCode = {
       return false;
   }
 };
-;wysihtml5.commands.deleteTableCells = {
+wysihtml5.commands.deleteTableCells = {
   exec: function(composer, command, value) {
       if (composer.tableSelection && composer.tableSelection.start && composer.tableSelection.end) {
           var tableSelect = wysihtml5.dom.table.orderSelectionEnds(composer.tableSelection.start, composer.tableSelection.end),
@@ -11634,7 +11640,7 @@ wysihtml5.commands.formatCode = {
       return false;
   }
 };
-;wysihtml5.commands.indentList = {
+wysihtml5.commands.indentList = {
   exec: function(composer, command, value) {
     var listEls = composer.selection.getSelectionParentsByTag('LI');
     if (listEls) {
@@ -11675,7 +11681,7 @@ wysihtml5.commands.formatCode = {
     return found;
   }
 };
-;wysihtml5.commands.outdentList = {
+wysihtml5.commands.outdentList = {
   exec: function(composer, command, value) {
     var listEls = composer.selection.getSelectionParentsByTag('LI');
     if (listEls) {
@@ -11752,7 +11758,8 @@ wysihtml5.commands.formatCode = {
     return newList;
   }
 
-};;/**
+};
+/**
  * Undo Manager for wysihtml5
  * slightly inspired by http://rniwa.com/editing/undomanager.html#the-undomanager-interface
  */
@@ -11967,7 +11974,7 @@ wysihtml5.commands.formatCode = {
     }
   });
 })(wysihtml5);
-;/**
+/**
  * TODO: the following methods still need unit test coverage
  */
 wysihtml5.views.View = Base.extend(
@@ -12021,7 +12028,7 @@ wysihtml5.views.View = Base.extend(
     this.element.removeAttribute("disabled");
   }
 });
-;(function(wysihtml5) {
+(function (wysihtml5) {
   var dom       = wysihtml5.dom,
       browser   = wysihtml5.browser;
 
@@ -12480,7 +12487,7 @@ wysihtml5.views.View = Base.extend(
     }
   });
 })(wysihtml5);
-;(function(wysihtml5) {
+(function (wysihtml5) {
   var dom             = wysihtml5.dom,
       doc             = document,
       win             = window,
@@ -12681,7 +12688,7 @@ wysihtml5.views.View = Base.extend(
     return this;
   };
 })(wysihtml5);
-;/**
+/**
  * Taking care of events
  *  - Simulating 'change' event on contentEditable element
  *  - Handling drag & drop logic
@@ -13020,7 +13027,7 @@ wysihtml5.views.View = Base.extend(
     });
   };
 })(wysihtml5);
-;/**
+/**
  * Class that takes care that the value of the composer and the textarea is always in sync
  */
 (function(wysihtml5) {
@@ -13117,7 +13124,7 @@ wysihtml5.views.View = Base.extend(
     }
   });
 })(wysihtml5);
-;wysihtml5.views.Textarea = wysihtml5.views.View.extend(
+wysihtml5.views.Textarea = wysihtml5.views.View.extend(
   /** @scope wysihtml5.views.Textarea.prototype */ {
   name: "textarea",
 
@@ -13188,7 +13195,7 @@ wysihtml5.views.View = Base.extend(
     });
   }
 });
-;/**
+/**
  * WYSIHTML5 Editor
  *
  * @param {Element} editableElement Reference to the textarea which should be turned into a rich text interface
@@ -13430,7 +13437,7 @@ wysihtml5.views.View = Base.extend(
     }
   });
 })(wysihtml5);
-;/**
+/**
  * Toolbar Dialog
  *
  * @param {Element} link The toolbar link which causes the dialog to show up
@@ -13630,7 +13637,7 @@ wysihtml5.views.View = Base.extend(
     }
   });
 })(wysihtml5);
-;/**
+/**
  * Converts speech-to-text and inserts this into the editor
  * As of now (2011/03/25) this only is supported in Chrome >= 11
  *
@@ -13720,7 +13727,7 @@ wysihtml5.views.View = Base.extend(
     });
   };
 })(wysihtml5);
-;/**
+/**
  * Toolbar
  *
  * @param {Object} parent Reference to instance of Editor instance
@@ -14045,8 +14052,8 @@ wysihtml5.views.View = Base.extend(
   });
 
 })(wysihtml5);
-;(function(wysihtml5) {
-    wysihtml5.toolbar.Dialog_createTable = wysihtml5.toolbar.Dialog.extend({
+(function (wysihtml5) {
+  wysihtml5.toolbar.Dialog_createTable = wysihtml5.toolbar.Dialog.extend({
         show: function(elementToChange) {
             this.base(elementToChange);
 
@@ -14054,7 +14061,7 @@ wysihtml5.views.View = Base.extend(
 
     });
 })(wysihtml5);
-;(function(wysihtml5) {
+(function (wysihtml5) {
   var dom                     = wysihtml5.dom,
       SELECTOR_FIELDS         = "[data-wysihtml5-dialog-field]",
       ATTRIBUTE_FIELDS        = "data-wysihtml5-dialog-field";
@@ -14112,7 +14119,7 @@ wysihtml5.views.View = Base.extend(
 
   });
 })(wysihtml5);
-;(function(wysihtml5) {
+(function (wysihtml5) {
   var dom                     = wysihtml5.dom,
       SELECTOR_FIELDS         = "[data-wysihtml5-dialog-field]",
       ATTRIBUTE_FIELDS        = "data-wysihtml5-dialog-field";

@@ -98,6 +98,7 @@ var myPieChart = new Chart(ctx).Pie(data, {
 
     };
 });
+
 ```
 
 See files `sample/pie-customTooltips.html` and `sample/line-customTooltips.html` for examples on how to get started.

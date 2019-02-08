@@ -44,4 +44,4 @@ jvm.VMLImageElement.prototype.applyAttr = function(attr, value){
 };
 
 jvm.VMLImageElement.imageCounter = 1;
-jvm.VMLImageElement.images = {}
+jvm.VMLImageElement.images = {};

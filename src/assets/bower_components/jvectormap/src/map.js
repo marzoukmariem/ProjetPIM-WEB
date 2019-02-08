@@ -133,7 +133,7 @@ jvm.Map = function(params) {
 
   this.onResize = function(){
     map.updateSize();
-  }
+  };
   jvm.$(window).resize(this.onResize);
 
   for (e in jvm.Map.apiEvents) {
@@ -385,7 +385,7 @@ jvm.Map.prototype = {
                 touchStartScale * scale,
                 centerTouchX,
                 centerTouchY
-              )
+              );
               map.tip.hide();
               e.preventDefault();
             } else {
@@ -446,7 +446,7 @@ jvm.Map.prototype = {
               map.scale * e.scale,
               e.offsetX,
               e.offsetY
-            )
+            );
             map.tip.hide();
             e.preventDefault();
           }
@@ -673,7 +673,7 @@ jvm.Map.prototype = {
                 y: Math.min(bbox.y, itemBbox.y),
                 width: Math.max(bbox.x + bbox.width, itemBbox.x + itemBbox.width) - Math.min(bbox.x, itemBbox.x),
                 height: Math.max(bbox.y + bbox.height, itemBbox.y + itemBbox.height) - Math.min(bbox.y, itemBbox.y)
-              }
+              };
               bbox = newBbox;
             }
           }
@@ -768,8 +768,7 @@ jvm.Map.prototype = {
 
     for (i = 0; i < selected.length; i++) {
       select[selected[i]] = false;
-    };
-
+    }
     this.setSelected(type, select);
   },
 
@@ -953,7 +952,7 @@ jvm.Map.prototype = {
     this.createMarkers(markers);
     for (i = 0; i < seriesData.length; i++) {
       this.series.markers[i].setValues(seriesData[i] || {});
-    };
+    }
   },
 
   /**
@@ -966,7 +965,7 @@ jvm.Map.prototype = {
     for (i = 0; i < markers.length; i++) {
       this.markers[ markers[i] ].element.remove();
       delete this.markers[ markers[i] ];
-    };
+    }
   },
 
   /**

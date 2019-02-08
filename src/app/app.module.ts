@@ -6,8 +6,9 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './views/login/login/login.component';
 import {DashboardModule} from "./views/dashboard/dashboard.module";
 import {LoginRoutingModule} from "./views/login--rounting/login--rounting.module";
-import { ParentComponent } from './Models/parent/parent.component';
-import { UtilisateurComponent } from './Models/utilisateur/utilisateur.component';
+import {ParentComponent} from "./Models/parent/parent.component";
+
+
 
 
 
@@ -15,15 +16,15 @@ import { UtilisateurComponent } from './Models/utilisateur/utilisateur.component
   declarations: [
     AppComponent,
     LoginComponent,
-    ParentComponent,
-    UtilisateurComponent
+    ParentComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     DashboardModule,
     LoginRoutingModule,
-    ParentComponent
+
   ],
   providers: [],
   bootstrap: [AppComponent]

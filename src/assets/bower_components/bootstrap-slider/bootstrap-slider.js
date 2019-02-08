@@ -94,7 +94,7 @@
 			case 'round':
 				this.handle1.addClass('round');
 				this.handle2.addClass('round');
-				break
+				break;
 			case 'triangle':
 				this.handle1.addClass('triangle');
 				this.handle2.addClass('triangle');

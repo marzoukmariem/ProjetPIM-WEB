@@ -1008,6 +1008,7 @@ For instance, if you have specified the data like this
 
 ```js
 $.plot($("#placeholder"), [ { label: "Foo", data: [[0, 10], [7, 3]] } ], ...);
+
 ```
 
 and the mouse is near the point (7, 3), "datapoint" is [7, 3],

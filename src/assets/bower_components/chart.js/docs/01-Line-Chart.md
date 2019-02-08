@@ -103,6 +103,7 @@ These are the customisation options specific to Line charts. These options are m
 	legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].strokeColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
 	{% endraw %}
 };
+
 ```
 
 You can override these for your `Chart` instance by passing a second argument into the `Line` method as an object with the keys you want to override.
