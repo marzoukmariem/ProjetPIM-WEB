@@ -1,4 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-dashboard',
@@ -7,7 +8,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 })
 export class DashboardComponent implements OnInit ,OnDestroy{
 
-  constructor() { }
+  constructor( private router: Router) { }
 
   ngOnInit() {
     window.dispatchEvent(new Event('resize'));
@@ -16,5 +17,8 @@ export class DashboardComponent implements OnInit ,OnDestroy{
    ngOnDestroy() :void {
   document.body.className='';
   }
+parent(){
 
+  this.router.navigate(['parent']);
+}
 }
