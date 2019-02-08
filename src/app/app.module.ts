@@ -7,6 +7,8 @@ import { LoginComponent } from './views/login/login/login.component';
 import {DashboardModule} from "./views/dashboard/dashboard.module";
 import {LoginRoutingModule} from "./views/login--rounting/login--rounting.module";
 import {ParentComponent} from "./Models/parent/parent.component";
+import {ParentRoutingModule} from "./Models/parent/parent-routing.module";
+
 
 
 
@@ -24,6 +26,7 @@ import {ParentComponent} from "./Models/parent/parent.component";
     AppRoutingModule,
     DashboardModule,
     LoginRoutingModule,
+    ParentRoutingModule
 
   ],
   providers: [],
