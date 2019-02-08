@@ -22,7 +22,8 @@ import { UtilisateurComponent } from './Models/utilisateur/utilisateur.component
     BrowserModule,
     AppRoutingModule,
     DashboardModule,
-    LoginRoutingModule
+    LoginRoutingModule,
+    ParentComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
