@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './views/login/login/login.component';
 import {DashboardModule} from "./views/dashboard/dashboard.module";
 import {LoginRoutingModule} from "./views/login--rounting/login--rounting.module";
-import {ParentComponent} from "./Models/parent/parent.component";
-import {ParentRoutingModule} from "./Models/parent/parent-routing.module";
 import {RouterModule} from "@angular/router";
 import {DashboardComponent} from "./views/dashboard/dashboard/dashboard.component";
+import { ParentsComponent } from './Models/parents/parents.component';
+import { ParentListComponent } from './Models/parents/parent-list/parent-list.component';
+import {ParentComponent} from "./Models/parents/parent/parent.component";
+import { ParentsListComponent } from './All-Views/parents/parents-list/parents-list.component';
 
 
 
@@ -20,7 +22,10 @@ import {DashboardComponent} from "./views/dashboard/dashboard/dashboard.componen
   declarations: [
     AppComponent,
     LoginComponent,
-    ParentComponent
+    ParentComponent,
+    ParentsComponent,
+    ParentListComponent,
+    ParentsListComponent
 
   ],
   imports: [
@@ -28,8 +33,7 @@ import {DashboardComponent} from "./views/dashboard/dashboard/dashboard.componen
     AppRoutingModule,
      DashboardModule,
     LoginRoutingModule,
-    ParentRoutingModule,
-    RouterModule.forRoot([
+       RouterModule.forRoot([
       {path: 'parents', component: ParentComponent},
       {path: 'dashboard', component: DashboardComponent}
     ])
