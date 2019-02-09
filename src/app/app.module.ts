@@ -8,10 +8,9 @@ import {DashboardModule} from "./views/dashboard/dashboard.module";
 import {LoginRoutingModule} from "./views/login--rounting/login--rounting.module";
 import {RouterModule} from "@angular/router";
 import {DashboardComponent} from "./views/dashboard/dashboard/dashboard.component";
-import { ParentsComponent } from './Models/parents/parents.component';
-import { ParentListComponent } from './Models/parents/parent-list/parent-list.component';
-import {ParentComponent} from "./Models/parents/parent/parent.component";
 import { ParentsListComponent } from './All-Views/parents/parents-list/parents-list.component';
+import {ParentsComponent} from "./All-Views/parents/parents.component";
+import {ParentComponent} from "./All-Views/parents/parent/parent.component";
 
 
 
@@ -24,7 +23,6 @@ import { ParentsListComponent } from './All-Views/parents/parents-list/parents-l
     LoginComponent,
     ParentComponent,
     ParentsComponent,
-    ParentListComponent,
     ParentsListComponent
 
   ],
@@ -34,7 +32,7 @@ import { ParentsListComponent } from './All-Views/parents/parents-list/parents-l
      DashboardModule,
     LoginRoutingModule,
        RouterModule.forRoot([
-      {path: 'parents', component: ParentComponent},
+      {path: 'parents', component: ParentsComponent},
       {path: 'dashboard', component: DashboardComponent}
     ])
 
