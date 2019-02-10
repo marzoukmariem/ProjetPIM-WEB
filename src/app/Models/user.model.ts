@@ -1,5 +1,5 @@
-export class Parent {
- public id:number;
+export class User {
+  public id:number;
   public nom :string;
   public prenom :string;
   public numTel:string;
@@ -72,3 +72,4 @@ export class Parent {
     this.password = value;
   }
 }
+

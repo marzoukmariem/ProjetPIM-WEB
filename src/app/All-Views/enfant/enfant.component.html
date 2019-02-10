@@ -458,14 +458,43 @@
     <section class="content-header">
       <section class="content">
         <div class="jumbtron">
-          <h1 class="display-4 text-center">Gestion Parents</h1>
+          <h1 class="display-4 text-center">Ajout d'un tag pour enfant</h1>
           <hr>
           <div class="row">
             <div class="col-md-5">
-              <app-parent></app-parent>
+              <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+
+                <div class="form-group">
+                  <label>Nom</label>
+                  <input name="nom" #nom="ngModel" ngControl="nom"[(ngModel)]="service.formData.nom" class="form-control"required>
+                  <div class="validation-error" *ngIf="nom.invalid && nom.touched">This field is required.</div>
+                </div>
+                <div class="form-group">
+                  <label>Prénom</label>
+                  <input name="prenom" #prenom="ngModel" ngControl="prenom"[(ngModel)]="service.formData.prenom" class="form-control" required>
+                  <div class="validation-error" *ngIf="prenom.invalid && prenom.touched">This field is required.</div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label>solde</label>
+                    <input name="solde" #solde="ngModel" ngControl="solde"[(ngModel)]="service.formData.solde" class="form-control"required>
+                    <div class="validation-error" *ngIf="solde.invalid && solde.touched">This field is required.</div>
+                  </div>
+                  <div class="form-group  col-md-6">
+                    <label>idtag</label>
+                    <input name="idtag" #idtag="ngModel" ngControl="idtag"[(ngModel)]="service.formData.idtag" class="form-control"required>
+                    <div class="validation-error" *ngIf="idtag.invalid && idtag.touched">This field is required.</div>
+                  </div>
+
+                </div>
+                <div class="form-group">
+                  <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block" >ajouter</button>
+                </div>
+              </form>
+
             </div>
             <div class="col-md-7">
-              <app-parents-list></app-parents-list>
+
             </div>
           </div>
         </div>
