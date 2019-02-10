@@ -61,31 +61,40 @@ export class LoginComponent implements OnInit {
   }
 
   login(form?: NgForm) {
+//this.service.toconnect(this.service.formData.email, this.service.formData.password).toPromise().then(res=>this.list=res as User[]);
+    this.service.toconnect(this.service.formData.email, this.service.formData.password).subscribe(res => {
 
-    this.service.toconnect(this.service.formData.email, this.service.formData.password).toPromise().then(res=>this.list=res as User[]);
-    console.log(this.list, "list");
-      if (this.list.length==0) {
+      if (res["0"]["fields"]["role"]=="") {
       alert("login ou mot de passse éronné")
     } else {
-      try {
+
 
         this.service.toconnect(this.service.formData.email, this.service.formData.password).subscribe(resp => {
-            console.log(resp, "res");
+          console.log(resp, "res");
+          console.log(resp["0"]["fields"]["role"], "role");
+
+          if (resp["0"]["fields"]["role"]=="parent") {
+            console.log("hello parent", "heloo");
+            this.router.navigate(['KidsPay/Aceuilparent']);
+          }
+          if (resp["0"]["fields"]["role"] == "comerçant") {
+            console.log("hello comercant", "comm");
+            this.router.navigate(['KidsPay/AceuilComerçant']);
+
+          } if (resp["0"]["fields"]["role"] == "admin"){
+            console.log("hello admin", "heloo");
             this.router.navigate(['KidsPay/AceuilAdmin/']);
-          },
-          error => {
-            console.log(error, "error");
-          })
+          }
 
-      } catch (e) {
-        console.log(e);
-      }
 
-    }
-  }
+        })
+      }});
+
+
+  }}
 
 
 
-  }
+
 
 

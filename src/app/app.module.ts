@@ -15,6 +15,8 @@ import {ParentService} from "./Services/parent.service";
 import {FormsModule} from "@angular/forms";
 import { EnfantComponent } from './All-Views/enfant/enfant.component';
 import { UserComponent } from './All-Views/user/user.component';
+import { AcceuilParentComponent } from './views/acceuil-parent/acceuil-parent.component';
+import { CommAcceuilComponent } from './views/comm-acceuil/comm-acceuil.component';
 
 
 
@@ -30,6 +32,8 @@ import { UserComponent } from './All-Views/user/user.component';
     ParentsListComponent,
     EnfantComponent,
     UserComponent,
+    AcceuilParentComponent,
+    CommAcceuilComponent,
 
       ],
   imports: [
@@ -42,6 +46,8 @@ import { UserComponent } from './All-Views/user/user.component';
 
 
        RouterModule.forRoot([
+       {path: 'KidsPay/AceuilComerçant', component: CommAcceuilComponent},
+      {path: 'KidsPay/Aceuilparent', component: AcceuilParentComponent},
       {path: 'KidsPay/AceuilAdmin/parents', component: ParentsComponent},
          {path: 'KidsPay/AceuilAdmin/parents/enfants', component: EnfantComponent},
       {path: 'KidsPay/AceuilAdmin', component: DashboardComponent}
