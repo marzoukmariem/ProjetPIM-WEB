@@ -21,5 +21,15 @@ export class ParentsListComponent implements OnInit {
 
    }
 
+  ondelete(id: number)
+  {
+    if (confirm('Are you sure to delete this ?')) {
+      this.service.deleteparent(id).then(res => {
+        this.service.refreshlist();
+        alert('Deleted Successfuly');
+
+      });
+    }
+  }
 
 }

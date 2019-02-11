@@ -4,6 +4,6 @@
     <td >{{emp.numTel}}</td>
     <td >{{emp.email}}</td>
     <td><button  (click)="onadd(emp.id)"class="btn btn-sm btn-outline-danger">+</button></td>
-    <td><button  class="btn btn-sm btn-outline-danger">X</button></td>
+    <td><button (click)="ondelete(emp.id)"  class="btn btn-sm btn-outline-danger">X</button></td>
       </tr>
 </table>

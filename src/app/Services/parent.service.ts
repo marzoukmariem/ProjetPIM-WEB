@@ -3,6 +3,7 @@ import {Parent} from "../Models/parent.model";
 import { HttpClient } from "@angular/common/http";
 import {Observable} from "rxjs";
 import {map} from "rxjs/operators";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -77,5 +78,8 @@ export class ParentService {
     })
 
 
+  }
+  deleteparent(id:number){
+    return this.http.delete(environment.apiURL+'/users/'+id+'/').toPromise();
   }
 }
