@@ -74,7 +74,7 @@
 }
 
 button[type="submit"]{
-  background-color: #67dfd4;
+  background-color: #3c8dbc;
   color: #fff;
 
 }
@@ -95,4 +95,14 @@ div.validation-error{
   margin-top: .25rem;
   font-size: 80%;
   color: #dc3545;
+}
+
+
+
+.form-control,input-group-text{
+  border:1px solid #0080ff
+}
+
+table.table-hover tbody tr:hover{
+  cursor: pointer;
 }

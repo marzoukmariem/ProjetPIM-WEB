@@ -77,7 +77,7 @@ export class LoginComponent implements OnInit {
             console.log("hello parent", "heloo");
             this.router.navigate(['KidsPay/Aceuilparent']);
           }
-          if (resp["0"]["fields"]["role"] == "comerçant") {
+          if (resp["0"]["fields"]["role"] == "commercant") {
             console.log("hello comercant", "comm");
             this.router.navigate(['KidsPay/AceuilComerçant']);
 
