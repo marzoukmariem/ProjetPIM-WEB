@@ -21,6 +21,8 @@ import { CommercantsComponent } from './All-Views/commercants/commercants.compon
 import { CommercantComponent } from './All-Views/commercants/commercant/commercant.component';
 import { CommercantItemsComponent } from './All-Views/commercants/commercant-items/commercant-items.component';
 import {LayoutModule} from "./views/layout/layout.module";
+import { StoreComponent } from './All-Views/store/store.component';
+import { StoresComponent } from './All-Views/stores/stores.component';
 
 
 
@@ -41,6 +43,8 @@ import {LayoutModule} from "./views/layout/layout.module";
     CommercantsComponent,
     CommercantComponent,
     CommercantItemsComponent,
+    StoreComponent,
+    StoresComponent,
 
       ],
   imports: [
