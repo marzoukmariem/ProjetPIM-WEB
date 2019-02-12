@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {EnfantService} from "../../Services/enfant.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {ParentService} from "../../Services/parent.service";
 
 @Component({
@@ -10,7 +10,7 @@ import {ParentService} from "../../Services/parent.service";
 })
 export class AcceuilParentComponent implements OnInit {
   parentnumber:number
-  constructor(private service: EnfantService,private route: ActivatedRoute) {
+  constructor(private service: EnfantService,private route: ActivatedRoute, private router: Router) {
 
     this.route.queryParams.subscribe(params => {
       console.log(params); // {order: "popular"}
@@ -27,6 +27,7 @@ export class AcceuilParentComponent implements OnInit {
 
   histo(id:number){
 
+    this.router.navigate(['KidsPay/Aceuilparent/Historique'], { queryParams: { idp: id } });
 
   }
 

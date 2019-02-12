@@ -59,6 +59,7 @@ import { HistoriqueComponent } from './All-Views/historique/historique.component
     LayoutModule,
 
        RouterModule.forRoot([
+         {path: 'KidsPay/Aceuilparent/Historique', component: HistoriqueComponent},
          {path: 'KidsPay/AceuilAdmin/commercant',children:[
              {path:'',component: CommercantComponent},
              {path:'edit/:id', component:CommercantComponent}

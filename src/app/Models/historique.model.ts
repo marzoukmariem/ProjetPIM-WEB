@@ -4,6 +4,5 @@ import _date = moment.unitOfTime._date;
 export class Historique {
 public  nommagasin:string;
   public dateachat:_date;
-  public prixcommande;
-
+  public prixcommande:number;
 }

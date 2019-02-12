@@ -4,6 +4,8 @@ import {Observable} from "rxjs";
 import {map} from "rxjs/operators";
 import {Parent} from "../Models/parent.model";
 import {Enfant} from "../Models/enfant.model";
+import {Historique} from "../Models/historique.model";
+import {Store} from "../Models/store.model";
 @Injectable({
   providedIn: 'root'
 })
@@ -11,19 +13,42 @@ export class EnfantService {
   formData:Enfant
   enfant:Enfant
   list:Enfant[]=[];
-
+  listhist1:Historique[]=[];
+  listhist2: Historique[]=[];
+  historique:Historique;
+  store:Store;
   Data:[any];
   readonly rootURL ="http://localhost:8000/kidspay/"
   constructor(private http : HttpClient) {
     // @ts-ignore
+    this.historique={
+
+      nommagasin:"",
+      dateachat:null,
+      prixcommande:null,
+
+
+
+    }
+    // @ts-ignore
     this.enfant={
-     id:null,
-  nom :"",
-   prenom :"",
- solde :null,
-  idtag:"",
-   etatCompte:"",
-  parent:null,
+      id:null,
+      nom :"",
+      prenom :"",
+      solde :null,
+      idtag:"",
+      etatCompte:"",
+      parent:null,
+
+
+
+    }
+    // @ts-ignore
+    this.store={
+      StoreID:null,
+      nom: "",
+      adresse: "",
+      CommercantID: null,
 
 
 
@@ -76,6 +101,66 @@ export class EnfantService {
 
   }
 
+gethistoriquebyenfant(id:number){
 
+  this.http.get(this.rootURL+'getcommandebyenfant/?idenfant='+id).subscribe(resp => {
+
+
+    console.log(resp, "nb elment");
+    console.log(resp['length'], "nb elment");
+
+
+    this.listhist2=[]
+    for (var i=0; i<Number(resp['length']); i++) {
+
+      // @ts-ignore
+      this.historique={
+
+        nommagasin:"",
+        dateachat:null,
+        prixcommande:null,
+
+
+
+      }
+      // @ts-ignore
+      this.store={
+        StoreID:null,
+        nom: "",
+        adresse: "",
+        CommercantID: null,
+
+      }
+      var idstore= this.historique.dateachat=resp[i]["fields"]["Store"];
+
+      this.http.get(this.rootURL+'getstorebyid/?idstore='+id).subscribe(resp=> {
+        console.log('nommag:'+resp[0]['fields']['nom'])
+
+        this.historique.nommagasin=resp[0]['fields']['nom'];
+
+
+      });
+
+      this.historique.nommagasin=this.store.nom;
+      this.historique.dateachat=resp[i]["fields"]["dateCommande"];
+      this.historique.prixcommande=resp[i]["fields"]["prixTotal"];
+
+
+
+      this.listhist2.push(this.historique);
+    }
+
+
+
+
+    console.log(this.listhist2, "listcomplete");
+
+  })
+
+
+
+
+
+}
 
 }
