@@ -82,4 +82,7 @@ export class ParentService {
   deleteparent(id:number){
     return this.http.delete(environment.apiURL+'/users/'+id+'/').toPromise();
   }
+
+
+
 }

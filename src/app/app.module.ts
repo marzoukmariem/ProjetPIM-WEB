@@ -23,6 +23,7 @@ import { CommercantItemsComponent } from './All-Views/commercants/commercant-ite
 import {LayoutModule} from "./views/layout/layout.module";
 import { StoreComponent } from './All-Views/store/store.component';
 import { StoresComponent } from './All-Views/stores/stores.component';
+import { HistoriqueComponent } from './All-Views/historique/historique.component';
 
 
 
@@ -45,6 +46,7 @@ import { StoresComponent } from './All-Views/stores/stores.component';
     CommercantItemsComponent,
     StoreComponent,
     StoresComponent,
+    HistoriqueComponent,
 
       ],
   imports: [
