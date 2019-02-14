@@ -1,3 +1,33 @@
-<p>
-  store works!
-</p>
+<div class="jumbotron jumbotron-fluid">
+  <h3 class="display-4 text-center"><img src="/assets/img/logoKidspay.png"> Gestion Stores.</h3>
+  <div class="container">
+      <div class="row">
+          <div class="col-md-10 offset-md-1">
+<form #form="ngForm" autocomplete="off" *ngIf="service.formData" (submit)="onSubmit(form)">
+ <input type="hidden" name ="StoreID" #prenom="ngModel" [(ngModel)]="service.formData.id">    
+    
+      <div class="form-group">
+        <label>Nom</label>
+        <input name ="nom" #nom="ngModel" [(ngModel)]="service.formData.nom" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Adresse</label>
+        <input name ="adresse" #adresse="ngModel" [(ngModel)]="service.formData.adresse" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Commercant associé</label>
+        <select name ="Commercant" #Commercant="ngModel" [(ngModel)]="service.formData.Commercant" class="form-control">
+        <option value="0">-select-</option>
+        <option *ngFor="let item of commercantList"  value="{{item.id}}">{{item.nom +' '+ item.prenom +' / CIN:'+ item.cin}}</option>
+        </select>
+        </div>
+    
+  <div class="form-group">
+    <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+    <a class="btn btn-outline-dark ml-1" routerLink="/KidsPay/AceuilAdmin/stores" ><i class="fa fa-table"></i> All Stores</a>
+  </div>
+</form>
+</div>
+</div>
+</div>
+</div>

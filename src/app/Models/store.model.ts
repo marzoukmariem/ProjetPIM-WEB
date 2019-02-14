@@ -1,6 +1,8 @@
 export class Store {
+
   StoreID:number
-  nom: string
+  nom: string 
   adresse: string
-  CommercantID: number
+  Commercant: number
+
 }

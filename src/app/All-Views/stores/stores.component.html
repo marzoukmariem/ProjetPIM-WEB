@@ -1,3 +1,45 @@
-<p>
-  stores works!
-</p>
+<div class="jumbotron jumbotron-fluid">
+
+  <h1 class="display-4 text-center">
+
+    <a class="btn btn-secondary" routerLink="/KidsPay/AceuilAdmin/commercants"><i class="fa fa-table"></i> Gestion Commercants</a>
+    <a class="btn btn-secondary" routerLink="/KidsPay/AceuilAdmin/stores"><i class="fa fa-table"></i> Gestion Stores</a>
+  </h1>
+
+  <h3 class="display-4 text-center"><img src="/assets/img/logoKidspay.png"> Gestion Stores.</h3>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <table class="table table-hover">
+          <thead class="thead-light">
+            <th>Nom</th>
+            <th>adresse</th>
+            <th>Commercant associé</th>
+            <th>
+              <a class="btn btn-outline-success" routerLink="/KidsPay/AceuilAdmin/store"><i class="fa fa-plus-square"></i> Create
+                New</a>
+            </th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of storeList">
+              <th (click)="openForEdit(item.id)">{{item.nom}}</th>
+              <td (click)="openForEdit(item.id)">{{item.adresse}}</td>
+
+              <div *ngFor="let item2 of ownersList">
+                <td *ngIf="(item2.id == item.Commercant)" (click)="openForEdit(item.id)">
+                  {{item2.nom+' '+ item2.prenom+' '+ '/ CIN:'+ item2.cin}}
+              </div>
+
+              <td>
+                <a class="btn text-danger" (click)="onOrderDelete(item.id)"><i class="fa fa-trash fa-lg"></i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+
+      </div>
+    </div>
+  </div>
+</div>

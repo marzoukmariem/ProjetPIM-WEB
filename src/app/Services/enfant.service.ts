@@ -48,7 +48,7 @@ export class EnfantService {
       StoreID:null,
       nom: "",
       adresse: "",
-      CommercantID: null,
+      Commercant: null,
 
 
 
@@ -128,7 +128,7 @@ gethistoriquebyenfant(id:number){
         StoreID:null,
         nom: "",
         adresse: "",
-        CommercantID: null,
+        Commercant: null,
 
       }
       var idstore= this.historique.dateachat=resp[i]["fields"]["Store"];
