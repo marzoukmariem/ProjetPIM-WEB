@@ -1,44 +1,57 @@
-<div class="login-box">
-  <div class="login-logo">
+<html>
+<head>
+  <script>
+    addEventListener("load", function () {
+      setTimeout(hideURLbar, 0);
+    }, false);
 
-    <img src="assets/dist/img/logoKidspay.png"  alt="logoKidsPay" height="100px"   width="25%" >
-  </div>
-  <!-- /.login-logo -->
-  <div class="login-box-body">
+    function hideURLbar() {
+      window.scrollTo(0, 1);
+    }
+  </script>
 
 
-    <p class="login-box-msg">Sign in to start your session</p>
-    <form form #form="ngForm"  (submit)="login(form)" autocomplete="off" >
-      <div class="form-group has-feedback">
-        <input name="email" #email="ngModel" ngControl="email" [(ngModel)]="service.formData.email" class="form-control"required>
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+
+</head>
+<body>
+
+<div class="w3layouts-main">
+  <div class="bg-layer">
+    <h1>KidsPay</h1>
+    <div class="header-main">
+      <div class="main-icon">
+        <img src="/assets/img/logoKidspay.png" alt="logo" width="100" height="100">
       </div>
-      <div class="form-group has-feedback">
-        <input type="password"name="password" #password="ngModel" ngControl="password"[(ngModel)]="service.formData.password" class="form-control" required >
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-      </div>
-      <div class="row">
-        <div class="col-xs-8">
-          <div class="checkbox icheck">
-            <label>
-              <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> Remember Me
-            </label>
+      <div class="header-left-bottom">
+        <form form #form="ngForm"  (submit)="login(form)" autocomplete="off" >
+          <div class="icon1">
+
+            <input type="email" placeholder="email"  name="email" #email="ngModel" ngControl="email" [(ngModel)]="service.formData.email" required>
           </div>
-        </div>
-        <!-- /.col -->
-        <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat" >Sign In</button>
-        </div>
-        <!-- /.col -->
+          <div class="icon1">
+
+            <input placeholder="password" name="password" type="password" #password="ngModel" ngControl="password"[(ngModel)]="service.formData.password"  required >
+
+          </div>
+          <div class="login-check">
+            <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i> Keep me logged in</label>
+          </div>
+          <div class="bottom">
+            <button class="btn">Log In</button>
+          </div>
+          <div class="links">
+            <p><a href="#">Forgot Password?</a></p>
+
+            <div class="clear"></div>
+          </div>
+        </form>
       </div>
-    </form>
 
-
-    <!-- /.social-auth-links -->
-
-    <a href="#">I forgot my password</a><br>
+    </div>
 
 
   </div>
-  <!-- /.login-box-body -->
 </div>
+
+</body>
+</html>
