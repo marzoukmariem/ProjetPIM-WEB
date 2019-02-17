@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ParentService} from "../../Services/parent.service";
 import {EnfantService} from "../../Services/enfant.service";
 import {NgForm} from "@angular/forms";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-enfant',
@@ -12,7 +12,7 @@ import {ActivatedRoute} from "@angular/router";
 export class EnfantComponent implements OnInit {
 parentnumber:number
 
-  constructor(private service: EnfantService,private route: ActivatedRoute) {
+  constructor(private service: EnfantService,private route: ActivatedRoute,private router: Router) {
     this.route.queryParams.subscribe(params => {
       console.log(params); // {order: "popular"}
 
@@ -62,7 +62,7 @@ parentnumber:number
           .subscribe(resp => {
               console.log(resp, "res");
               alert('enfant a été ajouté avec succès')
-
+              this.router.navigate(['KidsPay/AceuilAdmin/parents'])
 
             },
             error => {
