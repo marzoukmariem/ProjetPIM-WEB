@@ -33,7 +33,7 @@ body {
 /*-- main --*/
 
 h1 {
-  font-size: 45px;
+  font-size: 60px;
   color: #fff;
   font-weight: 300;
   text-transform: uppercase;
@@ -112,9 +112,10 @@ a {
   margin: 1em 0 0;
 }
 .header-main {
-  max-width: 310px;
+  max-width: 500px;
   margin: 0 auto;
   position: relative;
+  top:50px;
   z-index: 999;
   padding: 3em 2em;
   background: rgba(255, 255, 255, 0.04);
