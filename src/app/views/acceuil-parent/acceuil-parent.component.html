@@ -1,10 +1,70 @@
-<div class="jumbotron jumbotron-fluid">
-  <h3 class="display-4 text-center"><img src="/assets/img/logoKidspay.png"> liste des enfants</h3>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-10 offset-md-1">
-        <table class="table table-hover">
-          <thead class="thead-light">
+<html>
+<head>
+  <script>
+    addEventListener("load", function () {
+      setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+      window.scrollTo(0, 1);
+    }
+  </script>
+
+
+</head>
+<body>
+<header>
+  <nav>
+    <div class="menu-container">
+      <!-- Menu -->
+      <ul class="menu">
+        <li class="menu-apple">
+          <a href="#">
+            <span></span>
+          </a>
+        </li>
+        <li class="menu-apple">
+          <a href="#">
+            <span></span>
+          </a>
+        </li>
+        <li class="menu-apple">
+          <a href="#">
+            <span>Home</span>
+          </a>
+        </li>
+        <li class="menu-apple">
+          <a href="#">
+            <span>Mon compte</span>
+          </a>
+        </li>
+        <li class="menu-apple">
+          <a href="#">
+            <span></span>
+          </a>
+        </li>
+
+        <li class="menu-iPad">
+          <a routerLink="/KidsPay/login" routerLinkActive="active">
+            <span>se déconnecter</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<div class="fade-screen"></div>
+<div class="w3layouts-main">
+  <div class="bg-layer">
+    <div class="jumbtron">
+      <h3 class="display-4 text-center"><img src="/assets/img/logoKidspay.png"></h3>
+      <br><br>
+      <hr>
+      <div class="row">
+        <div class="col-md-7">
+
+        <table class="table table-sm ">
+          <thead>
           <th>Nom</th>
           <th>Solde</th>
           <th>idtag</th>
@@ -12,15 +72,20 @@
           <tbody>
           <tr *ngFor="let emp of service.list">
             <td (click)="histo(emp.id)">{{emp.nom}} {{emp.prenom}}</td>
-            <td (click)="histo(emp.id)" >{{emp.solde}}</td>
-            <td  (click)="histo(emp.id)">{{emp.idtag}}</td>
+            <td (click)="histo(emp.id)">{{emp.solde}}</td>
+            <td  (click)="histo(emp.id)" >{{emp.idtag}}</td>
 
           </tr>
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   </div>
 </div>
+</body>
+</html>
+
+
 
 

@@ -26,7 +26,7 @@ export class EnfantService {
       nommagasin:"",
       dateachat:null,
       prixcommande:null,
-
+      adresse:"",
 
 
     }
@@ -119,6 +119,7 @@ gethistoriquebyenfant(id:number){
         nommagasin:"",
         dateachat:null,
         prixcommande:null,
+        adresse:"",
 
 
 
@@ -135,16 +136,16 @@ gethistoriquebyenfant(id:number){
 
       this.http.get(this.rootURL+'getstorebyid/?idstore='+id).subscribe(resp=> {
         console.log('nommag:'+resp[0]['fields']['nom'])
-
+        console.log('nommag:'+resp[0]['fields']['adresse'])
         this.historique.nommagasin=resp[0]['fields']['nom'];
-
+        this.historique.adresse=resp[0]['fields']['adresse'];
 
       });
 
       this.historique.nommagasin=this.store.nom;
       this.historique.dateachat=resp[i]["fields"]["dateCommande"];
       this.historique.prixcommande=resp[i]["fields"]["prixTotal"];
-
+      this.historique.adresse=resp[i]['fields']['adresse'];
 
 
       this.listhist2.push(this.historique);

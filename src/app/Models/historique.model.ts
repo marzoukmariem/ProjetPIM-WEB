@@ -5,4 +5,5 @@ export class Historique {
 public  nommagasin:string;
   public dateachat:_date;
   public prixcommande:number;
+  public adresse:String;
 }
