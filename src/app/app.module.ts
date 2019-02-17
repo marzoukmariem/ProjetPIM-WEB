@@ -24,6 +24,7 @@ import { StoreComponent } from './All-Views/stores/store/store.component';
 import { StoresComponent } from './All-Views/stores/stores.component';
 import { HistoriqueComponent } from './All-Views/historique/historique.component';
 import { ParenteditComponent } from './All-Views/parents/parentedit/parentedit.component';
+import { ParentaddComponent } from './All-Views/parents/parentadd/parentadd.component';
 
 
 
@@ -47,6 +48,7 @@ import { ParenteditComponent } from './All-Views/parents/parentedit/parentedit.c
     StoresComponent,
     HistoriqueComponent,
     ParenteditComponent,
+    ParentaddComponent,
 
   ],
   imports: [
@@ -65,6 +67,7 @@ import { ParenteditComponent } from './All-Views/parents/parentedit/parentedit.c
       { path: 'KidsPay/Aceuilparent', component: AcceuilParentComponent },
       { path: 'KidsPay/AceuilAdmin/parents', component: ParentsComponent },
       { path: 'KidsPay/AceuilAdmin/parents/update', component: ParenteditComponent },
+      { path: 'KidsPay/AceuilAdmin/parents/add', component: ParentaddComponent },
       { path: 'KidsPay/AceuilAdmin/parents/enfants', component: EnfantComponent },
       { path: 'KidsPay/AceuilAdmin', component: DashboardComponent }
     ])

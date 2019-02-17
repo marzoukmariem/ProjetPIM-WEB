@@ -59,31 +59,31 @@
 
 
       <div align="center" id="divupdate">
-        <form  id="contact"   #form="ngForm" autocomplete="off" *ngIf="service.formData1"  (submit)="onSubmit(form)">
-          <h3 align="center" style="color: #ffffff">Modification des informations du parent </h3>
+        <form  id="contact"   #form="ngForm" autocomplete="off" *ngIf="service.formData"  (submit)="onSubmit(form)">
+          <h3 align="center" style="color: #ffffff">Ajout du parent </h3>
           <br>
           <fieldset>
-            <input  type="text" name ="nom" #nom="ngModel" [(ngModel)]="service.formData1.nom" class="form-control" placeholder="Nom"  tabindex="1"required>
+            <input  type="text" name ="nom" #nom="ngModel" [(ngModel)]="service.formData.nom" class="form-control" placeholder="Nom"  tabindex="1"required>
           </fieldset>
           <fieldset>
-            <input type="text" name ="prenom"  #prenom="ngModel" [(ngModel)]="service.formData1.prenom" class="form-control" placeholder="Prénom" required>
+            <input type="text" name ="prenom"  #prenom="ngModel" [(ngModel)]="service.formData.prenom" class="form-control" placeholder="Prénom" required>
           </fieldset>
           <fieldset>
-            <input type="email" name ="email" #email="ngModel" [(ngModel)]="service.formData1.email" class="form-control" placeholder="Email"required>
+            <input type="email" name ="email" #email="ngModel" [(ngModel)]="service.formData.email" class="form-control" placeholder="Email"required>
           </fieldset>
           <fieldset>
-            <input type="text" name ="numTel" #numTel="ngModel" [(ngModel)]="service.formData1.numTel" class="form-control" placeholder="N° Tel" required>
+            <input type="text" name ="numTel" #numTel="ngModel" [(ngModel)]="service.formData.numTel" class="form-control" placeholder="N° Tel" required>
           </fieldset>
           <fieldset>
-            <input type="text" name ="cin"  #cin="ngModel" [(ngModel)]="service.formData1.cin" class="form-control" placeholder="CIN" required>
+            <input type="text" name ="cin"  #cin="ngModel" [(ngModel)]="service.formData.cin" class="form-control" placeholder="CIN" required>
 
           </fieldset>
           <fieldset>
-            <input name ="password"  type="password"  #password="ngModel" [(ngModel)]="service.formData1.password" class="form-control" placeholder="Password" required>
+            <input name ="password"  type="password"  #password="ngModel" [(ngModel)]="service.formData.password" class="form-control" placeholder="Password" required>
 
           </fieldset>
           <fieldset>
-            <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">update</button>
+            <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">ajouter</button>
           </fieldset>
         </form>
 
