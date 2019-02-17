@@ -1,6 +1,26 @@
-.table-hover{
+.table-sm {
   position: relative;
   top: 110px;
-  right: 50px;
+  right: 200px;
 
 }
+
+th {
+   vertical-align: middle;
+  border-color: #007cc0;
+  font-size : 12px;
+  font-family : Verdana, arial, helvetica, sans-serif;
+  color : #ffffff;
+  text-align : center;
+  background:#007cc0 ;
+}
+td {
+  vertical-align: middle;
+  border-color: #007cc0;
+  font-size : 12px;
+  font-family : Verdana, arial, helvetica, sans-serif;
+  color : #0a0a0a;
+  text-align : center;
+  background: #ffffff ;
+}
+

@@ -21,6 +21,13 @@ export class ParentsListComponent implements OnInit {
 
    }
 
+   Edit(id:number){
+    this.router.navigate(['KidsPay/AceuilAdmin/parents/update'], { queryParams: { idp: id } });
+  }
+
+
+
+
   ondelete(id: number)
   {
     if (confirm('Are you sure to delete this ?')) {

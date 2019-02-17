@@ -10,6 +10,7 @@ import {environment} from "../../environments/environment";
 })
 export class ParentService {
   formData:Parent;
+  formData1:Parent;
   parent1:Parent ;
 
   Data:[any];
@@ -18,8 +19,9 @@ export class ParentService {
   readonly rootURL ="http://localhost:8000/kidspay/"
   constructor(private http : HttpClient) {
     this.list1=[];
+
     // @ts-ignore
-    this.parent1 = {
+    this.formData1={
       id:null,
       nom:"",
       prenom:"",
@@ -29,6 +31,9 @@ export class ParentService {
       email:"",
       password:"",
     }
+
+
+
         }
 
   postparent(Data){
@@ -82,7 +87,29 @@ export class ParentService {
   deleteparent(id:number){
     return this.http.delete(environment.apiURL+'/users/'+id+'/').toPromise();
   }
+  remplirform(id:number){
+
+    this.http.get(this.rootURL+'users/'+id+'/').subscribe(resp => {
+      console.log(resp["nom"], "nom");
 
 
+
+    this.formData1.nom=resp["nom"];
+    this.formData1.prenom=resp["prenom"];
+    this.formData1.email=resp["email"];
+    this.formData1.cin=resp["cin"];
+    this.formData1.password=resp["password"];
+    this.formData1.numTel=resp["numTel"];
+
+
+
+    console.log(this.formData1, "formservice");
+
+    });
+
+  }
+  updateparent(Data,id:number){
+    return this.http.put(this.rootURL+'users/'+id+'/',Data);
+  }
 
 }

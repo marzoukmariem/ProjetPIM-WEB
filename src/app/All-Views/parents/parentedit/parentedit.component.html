@@ -1,0 +1,115 @@
+<html>
+<head>
+  <script>
+    addEventListener("load", function () {
+      setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+      window.scrollTo(0, 1);
+    }
+  </script>
+
+
+</head>
+<body>
+<header>
+  <nav>
+    <div class="menu-container">
+      <!-- Menu -->
+      <ul class="menu">
+        <li class="menu-apple">
+          <a href="#">
+            <span>Home</span>
+          </a>
+        </li>
+        <li class="menu-mac">
+          <a routerLink="/KidsPay/AceuilAdmin/parents" routerLinkActive="active">
+
+            <span>Gestion des Parents</span>
+          </a>
+        </li>
+        <li class="menu-iPad">
+          <a routerLink="/KidsPay/AceuilAdmin/commercants" routerLinkActive="active">
+            <span>Gestion des Commerçants</span>
+          </a>
+        </li>
+        <li class="menu-iPad">
+          <a routerLink="/KidsPay/login" routerLinkActive="active">
+            <span>se déconnecter</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<div class="fade-screen"></div>
+<div class="w3layouts-main">
+  <div class="bg-layer">
+    <div class="jumbtron">
+      <h3 class="display-4 text-center"><img src="/assets/img/logoKidspay.png"></h3>
+      <br><br>
+      <hr>
+      <br><br>
+
+
+      <div align="center" id="divupdate">
+        <form  id="contact"   #form="ngForm" autocomplete="off" *ngIf="service.formData1"  (submit)="onSubmit(form)">
+          <h3 align="center" style="color: #ffffff">Modification des informations du parent </h3>
+          <br>
+          <fieldset>
+            <input  type="text" name ="nom" #nom="ngModel" [(ngModel)]="service.formData1.nom" class="form-control" placeholder="Nom"  tabindex="1"required>
+          </fieldset>
+          <fieldset>
+            <input type="text" name ="prenom"  #prenom="ngModel" [(ngModel)]="service.formData1.prenom" class="form-control" placeholder="Prénom" required>
+          </fieldset>
+          <fieldset>
+            <input type="email" name ="email" #email="ngModel" [(ngModel)]="service.formData1.email" class="form-control" placeholder="Email"required>
+          </fieldset>
+          <fieldset>
+            <input type="text" name ="numTel" #numTel="ngModel" [(ngModel)]="service.formData1.numTel" class="form-control" placeholder="N° Tel" required>
+          </fieldset>
+          <fieldset>
+            <input type="text" name ="cin"  #cin="ngModel" [(ngModel)]="service.formData1.cin" class="form-control" placeholder="CIN" required>
+
+          </fieldset>
+          <fieldset>
+            <input name ="password"  type="password"  #password="ngModel" [(ngModel)]="service.formData1.password" class="form-control" placeholder="Password" required>
+
+          </fieldset>
+          <fieldset>
+            <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">update</button>
+          </fieldset>
+        </form>
+
+
+
+
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+</body>
+</html>
+

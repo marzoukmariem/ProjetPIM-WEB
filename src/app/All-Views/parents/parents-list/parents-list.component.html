@@ -1,18 +1,27 @@
-<table class="table table-hover">
-  <thead class="thead-light">
+<table class="table table-sm ">
+  <thead >
   <th>NOM</th>
   <th>N° Tel</th>
   <th>Email</th>
   <th>add</th>
   <th>Remove</th>
+  <th>update</th>
+
   </thead>
   <tbody>
   <tr *ngFor="let emp of service.list">
-    <td >{{emp.nom}} {{emp.prenom}}</td>
+    <td  >{{emp.nom}} {{emp.prenom}}</td>
     <td >{{emp.numTel}}</td>
     <td >{{emp.email}}</td>
-    <td><button  (click)="onadd(emp.id)"class="btn btn-sm btn-outline-danger">+</button></td>
-    <td><button (click)="ondelete(emp.id)"  class="btn btn-sm btn-outline-danger">X</button></td>
+    <td ><a class="btn-outline-primary" (click)="onadd(emp.id)"><i class="fa fa-user-plus" aria-hidden="true"></i></a></td>
+
+
+    <td > <a class="btn-outline-primary" (click)="ondelete(emp.id)" ><i class="fa fa-trash fa-lg"></i></a>
+    </td>
+    <td ><a class="btn-outline-primary" (click)="Edit(emp.id)"  > <i class="fa fa-address-card-o" aria-hidden="true"></i></a>
+    </td>
+
+
     </tr>
   </tbody>
 

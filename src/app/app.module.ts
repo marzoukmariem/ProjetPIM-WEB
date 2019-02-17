@@ -23,6 +23,7 @@ import { LayoutModule } from "./views/layout/layout.module";
 import { StoreComponent } from './All-Views/stores/store/store.component';
 import { StoresComponent } from './All-Views/stores/stores.component';
 import { HistoriqueComponent } from './All-Views/historique/historique.component';
+import { ParenteditComponent } from './All-Views/parents/parentedit/parentedit.component';
 
 
 
@@ -45,6 +46,7 @@ import { HistoriqueComponent } from './All-Views/historique/historique.component
     StoreComponent,
     StoresComponent,
     HistoriqueComponent,
+    ParenteditComponent,
 
   ],
   imports: [
@@ -62,6 +64,7 @@ import { HistoriqueComponent } from './All-Views/historique/historique.component
       { path: 'KidsPay/AceuilComerçant', component: CommAcceuilComponent },
       { path: 'KidsPay/Aceuilparent', component: AcceuilParentComponent },
       { path: 'KidsPay/AceuilAdmin/parents', component: ParentsComponent },
+      { path: 'KidsPay/AceuilAdmin/parents/update', component: ParenteditComponent },
       { path: 'KidsPay/AceuilAdmin/parents/enfants', component: EnfantComponent },
       { path: 'KidsPay/AceuilAdmin', component: DashboardComponent }
     ])
