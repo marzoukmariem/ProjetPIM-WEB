@@ -55,6 +55,7 @@ import {AlimentationComponent} from "./views/acceuil-parent/alimentation/aliment
     AccueilCommercantComponent,
     AlimentationComponent,
 
+
   ],
   imports: [
     BrowserModule,
@@ -64,6 +65,7 @@ import {AlimentationComponent} from "./views/acceuil-parent/alimentation/aliment
     HttpClientModule,
     FormsModule,
     LayoutModule,
+
 
     RouterModule.forRoot([
       { path: 'KidsPay/Aceuilparent/AlimentationCompte', component: AlimentationComponent },
