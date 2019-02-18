@@ -26,6 +26,8 @@ import { HistoriqueComponent } from './All-Views/historique/historique.component
 import { ParenteditComponent } from './All-Views/parents/parentedit/parentedit.component';
 import { ParentaddComponent } from './All-Views/parents/parentadd/parentadd.component';
 import { AccueilCommercantComponent } from './views/accueil-commercant/accueil-commercant.component';
+import {AlimentationComponent} from "./views/acceuil-parent/alimentation/alimentation.component";
+
 
 
 
@@ -51,6 +53,7 @@ import { AccueilCommercantComponent } from './views/accueil-commercant/accueil-c
     ParenteditComponent,
     ParentaddComponent,
     AccueilCommercantComponent,
+    AlimentationComponent,
 
   ],
   imports: [
@@ -63,6 +66,7 @@ import { AccueilCommercantComponent } from './views/accueil-commercant/accueil-c
     LayoutModule,
 
     RouterModule.forRoot([
+      { path: 'KidsPay/Aceuilparent/AlimentationCompte', component: AlimentationComponent },
       { path: 'KidsPay/Aceuilparent/Historique', component: HistoriqueComponent },
       { path: 'KidsPay/AceuilAdmin/commercants', component: CommercantsComponent },
       { path: 'KidsPay/AceuilComerçant', component: AccueilCommercantComponent },

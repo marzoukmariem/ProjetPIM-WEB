@@ -63,30 +63,33 @@
       <div class="row">
         <div class="col-md-7">
 
-        <table class="table table-sm ">
-          <thead>
-          <th>Nom</th>
-          <th>Solde</th>
-          <th>idtag</th>
-          <th>Désactiver compte</th>
-          <th></th>
-                  </thead>
-          <tbody>
-          <tr *ngFor="let emp of service.list">
-            <td (click)="histo(emp.id)">{{emp.nom}} {{emp.prenom}}</td>
-            <td (click)="histo(emp.id)">{{emp.solde}}</td>
-            <td  (click)="histo(emp.id)" >{{emp.idtag}}</td>
-<td><label class="switch">
-  <input type="checkbox" checked>
-  <span class="slider round"></span>
-</label></td>
-            <td><a class="btn-outline-primary" >
-              <img src="/assets/img/carte.png" alt="carte" width="50" height="50"class="cartelogo" (click)="alimenter(emp.id)">
 
-              </a></td>
-          </tr>
-          </tbody>
-        </table>
+          <div align="center" id="divupdate">
+            <form  id="contact"    autocomplete="off" >
+              <h3 align="center" style="color: #ffffff">Ajout de l'enfant </h3>
+              <br>
+
+              <fieldset>
+                <input name ="Montant"  placeholder="Montant" required>
+              </fieldset>
+
+              <fieldset>
+                <input type='password'   placeholder="password" required>
+              </fieldset>
+
+              <fieldset>
+                <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">ajouter</button>
+              </fieldset>
+            </form>
+
+
+
+
+
+          </div>
+
+
+
         </div>
       </div>
     </div>
