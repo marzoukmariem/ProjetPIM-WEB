@@ -79,7 +79,7 @@ export class LoginComponent implements OnInit {
           }
           if (resp["0"]["fields"]["role"] == "commercant") {
             console.log("hello comercant", "comm");
-            this.router.navigate(['KidsPay/AceuilComerçant']);
+            this.router.navigate(['KidsPay/AceuilComerçant'],{ queryParams: { idc: resp["0"]["pk"]} });
 
           } if (resp["0"]["fields"]["role"] == "admin"){
             console.log("hello admin", "heloo");

@@ -9,7 +9,7 @@ declare var $: any;
 @Component({
   selector: 'app-store',
   templateUrl: './store.component.html',
-  styles: []
+  styleUrls: ['./store.component.css']
 })
 export class StoreComponent implements OnInit {
   commercantList : Commercant[]

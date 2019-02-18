@@ -7,7 +7,7 @@ declare var $: any;
 @Component({
   selector: 'app-stores',
   templateUrl: './stores.component.html',
-  styles: []
+  styleUrls: ['./stores.component.css']
 })
 export class StoresComponent implements OnInit {
   storeList;
