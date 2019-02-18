@@ -7,6 +7,9 @@ import { environment } from 'src/environments/environment';
 })
 export class StoreService {
   formData:Store
+  readonly rootURL ="http://localhost:8000/kidspay/"
+  list:Store[]=[];
+  store:Store
   
   constructor(private http:HttpClient) { }
 
@@ -32,4 +35,34 @@ getStoreByID(id:number) :any {
 deleteStore(id:number){
   return this.http.delete(environment.apiURL+'/stores/'+id).toPromise();
  }
+
+ getallStoresbyid(id:number){
+  this.http.get(this.rootURL+'getStoreByIdCommercant/?idCommercant='+id).subscribe(resp => {
+    console.log(resp, "nb elment");
+    console.log(resp['length'], "nb elment");
+
+    this.list=[]
+    for (var i=0; i<Number(resp['length']); i++) {
+
+      // @ts-ignore
+      this.store={
+        StoreID:null,
+        nom :"",
+        adresse :"",
+        Commercant:null,
+      }
+      this.store.StoreID=resp[i]["pk"];
+      this.store.nom=resp[i]["fields"]["nom"];
+      this.store.adresse=resp[i]["fields"]["adresse"];
+      this.store.Commercant=resp[i]["fields"]["Commercant"];
+      this.list.push(this.store);
+    }
+
+    console.log(this.list, "list");
+
+  })
+
+
+}
+
 }
