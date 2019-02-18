@@ -122,25 +122,17 @@ export class ParentService {
   updateparent(Data,id:number){
     return this.http.put(this.rootURL+'users/'+id+'/',Data);
   }
-  updateparent2(Data,id:number){
-    this.http.get(this.rootURL+'users/'+id+'/').subscribe(resp => {
-      console.log(resp["nom"], "nom");
+  updateparent2(idp:number,ide:number,Montant:number,password:String){
+this.http.get(this.rootURL+'Alimentation/?idp='+idp+'&ide='+ide+'&montant='+Montant+'&p='+password+'').subscribe(response => {
+  console.log(response.toString());
+if(response.toString()=="1"){alert(" Trasmssion a été éffectuer avec succées");
 
 
-
-      this.formData3.nom=resp["nom"];
-      this.formData3.prenom=resp["prenom"];
-      this.formData3.email=resp["email"];
-      this.formData3.cin=resp["cin"];
-      this.formData3.password=resp["password"];
-      this.formData3.numTel=resp["numTel"];
+}
+else {alert("Solde insuffisant ou Mot de passe incorrecte")}
 
 
-
-      console.log(this.formData1, "formservice");
-
-    });
-    return this.http.put(this.rootURL+'users/'+id+'/',Data);
+});
   }
 
 }

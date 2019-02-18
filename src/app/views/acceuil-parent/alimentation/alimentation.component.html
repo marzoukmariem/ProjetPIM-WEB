@@ -65,20 +65,20 @@
 
 
           <div align="center" id="divupdate">
-            <form  id="contact"    autocomplete="off" >
-              <h3 align="center" style="color: #ffffff">Ajout de l'enfant </h3>
+            <form  id="contact"   #form="ngForm" autocomplete="off" (submit)="onSubmit(form)" >
+
               <br>
 
               <fieldset>
-                <input name ="Montant"  placeholder="Montant" required>
+                <input name ="Montant" #Montant="ngModel" class="form-control" [(ngModel)]="service.formData3.Montant" placeholder="Montant" required>
               </fieldset>
 
               <fieldset>
-                <input type='password'   placeholder="password" required>
+                <input type='password' name ="password" #password="ngModel" class="form-control" [(ngModel)]="service.formData3.password"  placeholder="password" required>
               </fieldset>
 
               <fieldset>
-                <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">ajouter</button>
+                <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Transferer argent</button>
               </fieldset>
             </form>
 
