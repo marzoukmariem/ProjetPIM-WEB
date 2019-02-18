@@ -1,17 +1,78 @@
-<div class="jumbotron jumbotron-fluid">
-    
-  <h1 class="display-4 text-center">
+<html>
 
-      <a class="btn btn-secondary" routerLink="/KidsPay/AceuilAdmin/commercants" ><i class="fa fa-table"></i> Gestion Commercants</a>
-      <a class="btn btn-secondary" routerLink="/KidsPay/AceuilAdmin/stores" ><i class="fa fa-table"></i> Gestion Stores</a>
-    </h1>
+<head>
+  <script>
+    addEventListener("load", function () {
+      setTimeout(hideURLbar, 0);
+    }, false);
 
-<h3 class="display-4 text-center"><img src="/assets/img/logoKidspay.png"> Gestion commercants.</h3>
+    function hideURLbar() {
+      window.scrollTo(0, 1);
+    }
+  </script>
 
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 offset-md-1">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="menu-container">
+        <!-- Menu -->
+        <ul class="menu">
+          <li class="menu-apple">
+            <a href="#">
+              <span>Home</span>
+            </a>
+          </li>
+          <li class="menu-apple">
+            <a href="#">
+              <span>Mon compte</span>
+            </a>
+          </li>
+          <li class="menu-mac">
+            <a routerLink="/KidsPay/AceuilAdmin/parents" routerLinkActive="active">
+
+              <span>Gestion des Parents</span>
+            </a>
+          </li>
+          <li class="menu-iPad">
+            <a routerLink="/KidsPay/AceuilAdmin/commercants" routerLinkActive="active">
+              <span>Gestion des Commerçants</span>
+            </a>
+          </li>
+          <li class="menu-iPad">
+            <a routerLink="/KidsPay/login" routerLinkActive="active">
+              <span>se déconnecter</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <div class="fade-screen"></div>
+  <div class="w3layouts-main">
+    <div class="bg-layer">
+      <div class="jumbtron">
+        <h3 class="display-4 text-center"><img src="/assets/img/logoKidspay.png"></h3>
+        <br><br>
+        <hr>
+
+
+        <div></div>
+        <h1 class="display-4 text-center">
+          <a class="btn btn-secondary" routerLink="/KidsPay/AceuilAdmin/commercants"><i class="fa fa-table"></i> Gestion
+            Commercants</a>
+          <a class="btn btn-secondary" routerLink="/KidsPay/AceuilAdmin/stores"><i class="fa fa-table"></i> Gestion
+            Stores</a>
+        </h1>
+
+
+
+
+        <div class="container">
+          <div class="row">
+            <div class="col-md-10 offset-md-1">
 <table class="table table-hover">
 <thead class="thead-light">
   <th>Nom</th>
@@ -27,8 +88,8 @@
 <tbody>
   
   <tr *ngFor="let item of commercantList">
-<th *ngIf="(item.role == 'commercant')" (click)="openForEdit(item.id)" >{{item.nom}}</th>
-<th *ngIf="(item.role == 'commercant')" (click)="openForEdit(item.id)">{{item.prenom}}</th>
+<td *ngIf="(item.role == 'commercant')" (click)="openForEdit(item.id)" >{{item.nom}}</td>
+<td *ngIf="(item.role == 'commercant')" (click)="openForEdit(item.id)">{{item.prenom}}</td>
 <td *ngIf="(item.role == 'commercant')" (click)="openForEdit(item.id)">{{item.email}}</td>
 <td *ngIf="(item.role == 'commercant')" (click)="openForEdit(item.id)">{{item.numTel}}</td>
 <td *ngIf="(item.role == 'commercant')" (click)="openForEdit(item.id)">{{item.cin}}</td>
@@ -44,4 +105,11 @@
 </div>
 </div>
 </div>
+
+
 </div>
+</div>
+</div>
+</body>
+
+</html>
