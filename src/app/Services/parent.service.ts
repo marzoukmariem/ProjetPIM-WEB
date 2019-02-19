@@ -11,6 +11,7 @@ import {environment} from "../../environments/environment";
 export class ParentService {
   formData:Parent;
   formData1:Parent;
+  formData3:Parent;
   parent1:Parent ;
 
   Data:[any];
@@ -31,8 +32,18 @@ export class ParentService {
       email:"",
       password:"",
     }
-
-
+    // @ts-ignore
+    this.formData3={
+      id:null,
+      nom:"",
+      prenom:"",
+      numTel: "",
+      role: "parent",
+      cin:"",
+      email:"",
+      password:"",
+      Montant:null,
+    }
 
         }
 
@@ -110,6 +121,18 @@ export class ParentService {
   }
   updateparent(Data,id:number){
     return this.http.put(this.rootURL+'users/'+id+'/',Data);
+  }
+  updateparent2(idp:number,ide:number,Montant:number,password:String){
+this.http.get(this.rootURL+'Alimentation/?idp='+idp+'&ide='+ide+'&montant='+Montant+'&p='+password+'').subscribe(response => {
+  console.log(response.toString());
+if(response.toString()=="1"){alert(" Trasmssion a été éffectuer avec succées");
+
+
+}
+else {alert("Solde insuffisant ou Mot de passe incorrecte")}
+
+
+});
   }
 
 }

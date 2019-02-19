@@ -9,9 +9,7 @@
       window.scrollTo(0, 1);
     }
   </script>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+
 
 </head>
 <body>
@@ -65,33 +63,33 @@
       <div class="row">
         <div class="col-md-7">
 
-        <table class="table table-sm ">
-          <thead>
-          <th>Nom</th>
-          <th>Solde</th>
-          <th>idtag</th>
-          <th>Désactiver compte</th>
-          <th></th>
-                  </thead>
-          <tbody>
-          <tr *ngFor="let emp of service.list">
-            <td (click)="histo(emp.id)">{{emp.nom}} {{emp.prenom}}</td>
-            <td (click)="histo(emp.id)">{{emp.solde}}</td>
-            <td  (click)="histo(emp.id)" >{{emp.idtag}}</td>
-<td><label class="switch">
-  <input type="checkbox" checked>
-  <span class="slider round"></span>
-</label></td>
-            <td><a class="btn-outline-primary" >
-              <img src="/assets/img/carte.png" alt="carte" width="50" height="50"class="cartelogo" (click)="alimenter(emp.id)">
 
-              </a>
+          <div align="center" id="divupdate">
+            <form  id="contact"   #form="ngForm" autocomplete="off" (submit)="onSubmit(form)" >
+
+              <br>
+
+              <fieldset>
+                <input name ="Montant" #Montant="ngModel" class="form-control" [(ngModel)]="service.formData3.Montant" placeholder="Montant" required>
+              </fieldset>
+
+              <fieldset>
+                <input type='password' name ="password" #password="ngModel" class="form-control" [(ngModel)]="service.formData3.password"  placeholder="password" required>
+              </fieldset>
+
+              <fieldset>
+                <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Transferer argent</button>
+              </fieldset>
+            </form>
 
 
-            </td>
-          </tr>
-          </tbody>
-        </table>
+
+
+
+          </div>
+
+
+
         </div>
       </div>
     </div>

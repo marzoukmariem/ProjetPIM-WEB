@@ -31,6 +31,10 @@ export class AcceuilParentComponent implements OnInit {
 
   }
 
+  alimenter(id:number){
 
+    this.router.navigate(['KidsPay/Aceuilparent/AlimentationCompte'], { queryParams: { ide: id ,idp:this.parentnumber} });
+
+  }
 
 }

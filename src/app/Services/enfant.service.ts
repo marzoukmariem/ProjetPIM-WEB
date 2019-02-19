@@ -144,6 +144,11 @@ gethistoriquebyenfant(id:number){
 
       this.historique.nommagasin=this.store.nom;
       this.historique.dateachat=resp[i]["fields"]["dateCommande"];
+      var str = resp[i]["fields"]["dateCommande"];
+
+
+      console.log(str.substr(0, 10),"helodate");
+      console.log(str.substr(11, 14),"helotime");
       this.historique.prixcommande=resp[i]["fields"]["prixTotal"];
       this.historique.adresse=resp[i]['fields']['adresse'];
 

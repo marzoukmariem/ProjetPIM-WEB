@@ -7,6 +7,16 @@ export class Parent {
   public cin :string;
   public email:string;
   public password:string;
+  public Montant:number;
+
+
+  set _Montant(value: number) {
+    this.Montant = value;
+  }
+
+  get _Montant(): number {
+    return this.Montant;
+  }
 
   get _id(): number {
     return this.id;

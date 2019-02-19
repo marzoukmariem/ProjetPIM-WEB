@@ -49,9 +49,9 @@ parentnumber:number
         let user = {
           nom: this.service.formData.nom,
           prenom: this.service.formData.prenom,
-          solde: this.service.formData.solde,
+          solde: 0,
           idtag: this.service.formData.idtag,
-          etatCompte:"Actif",
+          etatCompte:"active",
           parent:this.parentnumber
 
         }
