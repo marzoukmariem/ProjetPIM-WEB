@@ -18,10 +18,13 @@ export class AccueilCommercantComponent implements OnInit {
 
    }
 
-  
-
   ngOnInit() {
     this.service.getallStoresbyid(this.commercantnumber);
+  }
+
+
+  histo(id:number){
+    this.router.navigate(['KidsPay/Aceuilcommercant/Historique'], { queryParams: { idm: id } });
   }
 
 }

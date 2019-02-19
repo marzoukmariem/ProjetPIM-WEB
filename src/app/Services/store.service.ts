@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Store } from '../Models/store.model';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Historique } from '../Models/historique.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,6 +11,10 @@ export class StoreService {
   readonly rootURL ="http://localhost:8000/kidspay/"
   list:Store[]=[];
   store:Store
+  listhist2: Historique[]=[];
+  historique:Historique;
+
+
   
   constructor(private http:HttpClient) { }
 
@@ -57,12 +62,52 @@ deleteStore(id:number){
       this.store.Commercant=resp[i]["fields"]["Commercant"];
       this.list.push(this.store);
     }
-
     console.log(this.list, "list");
+  })
+
+}
+
+getHistoriqueByStore(id:number){
+
+  this.http.get(this.rootURL+'getcommandebystore/?idstore='+id).subscribe(resp => {
+
+
+    console.log(resp, "nb elment");
+    console.log(resp['length'], "nb elment");
+
+
+    this.listhist2=[]
+    for (var i=0; i<Number(resp['length']); i++) {
+
+      // @ts-ignore
+      this.historique={
+        nommagasin:"",
+        dateachat:null,
+        prixcommande:null,
+        adresse:"",
+      }
+    
+
+
+      this.historique.dateachat=(resp[i]["fields"]["dateCommande"]).substring(0, 10);
+      this.historique.prixcommande=resp[i]["fields"]["prixTotal"];
+
+
+      this.listhist2.push(this.historique);
+    }
+
+
+
+
+    console.log(this.listhist2, "listcomplete");
 
   })
 
 
+
+
+
 }
+
 
 }
