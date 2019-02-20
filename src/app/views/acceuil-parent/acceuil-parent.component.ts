@@ -1,14 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {EnfantService} from "../../Services/enfant.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ParentService} from "../../Services/parent.service";
+import {ControlValueAccessor} from "@angular/forms";
+
+import {noop} from "rxjs";
 
 @Component({
   selector: 'app-acceuil-parent',
   templateUrl: './acceuil-parent.component.html',
   styleUrls: ['./acceuil-parent.component.css']
 })
-export class AcceuilParentComponent implements OnInit {
+export class AcceuilParentComponent implements OnInit, ControlValueAccessor {
   parentnumber:number
   constructor(private service: EnfantService,private route: ActivatedRoute, private router: Router) {
 
@@ -36,5 +39,54 @@ export class AcceuilParentComponent implements OnInit {
     this.router.navigate(['KidsPay/Aceuilparent/AlimentationCompte'], { queryParams: { ide: id ,idp:this.parentnumber} });
 
   }
+
+
+  @Input() label: string;
+  @Input() isChecked = false;
+  @Input() disabled = false;
+  @Output() getChange = new EventEmitter();
+  @Input() className: string;
+
+  // get accessor
+  get value(): any {
+    return this.isChecked;
+  }
+
+  // set accessor including call the onchange callback
+  set value(value: any) {
+    this.isChecked = value;
+  }
+
+  private onTouchedCallback: () => void = noop;
+  private onChangeCallback: (_: any) => void = noop;
+
+
+  writeValue(value: any): void {
+    if (value !== this.isChecked) {
+      this.isChecked = value;
+    }
+  }
+
+  onChange(isChecked) {
+    this.value = isChecked;
+    this.getChange.emit(this.isChecked);
+    this.onChangeCallback(this.value);
+  }
+
+  // From ControlValueAccessor interface
+  registerOnChange(fn: any) {
+    this.onChangeCallback = fn;
+  }
+
+  // From ControlValueAccessor interface
+  registerOnTouched(fn: any) {
+    this.onTouchedCallback = fn;
+  }
+
+  setDisabledState?(isDisabled: boolean): void {
+
+  }
+
+
 
 }

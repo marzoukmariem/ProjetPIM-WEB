@@ -466,3 +466,53 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+
+
+
+@import "../../../assets/scss/_variables";
+/* CHECKBOX */
+.lbl {
+  font-size: 12px;
+  color: #282828;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  /* checkbox icon */
+}
+.lbl.checked {
+  font-weight: 600;
+}
+.lbl.focus .chk-box {
+  border: 1px solid #a8a8a8;
+}
+.lbl.focus .chk-box.chk {
+  border: none;
+}
+.lbl input {
+  display: none;
+}
+.lbl .chk-box {
+  display: block;
+  min-width: 15px;
+  min-height: 15px;
+  background: url('/assets/i/checkbox-not-selected.svg');
+  background-size: 15px 15px;
+  margin-right: 10px;
+}
+.lbl input:checked + .chk-box {
+  background: url('/assets/i/checkbox-selected.svg');
+  background-size: 15px 15px;
+}
+.lbl .lbl-txt {
+  margin-top: 0px;
+}
+
+
+
+
+

@@ -78,10 +78,28 @@
             <td (click)="histo(emp.id)">{{emp.nom}} {{emp.prenom}}</td>
             <td (click)="histo(emp.id)">{{emp.solde}}</td>
             <td  (click)="histo(emp.id)" >{{emp.idtag}}</td>
-<td><label class="switch">
-  <input type="checkbox" checked>
-  <span class="slider round"></span>
-</label></td>
+           
+<td>
+
+  <script>
+    angular.module('checkboxExample', [])
+      .controller('ExampleController', ['$scope', function($scope) {
+        $scope.checkboxModel = {
+          value1 : true,
+        };
+      }]);
+  </script>
+
+
+  <label class="switch">
+  <input #inputEl type="checkbox" [name]="label" [(ngModel)]="isChecked" (change)="onChange(inputEl.checked)"
+         *ngIf="isChecked" checked>
+    <input #inputEl type="checkbox" [name]="label" [(ngModel)]="isChecked" (change)="onChange(inputEl.checked)"
+           *ngIf="!isChecked" >
+  <span class="slider round"></span><span ></span ><br/>
+</label><span >{{isChecked ? 'hello':''}}</span>
+  <span class="lbl-txt" *ngIf="label" >{{label}}</span>
+</td>
             <td><a class="btn-outline-primary" >
               <img src="/assets/img/carte.png" alt="carte" width="50" height="50"class="cartelogo" (click)="alimenter(emp.id)">
 
@@ -89,6 +107,7 @@
 
 
             </td>
+           
           </tr>
           </tbody>
         </table>
@@ -99,7 +118,5 @@
 </div>
 </body>
 </html>
-
-
 
 
