@@ -26,8 +26,8 @@ import { HistoriqueComponent } from './All-Views/historique/historique.component
 import { ParenteditComponent } from './All-Views/parents/parentedit/parentedit.component';
 import { ParentaddComponent } from './All-Views/parents/parentadd/parentadd.component';
 import { AccueilCommercantComponent } from './views/accueil-commercant/accueil-commercant.component';
+import { HistoriqueMagazinComponent } from './All-Views/historique-magazin/historique-magazin.component';
 import {AlimentationComponent} from "./views/acceuil-parent/alimentation/alimentation.component";
-
 
 
 
@@ -53,8 +53,8 @@ import {AlimentationComponent} from "./views/acceuil-parent/alimentation/aliment
     ParenteditComponent,
     ParentaddComponent,
     AccueilCommercantComponent,
+    HistoriqueMagazinComponent,
     AlimentationComponent,
-
 
   ],
   imports: [
@@ -71,13 +71,15 @@ import {AlimentationComponent} from "./views/acceuil-parent/alimentation/aliment
       { path: 'KidsPay/Aceuilparent/AlimentationCompte', component: AlimentationComponent },
       { path: 'KidsPay/Aceuilparent/Historique', component: HistoriqueComponent },
       { path: 'KidsPay/AceuilAdmin/commercants', component: CommercantsComponent },
+      { path: 'KidsPay/Aceuilcommercant/Historique', component: HistoriqueMagazinComponent },
       { path: 'KidsPay/AceuilComerçant', component: AccueilCommercantComponent },
       { path: 'KidsPay/Aceuilparent', component: AcceuilParentComponent },
       { path: 'KidsPay/AceuilAdmin/parents', component: ParentsComponent },
       { path: 'KidsPay/AceuilAdmin/parents/update', component: ParenteditComponent },
       { path: 'KidsPay/AceuilAdmin/parents/add', component: ParentaddComponent },
       { path: 'KidsPay/AceuilAdmin/parents/enfants', component: EnfantComponent },
-      { path: 'KidsPay/AceuilAdmin', component: DashboardComponent }
+      { path: 'KidsPay/AceuilAdmin', component: DashboardComponent },
+
     ])
 
   ],

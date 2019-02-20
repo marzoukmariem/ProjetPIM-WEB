@@ -62,19 +62,19 @@
       <hr>
       <div class="row">
         <div class="col-md-7">
-
-        <table class="table table-sm ">
-          <thead>
-          <th>Nom</th>
-          <th>Adresse</th>
-                  </thead>
+        <table  class="table table-sm ">
+          <thead >
+          <th>Date</th>
+          <th>Totale Achats</th>
+          </thead>
           <tbody>
-          <tr *ngFor="let emp of service.list">
-            <td (click)="histo(emp.StoreID)">{{emp.nom}}</td>
-            <td (click)="histo(emp.StoreID)">{{emp.adresse}}</td>
+          <tr *ngFor="let emp of service.listhist2">
+            <td >{{emp.dateachat}} </td>
+            <td >{{emp.prixcommande}}</td>
           </tr>
           </tbody>
         </table>
+
         </div>
       </div>
     </div>
@@ -82,7 +82,5 @@
 </div>
 </body>
 </html>
-
-
 
 
