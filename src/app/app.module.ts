@@ -28,11 +28,18 @@ import { ParentaddComponent } from './All-Views/parents/parentadd/parentadd.comp
 import { AccueilCommercantComponent } from './views/accueil-commercant/accueil-commercant.component';
 import { HistoriqueMagazinComponent } from './All-Views/historique-magazin/historique-magazin.component';
 import {AlimentationComponent} from "./views/acceuil-parent/alimentation/alimentation.component";
-
-
-
-
-
+import {ReactiveFormsModule} from '@angular/forms'
+import {MatButtonModule} from '@angular/material/button'
+import {MatCardModule} from '@angular/material/card'
+import {MatDatepickerModule} from '@angular/material/datepicker'
+import {MatIconModule} from '@angular/material/icon'
+import {MatInputModule} from '@angular/material/input'
+import {MatMomentDateModule} from '@angular/material-moment-adapter'
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import {MatTabsModule} from '@angular/material/tabs'
+import {CommonModule} from '@angular/common';
+import { NgbdDatepickerPopupComponent } from './components/ngbd-datepicker-popup/ngbd-datepicker-popup.component'
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -55,9 +62,12 @@ import {AlimentationComponent} from "./views/acceuil-parent/alimentation/aliment
     AccueilCommercantComponent,
     HistoriqueMagazinComponent,
     AlimentationComponent,
-
+    NgbdDatepickerPopupComponent,
+    
   ],
   imports: [
+    NgbModule,
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     DashboardModule,
@@ -65,7 +75,15 @@ import {AlimentationComponent} from "./views/acceuil-parent/alimentation/aliment
     HttpClientModule,
     FormsModule,
     LayoutModule,
-
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatDatepickerModule,
+    MatIconModule,
+    MatMomentDateModule,
+    MatInputModule,
+    BrowserAnimationsModule,
+    MatTabsModule,
 
     RouterModule.forRoot([
       { path: 'KidsPay/Aceuilparent/AlimentationCompte', component: AlimentationComponent },

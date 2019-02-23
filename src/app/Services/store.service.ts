@@ -13,6 +13,7 @@ export class StoreService {
   store:Store
   listhist2: Historique[]=[];
   historique:Historique;
+  balance: any;
 
 
   
@@ -65,6 +66,23 @@ deleteStore(id:number){
     console.log(this.list, "list");
   })
 
+}
+
+getSolde(id:number){
+  this.http.get(this.rootURL+'userInfo/?iduser='+id).subscribe(resp => {
+   
+    console.log(resp['length'], "nb users:");
+    this.balance=0;
+    for (var i=0; i<Number(resp['length']); i++) {
+
+      // @ts-ignore
+      this.balance=0;
+      this.balance=resp[i]["fields"]["balance"];
+      
+    }
+    
+  })
+  console.log(this.balance, "balance:");
 }
 
 getHistoriqueByStore(id:number){

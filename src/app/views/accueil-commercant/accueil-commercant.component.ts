@@ -20,6 +20,7 @@ export class AccueilCommercantComponent implements OnInit {
 
   ngOnInit() {
     this.service.getallStoresbyid(this.commercantnumber);
+    this.service.getSolde(this.commercantnumber);
   }
 
 

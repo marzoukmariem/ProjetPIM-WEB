@@ -73,43 +73,44 @@
         <div class="container">
           <div class="row">
             <div class="col-md-10 offset-md-1">
-<table class="table table-hover">
-<thead class="thead-light">
-  <th>Nom</th>
-  <th>Prenom</th>
-  <th>Email</th>
-  <th>numTel</th>
-  <th>CIN</th>
-  <th>
-    <a class="btn btn-outline-success" routerLink="/KidsPay/AceuilAdmin/commercant" ><i class="fa fa-plus-square"></i> Create New</a>
-  </th>
-</thead>
+              <table class="table table-hover">
+                <thead class="thead-light">
+                  <th>Nom</th>
+                  <th>Prenom</th>
+                  <th>Email</th>
+                  <th>numTel</th>
+                  <th>CIN</th>
+                  <th>
+                    <a class="btn btn-outline-success" routerLink="/KidsPay/AceuilAdmin/commercant"><i
+                        class="fa fa-plus-square"></i> Create New</a>
+                  </th>
+                </thead>
 
-<tbody>
-  
-  <tr *ngFor="let item of commercantList">
-<td *ngIf="(item.role == 'commercant')" (click)="openForEdit(item.id)" >{{item.nom}}</td>
-<td *ngIf="(item.role == 'commercant')" (click)="openForEdit(item.id)">{{item.prenom}}</td>
-<td *ngIf="(item.role == 'commercant')" (click)="openForEdit(item.id)">{{item.email}}</td>
-<td *ngIf="(item.role == 'commercant')" (click)="openForEdit(item.id)">{{item.numTel}}</td>
-<td *ngIf="(item.role == 'commercant')" (click)="openForEdit(item.id)">{{item.cin}}</td>
-<td *ngIf="(item.role == 'commercant')">
-<a class="btn text-danger" (click)="onOrderDelete(item.id)" ><i class="fa fa-trash fa-lg"></i></a>
- 
-</td>
-  </tr>
-</tbody>
+                <tbody>
 
+                  <tr *ngFor="let item of commercantList">
+                    <td *ngIf="(item.role == 'commercant')" (click)="openForEdit(item.id)">{{item.nom}}</td>
+                    <td *ngIf="(item.role == 'commercant')" (click)="openForEdit(item.id)">{{item.prenom}}</td>
+                    <td *ngIf="(item.role == 'commercant')" (click)="openForEdit(item.id)">{{item.email}}</td>
+                    <td *ngIf="(item.role == 'commercant')" (click)="openForEdit(item.id)">{{item.numTel}}</td>
+                    <td *ngIf="(item.role == 'commercant')" (click)="openForEdit(item.id)">{{item.cin}}</td>
+                    <td *ngIf="(item.role == 'commercant')">
+                      <a class="btn text-danger" (click)="onOrderDelete(item.id)"><i class="fa fa-trash fa-lg"></i></a>
 
-</table>
-</div>
-</div>
-</div>
+                    </td>
+                  </tr>
+                </tbody>
 
 
-</div>
-</div>
-</div>
+              </table>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

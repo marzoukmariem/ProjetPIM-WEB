@@ -20,7 +20,7 @@ export class CommercantService {
   }
 
   getCommercantList(){
-    return this.http.get(environment.apiURL+'/users/').toPromise();
+    return this.http.get(environment.apiURL+'/commercants/').toPromise();
  }
 
  getCommercantById(id:number) :any{
