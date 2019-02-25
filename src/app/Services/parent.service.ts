@@ -13,7 +13,7 @@ export class ParentService {
   formData1: Parent;
   formData3: Parent;
   parent1: Parent ;
-
+  idenfant: number;
   Data: [any];
   list: Parent[] = [];
   list1: Parent[];
@@ -95,10 +95,12 @@ export class ParentService {
 
 
   }
+
+ // getenfantbyidparent(id: number) {this.http.get(this.rootURL + 'getefantbyidparent/?idparent=' + id ).subscribe(resp => {console.log() }); }
   deleteparent(id: number) {
     return this.http.delete(environment.apiURL + '/users/' + id + '/').toPromise();
   }
-  remplirform(id: number) {
+remplirform(id: number) {
 
     this.http.get(this.rootURL + 'users/' + id + '/').subscribe(resp => {
       console.log(resp.nom, 'nom');
@@ -119,10 +121,10 @@ export class ParentService {
     });
 
   }
-  updateparent(Data, id: number) {
+updateparent(Data, id: number) {
     return this.http.put(this.rootURL + 'users/' + id + '/', Data);
   }
-  updateparent2(idp: number, ide: number, Montant: number, password: String) {
+updateparent2(idp: number, ide: number, Montant: number, password: String) {
 this.http.get(this.rootURL + 'Alimentation/?idp=' + idp + '&ide=' + ide + '&montant=' + Montant + '&p=' + password + '').subscribe(response => {
   console.log(response.toString());
   if (response.toString() == '1') {alert(' Trasmssion a été éffectuer avec succées');
@@ -133,5 +135,7 @@ this.http.get(this.rootURL + 'Alimentation/?idp=' + idp + '&ide=' + ide + '&mont
 
 });
   }
+
+
 
 }

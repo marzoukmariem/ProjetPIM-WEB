@@ -1,13 +1,13 @@
 export class Parent {
- public id:number;
-  public nom :string;
-  public prenom :string;
-  public numTel:string;
-  public role:string;
-  public cin :string;
-  public email:string;
-  public password:string;
-  public Montant:number;
+ public id: number;
+  public nom: string;
+  public prenom: string;
+  public numTel: string;
+  public role: string;
+  public cin: string;
+  public email: string;
+  public password: string;
+  public Montant: number;
 
 
   set _Montant(value: number) {
