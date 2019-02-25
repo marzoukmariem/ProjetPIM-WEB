@@ -1,8 +1,8 @@
 export class Store {
 
-  StoreID:number
-  nom: string 
-  adresse: string
-  Commercant: number
+  public StoreID: number;
+  public nom: string;
+  public adresse: string;
+  public Commercant: number;
 
 }
