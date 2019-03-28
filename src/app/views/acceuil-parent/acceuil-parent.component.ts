@@ -46,7 +46,8 @@ s: number;
 
   ngOnInit() {
     this.service.getallenfantbyid(this.parentnumber);
-    this.service.getsommebyid(this.service.enfant.id);
+    this.s = this.service.enfant.id;
+    this.service.getsommebyid(this.s);
 
   }
 
