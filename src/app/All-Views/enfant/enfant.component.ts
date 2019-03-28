@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ParentService} from "../../Services/parent.service";
-import {EnfantService} from "../../Services/enfant.service";
-import {NgForm} from "@angular/forms";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ParentService} from '../../Services/parent.service';
+import {EnfantService} from '../../Services/enfant.service';
+import {NgForm} from '@angular/forms';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-enfant',
@@ -10,9 +10,9 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./enfant.component.css']
 })
 export class EnfantComponent implements OnInit {
-parentnumber:number
+parentnumber: number;
 
-  constructor(private service: EnfantService,private route: ActivatedRoute,private router: Router) {
+  constructor(private service: EnfantService, private route: ActivatedRoute, private router: Router) {
     this.route.queryParams.subscribe(params => {
       console.log(params); // {order: "popular"}
 
@@ -26,18 +26,19 @@ parentnumber:number
   }
 
   resetForm(form?: NgForm) {
-    if (form != null)
+    if (form != null) {
       form.resetForm();
+    }
     // @ts-ignore
     this.service.formData = {
       id: null,
       nom: '',
       prenom: '',
       solde: null,
-      idtag:'',
-      etatCompte:'',
+      idtag: '',
+      etatCompte: '',
       parent: null,
-    }
+    };
 
   }
 
@@ -46,28 +47,29 @@ parentnumber:number
       try {
 
 
-        let user = {
+        const user = {
           nom: this.service.formData.nom,
           prenom: this.service.formData.prenom,
           solde: 0,
           idtag: this.service.formData.idtag,
-          etatCompte:"active",
-          parent:this.parentnumber
-
-        }
+          etatCompte: '1',
+          parent: this.parentnumber,
+          code: '1234',
+          photo: 'hello'
+        };
 
 
         // console.log(author,"author")
         this.service.postenfant(user)
           .subscribe(resp => {
-              console.log(resp, "res");
-              alert('enfant a été ajouté avec succès')
-              this.router.navigate(['KidsPay/AceuilAdmin/parents'])
+              console.log(resp, 'res');
+              alert('enfant a été ajouté avec succès');
+              this.router.navigate(['KidsPay/AceuilAdmin/parents']);
 
             },
             error => {
-              console.log(error, "error");
-            })
+              console.log(error, 'error');
+            });
 
       } catch (e) {
         console.log(e);

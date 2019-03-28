@@ -1,5 +1,18 @@
-<html>
+<!--A Design by W3layouts
+   Author: W3layout
+   Author URL: http://w3layouts.com
+   License: Creative Commons Attribution 3.0 Unported
+   License URL: http://creativecommons.org/licenses/by/3.0/
+   -->
+<!DOCTYPE html>
+<html lang="zxx">
 <head>
+  <title>Baby Center Social Category Bootstrap Responsive Web Template | Home :: w3layouts</title>
+  <!--meta tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="Baby Center Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+         Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
   <script>
     addEventListener("load", function () {
       setTimeout(hideURLbar, 0);
@@ -9,108 +22,601 @@
       window.scrollTo(0, 1);
     }
   </script>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <!--booststrap-->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
+  <!--//booststrap end-->
+  <!-- font-awesome icons -->
+  <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+  <!-- //font-awesome icons -->
+  <!--stylesheets-->
+  <link href="assets/css/style.css" rel='stylesheet' type='text/css' media="all">
+  <!--//stylesheets-->
+  <link href="//fonts.googleapis.com/css?family=Dosis:400,500,600,700" rel="stylesheet">
+  <link href="//fonts.googleapis.com/css?family=Quicksand:400,500,700" rel="stylesheet">
 </head>
 <body>
-<header>
-  <nav>
-    <div class="menu-container">
-      <!-- Menu -->
-      <ul class="menu">
-        <li class="menu-apple">
-          <a href="#">
-            <span></span>
-          </a>
-        </li>
-        <li class="menu-apple">
-          <a href="#">
-            <span></span>
-          </a>
-        </li>
-        <li class="menu-apple">
-          <a href="#">
-            <span>Home</span>
-          </a>
-        </li>
-        <li class="menu-apple">
-          <a href="#">
-            <span>Mon compte</span>
-          </a>
-        </li>
-        <li class="menu-apple">
-          <a href="#">
-            <span></span>
-          </a>
-        </li>
+<div class="main-top" id="home">
+  <!-- header -->
+  <div class="headder-top">
+    <div class="container-fluid">
+      <!-- nav -->
+      <nav >
 
-        <li class="menu-iPad">
-          <a routerLink="/KidsPay/login" routerLinkActive="active">
-            <span>se déconnecter</span>
-          </a>
-        </li>
-      </ul>
+
+
+        <img src="assets/img/logoKidspay.png" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>Kids Pay</label>
+
+
+        <label for="drop" class="toggle">Menu</label>
+        <input type="checkbox" id="drop">
+        <ul class="menu mt-2">
+          <li class="active"><a href="index.html"></a></li>
+          <li class="mx-lg-3 mx-md-2 my-md-0 my-1"><a href="#about"></a></li>
+          <li><a href="#contact">Log out</a></li>
+          <li><a href="#service"></a></li>
+          <li><a href="#gallery"></a></li>
+          <li><a href="#blog"></a></li>
+
+        </ul>
+      </nav>
+      <!-- //nav -->
     </div>
-  </nav>
-</header>
-<div class="fade-screen"></div>
-<div class="w3layouts-main">
-  <div class="bg-layer">
-    <div class="jumbtron">
-      <h3 class="display-4 text-center"><img src="/assets/img/logoKidspay.png"></h3>
-      <br><br>
-      <hr>
-      <div class="row">
-        <div class="col-md-7">
-
-        <table class="table table-sm ">
-          <thead>
-          <th>Nom</th>
-          <th>Solde</th>
-          <th>idtag</th>
-          <th>Désactiver compte</th>
-          <th>Alimenter compte</th>
-          <th>Dépenses du Moi</th>
-          <th></th>
-                  </thead>
-          <tbody>
-          <tr *ngFor="let emp of service.list">
-            <td (click)="histo(emp.id)">{{emp.nom}} {{emp.prenom}}</td>
-            <td (click)="histo(emp.id)">{{emp.solde}}</td>
-            <td  (click)="histo(emp.id)" >{{emp.idtag}}</td>
-           
-<td>
-  <label class="switch">
-  <input #inputEl type="checkbox" [name]="label" [(ngModel)]="isChecked" (change)="onChange(inputEl.checked)"
-         *ngIf="isChecked" checked>
-    <input #inputEl type="checkbox" [name]="label" [(ngModel)]="isChecked" (change)="onChange(inputEl.checked)"
-           *ngIf="!isChecked" >
-  <span class="slider round"></span><span ></span ><br/>
-</label>
-  <span class="lbl-txt" *ngIf="label" >{{label}}</span>
-</td>
-            <td><a class="btn-outline-primary" >
-              <img src="/assets/img/carte.png" alt="carte" width="50" height="50"class="cartelogo" (click)="alimenter(emp.id)">
-
-            </a>
+  </div>
+  <!-- //header -->
+  <!-- banner -->
+  <div class="slider-img ">
+    <div class="container">
+      <div class="slider-info">
+        <div class="fade-screen"></div>
+        <div class="w3layouts-main">
+          <div class="bg-layer">
+            <div class="jumbtron">
 
 
-            </td>
-<td><label>{{this.service.somme}}</label>
+              <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+              <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+              <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+              <!------ Include the above in your HEAD tag ---------->
+
+              <link href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css" rel="stylesheet" media="screen">
+              <div class="container">
+                <div class="row user-menu-container square">
+                  <div class="col-md-7 user-details">
+                    <div class="row coralbg white">
+                      <div class="col-md-6 no-pad">
+                        <div class="user-pad" >
+                          <h3>Welcome  {{service1.formData4.nom}}{{service1.formData4.prenom}}</h3>
+                          <h3 class="white"><i class="fa fa-envelope-o "></i> {{service1.formData4.email}}</h3>
+                          <h3 class="white"><i class="fa fa-mobile"></i> {{service1.formData4.numTel}}</h3>
+
+                          <span class="btn-label"><i class="fa fa-pencil"></i></span> <a routerLink="/KidsPay/Aceuilparent/updateprofile" routerLinkActive="active" class="btn-label">Update</a>
+
+                        </div>
+                      </div>
+                      <div class="col-md-6 no-pad">
+                        <div class="user-image">
+                          <img src="http://localhost/kidspay/{{service1.formData4.photo}}" class="img-responsive thumbnail">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row overview">
+                      <div class="col-md-4 user-pad text-center">
+                        <h3>Your Solde</h3>
+                        <h4>{{service1.formData4.balance}} DT</h4>
+
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="col-md-1 user-menu-btns">
+                    <div class="btn-group-vertical square" id="responsive">
+                      <a class="btn btn-block btn-default active">
+                        <i class="fa fa-child fa-3x"></i>
+                      </a>
+
+                    </div>
+                  </div>
+                  <div class="col-md-4 user-menu user-pad">
+                    <div class="user-menu-content active">
+                      <h3>
+                        Your kids
+                      </h3>
+                      <div class="row">
+                                  <div class="col-md-6"  *ngFor="let emp of service.list">
+                          <div class="view">
+                            <div class="caption">
+                              <p>47LabsDesign</p>
+                              <a href="" rel="tooltip" title="Appreciate"><span class="fa fa-heart-o fa-2x"></span></a>
+                              <a href="" rel="tooltip" title="View"><span class="fa fa-search fa-2x"></span></a>
+                            </div>
+                            <img src="http://24.media.tumblr.com/273167b30c7af4437dcf14ed894b0768/tumblr_n5waxesawa1st5lhmo1_1280.jpg" class="img-responsive">
+                          </div>
+                          <div class="info">
+                            <p class="small" style="text-overflow: ellipsis">{{emp.nom}} {{emp.prenom}}</p>
+                            <p class="small coral text-right"><i class="fa fa-clock-o"></i> Solde: {{emp.solde}} DT        </p>
+                            <div class="meta" *ngFor="let item2 of this.service.listsum">
+                              <div *ngIf="(emp.id == item2.idstore )">
+
+                                <h5>Depenses par semaine : {{item2.prixcommande+' DT'}}</h5></div> </div>
+
+                          </div>
+
+                          <div class="stats turqbg">
+                            <span class="fa fa-heart-o">
+                              <div class="card-footer">
+
+                                <div class="icon pull-right">
+                                  <i class="fa fa-bars fa-fw fa-2x" aria-hidden="true" (click)="Detail(emp.id)"></i>
+                                  <i class="fa fa-credit-card fa-fw fa-2x" aria-hidden="true" (click)="alimenter(emp.id)"></i>
+                                  <i class="fa  fa-cog fa-fw fa-2x" aria-hidden="true" (click)="update(emp.id)"></i>
+                                </div>
+
+                              </div>
+
+                              </span>
+
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
 
 
-</td>
-          </tr>
-          </tbody>
-        </table>
+              <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+              <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+              <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+              <!------ Include the above in your HEAD tag ---------->
+
+              <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+            </div>
+          </div></div></div></div></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-warning card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">content_copy</i>
+            </div>
+            <p class="card-category">Used Space</p>
+            <h3 class="card-title">49/50
+              <small>GB</small>
+            </h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons text-danger">warning</i>
+              <a href="#pablo">Get More Space...</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-success card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">store</i>
+            </div>
+            <p class="card-category">Revenue</p>
+            <h3 class="card-title">$34,245</h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">date_range</i> Last 24 Hours
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-danger card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">info_outline</i>
+            </div>
+            <p class="card-category">Fixed Issues</p>
+            <h3 class="card-title">75</h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">local_offer</i> Tracked from Github
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-info card-header-icon">
+            <div class="card-icon">
+              <i class="fa fa-twitter"></i>
+            </div>
+            <p class="card-category">Followers</p>
+            <h3 class="card-title">+245</h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">update</i> Just Updated
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card card-chart">
+          <div class="card-header card-header-success">
+            <div class="ct-chart" id="dailySalesChart"></div>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">Daily Sales</h4>
+            <p class="card-category">
+              <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">access_time</i> updated 4 minutes ago
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-chart">
+          <div class="card-header card-header-warning">
+            <div class="ct-chart" id="websiteViewsChart"></div>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">Email Subscriptions</h4>
+            <p class="card-category">Last Campaign Performance</p>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">access_time</i> campaign sent 2 days ago
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-chart">
+          <div class="card-header card-header-danger">
+            <div class="ct-chart" id="completedTasksChart"></div>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">Completed Tasks</h4>
+            <p class="card-category">Last Campaign Performance</p>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">access_time</i> campaign sent 2 days ago
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-12">
+        <div class="card">
+          <div class="card-header card-header-tabs card-header-primary">
+            <div class="nav-tabs-navigation">
+              <div class="nav-tabs-wrapper">
+                <span class="nav-tabs-title">Tasks:</span>
+                <ul class="nav nav-tabs" data-tabs="tabs">
+                  <li class="nav-item">
+                    <a mat-button class="nav-link active" href="#profile" data-toggle="tab">
+                      <i class="material-icons">bug_report</i> Bugs
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a mat-button class="nav-link" href="#messages" data-toggle="tab">
+                      <i class="material-icons">code</i> Website
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a mat-button class="nav-link" href="#settings" data-toggle="tab">
+                      <i class="material-icons">cloud</i> Server
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="tab-content">
+              <div class="tab-pane active" id="profile">
+                <table class="table">
+                  <tbody>
+                  <tr>
+                    <td>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="checkbox" value="" checked>
+                          <span class="form-check-sign">
+                                                          <span class="check"></span>
+                                                      </span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>Sign contract for "What are conference organizers afraid of?"</td>
+                    <td class="td-actions text-right">
+                      <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                        <i class="material-icons">edit</i>
+                      </button>
+                      <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                        <i class="material-icons">close</i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="checkbox" value="">
+                          <span class="form-check-sign">
+                                                          <span class="check"></span>
+                                                      </span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>Lines From Great Russian Literature? Or E-mails From My Boss?</td>
+                    <td class="td-actions text-right">
+                      <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                        <i class="material-icons">edit</i>
+                      </button>
+                      <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                        <i class="material-icons">close</i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="checkbox" value="">
+                          <span class="form-check-sign">
+                                                          <span class="check"></span>
+                                                      </span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
+                    </td>
+                    <td class="td-actions text-right">
+                      <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                        <i class="material-icons">edit</i>
+                      </button>
+                      <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                        <i class="material-icons">close</i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="checkbox" value="" checked>
+                          <span class="form-check-sign">
+                                                          <span class="check"></span>
+                                                      </span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>Create 4 Invisible User Experiences you Never Knew About</td>
+                    <td class="td-actions text-right">
+                      <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                        <i class="material-icons">edit</i>
+                      </button>
+                      <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                        <i class="material-icons">close</i>
+                      </button>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="tab-pane" id="messages">
+                <table class="table">
+                  <tbody>
+                  <tr>
+                    <td>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="checkbox" value="" checked>
+                          <span class="form-check-sign">
+                                                          <span class="check"></span>
+                                                      </span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
+                    </td>
+                    <td class="td-actions text-right">
+                      <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                        <i class="material-icons">edit</i>
+                      </button>
+                      <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                        <i class="material-icons">close</i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="checkbox" value="">
+                          <span class="form-check-sign">
+                                                          <span class="check"></span>
+                                                      </span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>Sign contract for "What are conference organizers afraid of?"</td>
+                    <td class="td-actions text-right">
+                      <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                        <i class="material-icons">edit</i>
+                      </button>
+                      <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                        <i class="material-icons">close</i>
+                      </button>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="tab-pane" id="settings">
+                <table class="table">
+                  <tbody>
+                  <tr>
+                    <td>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="checkbox" value="">
+                          <span class="form-check-sign">
+                                                          <span class="check"></span>
+                                                      </span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>Lines From Great Russian Literature? Or E-mails From My Boss?</td>
+                    <td class="td-actions text-right">
+                      <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                        <i class="material-icons">edit</i>
+                      </button>
+                      <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                        <i class="material-icons">close</i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="checkbox" value="" checked>
+                          <span class="form-check-sign">
+                                                          <span class="check"></span>
+                                                      </span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
+                    </td>
+                    <td class="td-actions text-right">
+                      <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                        <i class="material-icons">edit</i>
+                      </button>
+                      <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                        <i class="material-icons">close</i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="checkbox" value="" checked>
+                          <span class="form-check-sign">
+                                                          <span class="check"></span>
+                                                      </span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>Sign contract for "What are conference organizers afraid of?"</td>
+                    <td class="td-actions text-right">
+                      <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                        <i class="material-icons">edit</i>
+                      </button>
+                      <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                        <i class="material-icons">close</i>
+                      </button>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <div class="card">
+          <div class="card-header card-header-warning">
+            <h4 class="card-title">Employees Stats</h4>
+            <p class="card-category">New employees on 15th September, 2016</p>
+          </div>
+          <div class="card-body table-responsive">
+            <table class="table table-hover">
+              <thead class="text-warning">
+              <th>ID</th>
+              <th>Name</th>
+              <th>Salary</th>
+              <th>Country</th>
+              </thead>
+              <tbody>
+              <tr>
+                <td>1</td>
+                <td>Dakota Rice</td>
+                <td>$36,738</td>
+                <td>Niger</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Minerva Hooper</td>
+                <td>$23,789</td>
+                <td>Curaçao</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Sage Rodriguez</td>
+                <td>$56,142</td>
+                <td>Netherlands</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Philip Chaney</td>
+                <td>$38,735</td>
+                <td>Korea, South</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-</body>
-</html>
+
+
+
+
+</body></html>
+
 
 

@@ -1,13 +1,30 @@
 export class User {
-  public id:number;
-  public nom :string;
-  public prenom :string;
-  public numTel:string;
-  public role:string;
-  public cin :string;
-  public email:string;
-  public password:string;
+  public id: number;
+  public nom: string;
+  public prenom: string;
+  public numTel: string;
+  public role: string;
+  public cin: string;
+  public email: string;
+  public password: string;
+  public photo: string;
+  public balance: number;
 
+  get _balance(): number {
+    return this.balance;
+  }
+
+  set _balance(value: number) {
+    this.balance = value;
+  }
+
+  set _photo(value: string) {
+    this.photo = value;
+  }
+
+  get _photo(): string {
+    return this._photo;
+  }
   get _id(): number {
     return this.id;
   }

@@ -4,6 +4,14 @@
 
 export const environment = {
   production: false,
+  firebaseConfig : {
+    apiKey: 'AIzaSyCH6nnPvkhLvSNyzH988cIiPPprst482RQ',
+    authDomain: 'projetpim-web.firebaseapp.com',
+    databaseURL: 'https://projetpim-web.firebaseio.com',
+    projectId: 'projetpim-web',
+    storageBucket: 'projetpim-web.appspot.com',
+    messagingSenderId: '990597631882'
+  },
   apiURL : 'http://localhost:8000/kidspay'
 };
 

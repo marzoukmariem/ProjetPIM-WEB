@@ -37,9 +37,24 @@ import {MatInputModule} from '@angular/material/input'
 import {MatMomentDateModule} from '@angular/material-moment-adapter'
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import {MatTabsModule} from '@angular/material/tabs'
-import {CommonModule} from '@angular/common';
+import {CommonModule, HashLocationStrategy, LocationStrategy} from '@angular/common';
 import { NgbdDatepickerPopupComponent } from './components/ngbd-datepicker-popup/ngbd-datepicker-popup.component'
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { AcceuilHomeComponent } from './views/acceuil-home/acceuil-home.component';
+import { ProfileUpdateComponent } from './views/profile-update/profile-update.component';
+import { AngularFireModule } from '@angular/fire';
+import {AngularFireStorage, AngularFireStorageModule} from '@angular/fire/storage';
+import { environment } from '../environments/environment';
+import {AngularFirestore, AngularFirestoreModule, FirestoreSettingsToken} from '@angular/fire/firestore';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {AngularFireDatabaseModule} from '@angular/fire/database-deprecated';
+import { EnfantUpdateComponent } from './views/enfant-update/enfant-update.component';
+import {EnfantService} from './Services/enfant.service';
+import {MatTooltipModule} from '@angular/material';
+import {ChartistModule} from 'ng-chartist';
+import { StatComponent } from './views/stat/stat.component';
+
+
 
 @NgModule({
   declarations: [
@@ -63,7 +78,10 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     HistoriqueMagazinComponent,
     AlimentationComponent,
     NgbdDatepickerPopupComponent,
-    
+    AcceuilHomeComponent,
+    ProfileUpdateComponent,
+    EnfantUpdateComponent,
+    StatComponent,
   ],
   imports: [
     NgbModule,
@@ -84,8 +102,24 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     MatInputModule,
     BrowserAnimationsModule,
     MatTabsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule.enablePersistence(),
+    AngularFirestoreModule,
+    FlexLayoutModule,
+    AngularFireDatabaseModule,
+    AngularFireStorageModule,
+    MatTooltipModule,
+    ChartistModule,
+    NgbModule,
+
+
+
 
     RouterModule.forRoot([
+      { path: 'KidsPay/Aceuilparent/stat', component: StatComponent },
+      { path: 'KidsPay/Aceuilparent/updateenfant', component: EnfantUpdateComponent },
+      { path: 'KidsPay/Aceuilparent/updateprofile', component: ProfileUpdateComponent },
+      { path: 'KidsPay/Acceuil', component: AcceuilHomeComponent },
       { path: 'KidsPay/Aceuilparent/AlimentationCompte', component: AlimentationComponent },
       { path: 'KidsPay/Aceuilparent/Historique', component: HistoriqueComponent },
       { path: 'KidsPay/AceuilAdmin/commercants', component: CommercantsComponent },
@@ -101,7 +135,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     ])
 
   ],
-  providers: [ParentService],
+  providers: [ParentService,  AngularFireStorage],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
