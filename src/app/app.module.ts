@@ -40,6 +40,10 @@ import {MatTabsModule} from '@angular/material/tabs'
 import {CommonModule} from '@angular/common';
 import { NgbdDatepickerPopupComponent } from './components/ngbd-datepicker-popup/ngbd-datepicker-popup.component'
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { ComponentsModule } from './components/components.module';
+
 
 @NgModule({
   declarations: [
@@ -63,6 +67,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     HistoriqueMagazinComponent,
     AlimentationComponent,
     NgbdDatepickerPopupComponent,
+    AdminLayoutComponent,
     
   ],
   imports: [
@@ -84,20 +89,21 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     MatInputModule,
     BrowserAnimationsModule,
     MatTabsModule,
-
+    MatTooltipModule,
+    ComponentsModule,
     RouterModule.forRoot([
       { path: 'KidsPay/Aceuilparent/AlimentationCompte', component: AlimentationComponent },
       { path: 'KidsPay/Aceuilparent/Historique', component: HistoriqueComponent },
       { path: 'KidsPay/AceuilAdmin/commercants', component: CommercantsComponent },
       { path: 'KidsPay/Aceuilcommercant/Historique', component: HistoriqueMagazinComponent },
-      { path: 'KidsPay/AceuilComerçant', component: AccueilCommercantComponent },
+      
       { path: 'KidsPay/Aceuilparent', component: AcceuilParentComponent },
       { path: 'KidsPay/AceuilAdmin/parents', component: ParentsComponent },
       { path: 'KidsPay/AceuilAdmin/parents/update', component: ParenteditComponent },
       { path: 'KidsPay/AceuilAdmin/parents/add', component: ParentaddComponent },
       { path: 'KidsPay/AceuilAdmin/parents/enfants', component: EnfantComponent },
       { path: 'KidsPay/AceuilAdmin', component: DashboardComponent },
-
+      
     ])
 
   ],

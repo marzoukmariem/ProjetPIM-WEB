@@ -4,6 +4,8 @@ import { CommercantsComponent } from './All-Views/commercants/commercants.compon
 import { CommercantComponent } from './All-Views/commercants/commercant/commercant.component';
 import { StoresComponent } from './All-Views/stores/stores.component';
 import { StoreComponent } from './All-Views/stores/store/store.component';
+import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+
 
 const routes: Routes = [
   {path: '', redirectTo: 'KidsPay/login', pathMatch: 'full'},
@@ -16,7 +18,15 @@ const routes: Routes = [
   {path: 'KidsPay/AceuilAdmin/store',children:[
     {path:'',component: StoreComponent},
     {path:'edit/:id', component:StoreComponent}
-  ]}
+  ]},
+  {
+    path: 'KidsPay/AceuilComerçant',
+    component: AdminLayoutComponent,
+    children: [
+        {
+      path: '',
+      loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
+  }]}
 ];
 
 @NgModule({

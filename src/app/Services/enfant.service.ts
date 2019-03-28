@@ -129,12 +129,12 @@ gethistoriquebyenfant(id: number) {
 
 
       this.historique = {
-
+        store:null,
         nommagasin: '',
         dateachat: null,
         prixcommande: null,
         adresse: '',
-
+        enfant:null
 
 
       };
