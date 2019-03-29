@@ -1,5 +1,5 @@
 export class Parent {
- public id: number;
+  public id: number;
   public nom: string;
   public prenom: string;
   public numTel: string;

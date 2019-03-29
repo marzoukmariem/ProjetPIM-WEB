@@ -1,0 +1,174 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                  <div class="card-header card-header-warning card-header-icon">
+                      <div class="card-icon">
+                          <i class="material-icons">store</i>
+                      </div>
+                      <p class="card-category">Nombre de Magazins</p>
+                      <h3 class="card-title">{{service.nbmagazins}}
+                          <small>Magazins</small>
+                      </h3>
+                  </div>
+                  <div class="card-footer">
+                      
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                  <div class="card-header card-header-success card-header-icon">
+                      <div class="card-icon">
+                          <i class="material-icons">attach_money</i>
+                      </div>
+                      <p class="card-category">Revenues</p>
+                      <h3 class="card-title">{{service.balance}} DT</h3>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons">date_range</i> Les dernieres 24 heureus
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                  <div class="card-header card-header-danger card-header-icon">
+                      <div class="card-icon">
+                          <i class="material-icons">stars</i>
+                      </div>
+                      <p class="card-category">Meilleur Magazin Cette Semaine</p>
+                      <h3 class="card-title">Carrefour</h3>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                  <div class="card-header card-header-info card-header-icon">
+                      <div class="card-icon">
+                            <i class="material-icons">person</i>
+                      </div>
+                      <p class="card-category">Nombre De Clients</p>
+                      <h3 class="card-title">{{service.nbtransaction}}</h3>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons">update</i> les dernieres 24 heures
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      <div class="row">
+          <div class="col-lg-6 col-md-12">
+                <div class="card">
+                        <div class="card-header card-header-success">
+                            <h4 class="card-title">Mes Magazins</h4>
+                            <p class="card-category">Tout Les Magazins</p>
+                        </div>
+                        <div class="card-body table-responsive">
+                            <table class="table table-hover">
+                                <thead class="text-warning">
+                                    
+                                    <th>Nom</th>
+                                   
+                                    <th>Adresse</th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let emp of service.list">
+                                        <td (click)="histo(emp.StoreID)">{{emp.nom}}</td>
+                                        <td (click)="histo(emp.StoreID)">{{emp.adresse}}</td>
+                                      </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+          </div>
+          <div class="col-lg-6 col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-warning">
+                      <h4 class="card-title">Transactions</h4>
+                      <p class="card-category">Les transactions les plus recentes</p>
+                  </div>
+                  <div class="card-body table-responsive">
+                      <table class="table table-hover">
+                          <thead class="text-warning">
+                              
+                              <th>Client</th>
+                              <th>Somme</th>
+                              <th>Magazin</th>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let emp of service.listhist3">
+                                <td>{{emp.enfant.nom}} {{emp.enfant.prenom}}</td>
+                                <td>{{emp.prixcommande}}</td>
+                                <td>{{emp.store.nom}}</td>
+                              </tr>
+                              
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+         
+      </div>
+      <div class="row">
+            <div class="col-md-4">
+                <div class="card card-chart">
+                    <div class="card-header card-header-success">
+                        <div class="ct-chart" id="dailySalesChart"></div>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">Revenues Par Jours</h4>
+                        <p class="card-category">
+                                Statistique ar rapport a tout les magazins</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">access_time</i> updated just now
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-chart">
+                    <div class="card-header card-header-warning">
+                        <div class="ct-chart" id="websiteViewsChart"></div>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">Nombre de Clients Par Jour</h4>
+                        <p class="card-category">Statistique ar rapport a tout les magazins</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">access_time</i> campaign sent 2 days ago
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-chart">
+                    <div class="card-header card-header-danger">
+                        <div class="ct-chart" id="completedTasksChart"></div>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">Completed Tasks</h4>
+                        <p class="card-category">updated just now</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">access_time</i> campaign sent 2 days ago
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  </div>
+</div>

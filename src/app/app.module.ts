@@ -53,6 +53,11 @@ import {EnfantService} from './Services/enfant.service';
 import {MatTooltipModule} from '@angular/material';
 import {ChartistModule} from 'ng-chartist';
 import { StatComponent } from './views/stat/stat.component';
+import {AdminLayoutComponent} from './layouts/admin-layout/admin-layout.component';
+import {FooterComponent} from './components/footer/footer.component';
+import {SidebarComponent} from './components/sidebar/sidebar.component';
+import {NavbarComponent} from './components/navbar/navbar.component';
+import {ComponentsModule} from './components/components.module';
 
 
 
@@ -82,6 +87,10 @@ import { StatComponent } from './views/stat/stat.component';
     ProfileUpdateComponent,
     EnfantUpdateComponent,
     StatComponent,
+    AdminLayoutComponent,
+    FooterComponent,
+    SidebarComponent,
+    NavbarComponent,
   ],
   imports: [
     NgbModule,
@@ -111,6 +120,7 @@ import { StatComponent } from './views/stat/stat.component';
     MatTooltipModule,
     ChartistModule,
     NgbModule,
+    
 
 
 
