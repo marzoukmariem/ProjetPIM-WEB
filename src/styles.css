@@ -5,6 +5,8 @@
 @import url(assets/dist/css/AdminLTE.min.css);
 @import url(assets/dist/css/skins/_all-skins.min.css);
 @import "assets/plugins/iCheck/square/blue.css";
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+
 /* You can add global styles to this file, and also import other style files */
 /*Loadnig*/
 

@@ -120,7 +120,7 @@ import {ComponentsModule} from './components/components.module';
     MatTooltipModule,
     ChartistModule,
     NgbModule,
-    
+
 
 
 
