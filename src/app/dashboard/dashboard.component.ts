@@ -542,6 +542,7 @@ export class DashboardComponent implements OnInit {
                                   }
                                 }
 
+                                console.log(this.maxS, "listeSommeParJour")
                                 console.log(this.listeSommeParJour, "listeSommeParJour")
                                 /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
 
