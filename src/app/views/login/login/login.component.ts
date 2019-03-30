@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   user1: User;
 
   Data: [any];
-  private test: [any];
+  private test:[any];
 
   set _test(value: [any]) {
     this._test = value;
@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router, private service: UserService
   ) {
-    this.list = [];
+    this.list=[];
 
   }
 
@@ -62,48 +62,38 @@ export class LoginComponent implements OnInit {
   }
 
   login(form?: NgForm) {
-    //this.service.toconnect(this.service.formData.email, this.service.formData.password).toPromise().then(res=>this.list=res as User[]);
+//this.service.toconnect(this.service.formData.email, this.service.formData.password).toPromise().then(res=>this.list=res as User[]);
     this.service.toconnect(this.service.formData.email, this.service.formData.password).subscribe(res => {
 
-      if (res["0"]["fields"]["role"] == "") {
-        alert("login ou mot de passse éronné")
-      } else {
+      if (res["0"]["fields"]["role"]=="") {
+      alert("login ou mot de passse éronné")
+    } else {
 
 
         this.service.toconnect(this.service.formData.email, this.service.formData.password).subscribe(resp => {
           console.log(resp, "res");
           console.log(resp["0"]["fields"]["role"], "role");
 
-          if (resp["0"]["fields"]["role"] == "parent") {
+          if (resp["0"]["fields"]["role"]=="parent") {
             console.log("hello parent", "heloo");
-            this.router.navigate(['KidsPay/Aceuilparent'], { queryParams: { idp: resp["0"]["pk"] } });
+            this.router.navigate(['KidsPay/Aceuilparent'], { queryParams: { idp: resp["0"]["pk"]} });
           }
           if (resp["0"]["fields"]["role"] == "commercant") {
             console.log("hello comercant", "comm");
 
             localStorage.setItem("token", resp["0"]["pk"]);
             console.log(localStorage.getItem("token"), "token");
-            
-            this.router.navigate(['KidsPay/AceuilComerçant/dashboard'], {
-              
-              queryParams: { idc: resp["0"]["pk"] } });
 
-          } if (resp["0"]["fields"]["role"] == "admin") {
+            this.router.navigate(['KidsPay/AceuilComerçant/dashboard'], {queryParams: { idc: resp["0"]["pk"] } });
+
+          } if (resp["0"]["fields"]["role"] == "admin"){
             console.log("hello admin", "heloo");
             this.router.navigate(['KidsPay/AceuilAdmin/']);
           }
 
 
         })
-      }
-    });
+      }});
 
 
-  }
-}
-
-
-
-
-
-
+  }}

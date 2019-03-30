@@ -37,12 +37,28 @@ import {MatInputModule} from '@angular/material/input'
 import {MatMomentDateModule} from '@angular/material-moment-adapter'
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import {MatTabsModule} from '@angular/material/tabs'
-import {CommonModule} from '@angular/common';
+import {CommonModule, HashLocationStrategy, LocationStrategy} from '@angular/common';
 import { NgbdDatepickerPopupComponent } from './components/ngbd-datepicker-popup/ngbd-datepicker-popup.component'
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {MatTooltipModule} from '@angular/material/tooltip';
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { ComponentsModule } from './components/components.module';
+import { AcceuilHomeComponent } from './views/acceuil-home/acceuil-home.component';
+import { ProfileUpdateComponent } from './views/profile-update/profile-update.component';
+import { AngularFireModule } from '@angular/fire';
+import {AngularFireStorage, AngularFireStorageModule} from '@angular/fire/storage';
+import { environment } from '../environments/environment';
+import {AngularFirestore, AngularFirestoreModule, FirestoreSettingsToken} from '@angular/fire/firestore';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {AngularFireDatabaseModule} from '@angular/fire/database-deprecated';
+import { EnfantUpdateComponent } from './views/enfant-update/enfant-update.component';
+import {EnfantService} from './Services/enfant.service';
+import {MatTooltipModule} from '@angular/material';
+import {ChartistModule} from 'ng-chartist';
+import { StatComponent } from './views/stat/stat.component';
+import {AdminLayoutComponent} from './layouts/admin-layout/admin-layout.component';
+import {FooterComponent} from './components/footer/footer.component';
+import {SidebarComponent} from './components/sidebar/sidebar.component';
+import {NavbarComponent} from './components/navbar/navbar.component';
+import {ComponentsModule} from './components/components.module';
+
 
 
 @NgModule({
@@ -67,8 +83,14 @@ import { ComponentsModule } from './components/components.module';
     HistoriqueMagazinComponent,
     AlimentationComponent,
     NgbdDatepickerPopupComponent,
+    AcceuilHomeComponent,
+    ProfileUpdateComponent,
+    EnfantUpdateComponent,
+    StatComponent,
     AdminLayoutComponent,
-    
+    FooterComponent,
+    SidebarComponent,
+    NavbarComponent,
   ],
   imports: [
     NgbModule,
@@ -89,25 +111,41 @@ import { ComponentsModule } from './components/components.module';
     MatInputModule,
     BrowserAnimationsModule,
     MatTabsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule.enablePersistence(),
+    AngularFirestoreModule,
+    FlexLayoutModule,
+    AngularFireDatabaseModule,
+    AngularFireStorageModule,
     MatTooltipModule,
-    ComponentsModule,
+    ChartistModule,
+    NgbModule,
+
+
+
+
+
     RouterModule.forRoot([
+      { path: 'KidsPay/Aceuilparent/stat', component: StatComponent },
+      { path: 'KidsPay/Aceuilparent/updateenfant', component: EnfantUpdateComponent },
+      { path: 'KidsPay/Aceuilparent/updateprofile', component: ProfileUpdateComponent },
+      { path: 'KidsPay/Acceuil', component: AcceuilHomeComponent },
       { path: 'KidsPay/Aceuilparent/AlimentationCompte', component: AlimentationComponent },
       { path: 'KidsPay/Aceuilparent/Historique', component: HistoriqueComponent },
       { path: 'KidsPay/AceuilAdmin/commercants', component: CommercantsComponent },
       { path: 'KidsPay/Aceuilcommercant/Historique', component: HistoriqueMagazinComponent },
-      
+      { path: 'KidsPay/AceuilComerçant', component: AccueilCommercantComponent },
       { path: 'KidsPay/Aceuilparent', component: AcceuilParentComponent },
       { path: 'KidsPay/AceuilAdmin/parents', component: ParentsComponent },
       { path: 'KidsPay/AceuilAdmin/parents/update', component: ParenteditComponent },
       { path: 'KidsPay/AceuilAdmin/parents/add', component: ParentaddComponent },
       { path: 'KidsPay/AceuilAdmin/parents/enfants', component: EnfantComponent },
       { path: 'KidsPay/AceuilAdmin', component: DashboardComponent },
-      
+
     ])
 
   ],
-  providers: [ParentService],
+  providers: [ParentService,  AngularFireStorage],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

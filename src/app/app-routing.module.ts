@@ -10,23 +10,23 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 const routes: Routes = [
   {path: '', redirectTo: 'KidsPay/login', pathMatch: 'full'},
   {path: 'KidsPay/AceuilAdmin/commercants', component: CommercantsComponent},
-  {path: 'KidsPay/AceuilAdmin/commercant',children:[
-    {path:'',component: CommercantComponent},
-    {path:'edit/:id', component:CommercantComponent}
-  ]},
+  {path: 'KidsPay/AceuilAdmin/commercant', children: [
+      {path: '', component: CommercantComponent},
+      {path: 'edit/:id', component: CommercantComponent}
+    ]},
   {path: 'KidsPay/AceuilAdmin/stores', component: StoresComponent},
-  {path: 'KidsPay/AceuilAdmin/store',children:[
-    {path:'',component: StoreComponent},
-    {path:'edit/:id', component:StoreComponent}
-  ]},
+  {path: 'KidsPay/AceuilAdmin/store', children: [
+      {path: '', component: StoreComponent},
+      {path: 'edit/:id', component: StoreComponent}
+    ]},
   {
     path: 'KidsPay/AceuilComerçant',
     component: AdminLayoutComponent,
     children: [
-        {
-      path: '',
-      loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
-  }]}
+      {
+        path: '',
+        loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
+      }]}
 ];
 
 @NgModule({

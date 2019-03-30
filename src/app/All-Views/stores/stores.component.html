@@ -89,7 +89,7 @@
                     <td (click)="openForEdit(item.id)">{{item.nom}}</td>
                     <td (click)="openForEdit(item.id)">{{item.adresse}}</td>
                     <td>
-                      <div *ngFor="let item2 of ownersList" class="divYo">
+                      <div *ngFor="let item2 of ownersList">
                     <td *ngIf="(item2.id == item.Commercant)" (click)="openForEdit(item.id)">
                       {{item2.nom+' '+ item2.prenom+' '+ '/ CIN:'+ item2.cin}}
             </div>

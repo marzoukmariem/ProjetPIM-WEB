@@ -63,13 +63,11 @@
                 <table class="table">
           <thead >
           <th>Date</th>
-          <th>Nom et Prenom du l'enfant</th>
           <th>Totale Achats</th>
           </thead>
           <tbody>
           <tr *ngFor="let emp of service.listhist2">
             <td >{{emp.dateachat}} </td>
-            <td >{{emp.enfant.nom}} {{emp.enfant.prenom}} </td>
             <td >{{emp.prixcommande}}</td>
           </tr>
           </tbody>

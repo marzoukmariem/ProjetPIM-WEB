@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+
+<body>
+
+
+<div class="container">
+
+    <form  id="contact"  #form="ngForm" autocomplete="off" *ngIf="service.formData1"  (submit)="onSubmit(form)">
+
+<div clas="imgcenter">
+
+  <img [src]="imageUrl"  style="width:250px;height:200px" class = "img-responsive" >
+  <input type="file"  (change)="featuredPhotoSelected($event)" >
+</div>
+
+
+
+      <fieldset>
+
+      <div class="wrap-input100 rs1 validate-input">
+        <input id="first-name" class="input100" type="text" name="first-name" placeholder="First name" #prenom="ngModel" [(ngModel)]="service.formData1.prenom">
+        <span class="focus-input100"></span>
+      </div>
+        </fieldset>
+      <div class="wrap-input100 rs1 validate-input">
+        <input class="input100" type="text" name="last-name" placeholder="Last name" #nom="ngModel" [(ngModel)]="service.formData1.nom">
+        <span class="focus-input100"></span>
+      </div>
+
+
+
+      <div class="wrap-input100 rs1 validate-input">
+        <input id="phone" class="input100" type="text" name="phone" placeholder="Eg. +216000000" #numTel="ngModel" [(ngModel)]="service.formData1.numTel">
+        <span class="focus-input100"></span>
+      </div>
+
+      <div class="wrap-input100 rs1 validate-input">
+        <input class="input100" type="text" name="CIN" placeholder="CIN" #cin="ngModel" [(ngModel)]="service.formData1.cin">
+        <span class="focus-input100"></span>
+      </div>
+      <div class="wrap-input100 rs1 validate-input">
+        <input class="input100" type="email" name="CIN" placeholder="CIN" #email="ngModel" [(ngModel)]="service.formData1.email">
+        <span class="focus-input100"></span>
+      </div>
+      <div class="wrap-input100 rs1 validate-input">
+        <input class="input100" type="password" name="CIN" placeholder="CIN" #password="ngModel" [(ngModel)]="service.formData1.password">
+        <span class="focus-input100"></span>
+      </div>
+
+
+
+        <button d="contact-submit" type="submit">
+						<span>
+							update
+
+						</span>
+        </button>
+
+    </form>
+
+</div>
+
+
+
+<!--===============================================================================================-->
+<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/bootstrap/js/popper.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/daterangepicker/moment.min.js"></script>
+<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+<script src="js/main.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+</body>
+</html>

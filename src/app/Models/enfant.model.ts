@@ -1,16 +1,34 @@
 export class Enfant {
- public id:number;
+  public id:number;
   public nom :string;
   public prenom :string;
   public solde :number;
   public idtag:string;
   public etatCompte:string;
   public parent:number;
+  public code:string;
+  public photo: string;
 
+
+  set _photo(value: string) {
+    this.photo = value;
+  }
+
+  get _photo(): string {
+    return this._photo;
+  }
   get _idtag(): string {
     return this.idtag;
   }
 
+
+  set _code(value: string) {
+    this.code = value;
+  }
+
+  get _code(): string {
+    return this.code;
+  }
 
   get _etatCompte(): string {
     return this._etatCompte;

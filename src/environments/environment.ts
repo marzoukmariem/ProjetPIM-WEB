@@ -4,11 +4,16 @@
 
 export const environment = {
   production: false,
-  apiURL : 'http://localhost:8000/kidspay',
-  
+  firebaseConfig : {
+    apiKey: 'AIzaSyCH6nnPvkhLvSNyzH988cIiPPprst482RQ',
+    authDomain: 'projetpim-web.firebaseapp.com',
+    databaseURL: 'https://projetpim-web.firebaseio.com',
+    projectId: 'projetpim-web',
+    storageBucket: 'projetpim-web.appspot.com',
+    messagingSenderId: '990597631882'
+  },
+  apiURL : 'http://localhost:8000/kidspay'
 };
-
-
 
 /*
  * For easier debugging in development mode, you can import the following file
