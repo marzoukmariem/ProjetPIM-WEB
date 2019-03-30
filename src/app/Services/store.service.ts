@@ -278,7 +278,7 @@ export class StoreService {
 
               }
 
-              if(this.historique3.store!=null){
+              if(this.historique3.store!=null && this.historique3.store.Commercant==id){
                 this.listhist3.push(this.historique3);
               }
               
