@@ -54,6 +54,8 @@ import {MatTooltipModule} from '@angular/material';
 import {ChartistModule} from 'ng-chartist';
 import { StatComponent } from './views/stat/stat.component';
 import {AdminLayoutComponent} from './layouts/admin-layout/admin-layout.component';
+import {AdminLayoutComponent2} from './layouts/admin-layout2/admin-layout.component2';
+
 import {FooterComponent} from './components/footer/footer.component';
 import {SidebarComponent} from './components/sidebar/sidebar.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
@@ -88,6 +90,7 @@ import {ComponentsModule} from './components/components.module';
     EnfantUpdateComponent,
     StatComponent,
     AdminLayoutComponent,
+    AdminLayoutComponent2,
     FooterComponent,
     SidebarComponent,
     NavbarComponent,
@@ -133,8 +136,6 @@ import {ComponentsModule} from './components/components.module';
       { path: 'KidsPay/Aceuilparent/AlimentationCompte', component: AlimentationComponent },
       { path: 'KidsPay/Aceuilparent/Historique', component: HistoriqueComponent },
       { path: 'KidsPay/AceuilAdmin/commercants', component: CommercantsComponent },
-      { path: 'KidsPay/Aceuilcommercant/Historique', component: HistoriqueMagazinComponent },
-      { path: 'KidsPay/AceuilComerçant', component: AccueilCommercantComponent },
       { path: 'KidsPay/Aceuilparent', component: AcceuilParentComponent },
       { path: 'KidsPay/AceuilAdmin/parents', component: ParentsComponent },
       { path: 'KidsPay/AceuilAdmin/parents/update', component: ParenteditComponent },

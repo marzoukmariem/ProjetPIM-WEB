@@ -5,6 +5,7 @@ import { CommercantComponent } from './All-Views/commercants/commercant/commerca
 import { StoresComponent } from './All-Views/stores/stores.component';
 import { StoreComponent } from './All-Views/stores/store/store.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { AdminLayoutComponent2 } from './layouts/admin-layout2/admin-layout.component2';
 
 
 const routes: Routes = [
@@ -26,7 +27,15 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
-      }]}
+      }]},
+      {
+        path: 'KidsPay/Aceuilcommercant/Historique',
+        component: AdminLayoutComponent2,
+        children: [
+          {
+            path: '',
+            loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
+          }]}
 ];
 
 @NgModule({
