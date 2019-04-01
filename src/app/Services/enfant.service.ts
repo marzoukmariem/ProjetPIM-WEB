@@ -187,6 +187,7 @@ export class EnfantService {
         this.idenf = resp[i].pk;
         console.log(' id enf n :' + i, this.idenf);
         this.http.get(environment.apiURL + '/somme/?idenfant=' + this.idenf).subscribe(resp1 => {
+           // @ts-ignore
           this.historiquesum = {
             idstore: null,
             nommagasin: '',
@@ -194,6 +195,7 @@ export class EnfantService {
             prixcommande: null,
             adresse: '',
           };
+           // @ts-ignore
           this.historiquesum1 = {
             idstore: null,
             nommagasin: '',
@@ -320,7 +322,7 @@ gethistoriquebyenfant(id: number) {
     // @ts-ignore
     for (let i = 0; i < Number(resp.length); i++) {
 
-
+ // @ts-ignore
       this.historique = {
         idstore: null,
         nommagasin: '',

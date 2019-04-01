@@ -3,81 +3,54 @@
       <div class="row">
           <div class="col-md-8">
               <div class="card">
-                  <div class="card-header card-header-danger">
-                      <h4 class="card-title">Edit Profile</h4>
-                      <p class="card-category">Complete your profile</p>
+                  <div class="card-header card-header-info">
+                      <h4 class="card-title">Mes Informations</h4>
+                      <p class="card-category"></p>
                   </div>
                   <div class="card-body">
                       <form>
                           <div class="row">
-                              <div class="col-md-5">
+                              <div class="col-md-6">
                                 <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Company (disabled)" disabled>
+                                    <input matInput placeholder="Nom" disabled > {{user1.nom}}
                                   </mat-form-field>
                               </div>
-                              <div class="col-md-3">
+                              <div class="col-md-6">
                                   <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Username">
-                                  </mat-form-field>
-                              </div>
-                              <div class="col-md-4">
-                                  <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Email address" type="email">
+                                    <input matInput placeholder="Prenom" disabled> {{user1.prenom}}
                                   </mat-form-field>
                               </div>
                           </div>
                           <div class="row">
                               <div class="col-md-6">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Fist Name" type="text">
+                                <mat-form-field class="example-full-width" >
+                                  <input matInput placeholder="Adresse Email" type="text" disabled>{{user1.email}}
                                 </mat-form-field>
                               </div>
                               <div class="col-md-6">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Last Name" type="text">
+                                <mat-form-field class="example-full-width" >
+                                  <input matInput placeholder="Numero de Telephone" type="text" disabled>{{user1.numTel}}
                                 </mat-form-field>
                               </div>
                           </div>
                           <div class="row">
-                              <div class="col-md-12">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Adress" type="text">
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width" >
+                                  <input matInput placeholder="Role" type="text" disabled>commercant
                                 </mat-form-field>
                               </div>
+                                <div class="col-md-6">
+                                  <mat-form-field class="example-full-width" >
+                                    <input matInput placeholder="Mot De Passe" type="text" disabled> *********
+                                  </mat-form-field>
+                              
                           </div>
-                          <div class="row">
-                              <div class="col-md-4">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="City" type="text">
-                                </mat-form-field>
-                              </div>
-                              <div class="col-md-4">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Country" type="text">
-                                </mat-form-field>
-                              </div>
-                              <div class="col-md-4">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Postal Code" type="text">
-                                </mat-form-field>
-                              </div>
+                          
+                              
+                              
                           </div>
-                          <div class="row">
-                              <div class="col-md-12">
-                                <label>About Me</label>
-                                <mat-form-field class="example-full-width">
-                                   <textarea matInput placeholder="Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo."></textarea>
-                                 </mat-form-field>
-                                  <!-- <div class="form-group">
-
-                                      <div class="form-group">
-                                          <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
-                                          <textarea class="form-control" rows="5"></textarea>
-                                      </div>
-                                  </div> -->
-                              </div>
-                          </div>
-                          <button mat-raised-button type="submit" class="btn btn-danger pull-right">Update Profile</button>
+                         
+                          
                           <div class="clearfix"></div>
                       </form>
                   </div>
@@ -86,17 +59,17 @@
           <div class="col-md-4">
               <div class="card card-profile">
                   <div class="card-avatar">
-                      <a href="#pablo">
-                          <img class="img" src="./assets/img/faces/marc.jpg" />
-                      </a>
+                      
+                          <img class="img" src="./assets/img/faces/Untitled.png" />
+                    
                   </div>
                   <div class="card-body">
-                      <h6 class="card-category text-gray">CEO / Co-Founder</h6>
-                      <h4 class="card-title">Alec Thompson</h4>
+                      <h6 class="card-category text-gray">balance: {{balance}} DT</h6>
+                      <h4 class="card-title">{{user1.nom}} {{user1.prenom}}</h4>
                       <p class="card-description">
-                          Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                       Pour toute modification de vos informations. veuillez contacter l'admin
                       </p>
-                      <a href="#pablo" class="btn btn-danger btn-round">Follow</a>
+                      
                   </div>
               </div>
           </div>

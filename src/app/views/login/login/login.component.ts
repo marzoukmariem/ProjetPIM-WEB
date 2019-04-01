@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
-import {HttpClient} from "@angular/common/http";
-import {EnfantService} from "../../../Services/enfant.service";
-import {UserService} from "../../../Services/user.service";
-import {NgForm} from "@angular/forms";
-import {User} from "../../../Models/user.model";
-import {Parent} from "../../../Models/parent.model";
-
+import { Router } from '@angular/router';
+import { HttpClient } from "@angular/common/http";
+import { EnfantService } from "../../../Services/enfant.service";
+import { UserService } from "../../../Services/user.service";
+import { NgForm } from "@angular/forms";
+import { User } from "../../../Models/user.model";
+import { Parent } from "../../../Models/parent.model";
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -14,8 +14,9 @@ import {Parent} from "../../../Models/parent.model";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  list:User[];
-  user1:User;
+  static idcommercantGlobal
+  list: User[];
+  user1: User;
 
   Data: [any];
   private test:[any];
@@ -79,7 +80,11 @@ export class LoginComponent implements OnInit {
           }
           if (resp["0"]["fields"]["role"] == "commercant") {
             console.log("hello comercant", "comm");
-            this.router.navigate(['KidsPay/AceuilComerçant'],{ queryParams: { idc: resp["0"]["pk"]} });
+
+            localStorage.setItem("token", resp["0"]["pk"]);
+            console.log(localStorage.getItem("token"), "token");
+
+            this.router.navigate(['KidsPay/AceuilComerçant/dashboard'], {queryParams: { idc: resp["0"]["pk"] } });
 
           } if (resp["0"]["fields"]["role"] == "admin"){
             console.log("hello admin", "heloo");
@@ -92,9 +97,3 @@ export class LoginComponent implements OnInit {
 
 
   }}
-
-
-
-
-
-
