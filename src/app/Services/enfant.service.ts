@@ -253,6 +253,7 @@ getallenfantbyid(id: number) {
           idtag: '',
           etatCompte: '',
           parent: null,
+          photo: ''
         };
         this.enfant.id = resp[i].pk;
         this.enfant.nom = resp[i].fields.nom;
@@ -260,6 +261,7 @@ getallenfantbyid(id: number) {
         this.enfant.solde = resp[i].fields.solde;
         this.enfant.idtag = resp[i].fields.idtag;
         this.enfant.etatCompte = resp[i].fields.etatCompte;
+        this.enfant.photo = resp[i].fields.photo;
 
 
         this.list.push(this.enfant);
