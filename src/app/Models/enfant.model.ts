@@ -1,12 +1,12 @@
 export class Enfant {
-  public id:number;
-  public nom :string;
-  public prenom :string;
-  public solde :number;
-  public idtag:string;
-  public etatCompte:string;
-  public parent:number;
-  public code:string;
+  public id: number;
+  public nom: string;
+  public prenom: string;
+  public solde: number;
+  public idtag: string;
+  public etatCompte: string;
+  public parent: number;
+  public code: string;
   public photo: string;
 
 
