@@ -7,5 +7,5 @@ export class Commercant {
   cin : string
   email : string
   password: string
-
+  
 }

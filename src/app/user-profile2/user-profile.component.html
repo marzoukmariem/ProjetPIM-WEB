@@ -1,0 +1,92 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-info">
+                        <h4 class="card-title">Produits inscrits</h4>
+                        <p class="card-category"></p>
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead class=" text-info">
+                                <th>Photo</th>
+                                <th>Nom</th>
+                                <th>Genre</th>
+                                <th>Code</th>
+                                <th>modifier</th>
+                                <th>supprimer</th>
+
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let emp of service.list2">
+
+                                    <td>
+
+
+                                        <img class="img" src="http://localhost/kidspay/{{emp.photo}}" />
+
+                                    </td>
+                                    <td> {{emp.nom }}</td>
+                                    <td>{{emp.genre }} </td>
+                                    <td> {{emp.code }}</td>
+                                    
+                                          <td>
+                                                <button type="button" class="btn btn-outline-secondary"><i class="fa fa-edit fa-lg"></i></button>
+                                          </td><td>
+                                                <button type="button" class="btn btn-outline-secondary"><i class="fa fa-trash fa-lg"></i></button>
+                                                  </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-profile">
+                    <div class="card-avatar">
+
+                        <img class="img" [src]="imageUrl" />
+
+                    </div>
+                    <h6 class="card-category text-gray">click to add a new product picture</h6>
+                    <div class="card-body">
+                        <input type="file" (change)="featuredPhotoSelected($event)">
+                        <form id="contact" #form="ngForm" autocomplete="off" *ngIf="service.formData1"
+                            (submit)="onSubmit(form)">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput name="nom" placeholder="Product Name" #nom="ngModel"
+                                            [(ngModel)]="service.formData1.nom">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput name="code" placeholder="Code" #code="ngModel"
+                                            [(ngModel)]="service.formData1.code">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-9">
+
+                                    <select name="genre" #genre="ngModel" [(ngModel)]="service.formData1.genre" class="form-control">
+                                        <option value="autre">-Genre-</option>
+                                        <option value="boisson">Boisson</option>
+                                        <option value="autre">autres</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right">Ajouter</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
