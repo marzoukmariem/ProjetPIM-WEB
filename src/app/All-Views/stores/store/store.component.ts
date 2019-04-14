@@ -78,12 +78,17 @@ this.service.formData = res
         this.lat= position.coords.latitude
         this.lng= position.coords.longitude
         this.map.flyTo({
-          center:[this.lng,this.lat]
+          center:[position.coords.longitude,position.coords.latitude]
         })
+        this.marker
+      .setLngLat([position.coords.longitude, position.coords.latitude])
+      .addTo(this.map);
       })
     }
 
     this.buildMap()
+
+    
   }
   buildMap(){
     this.map = new mapboxgl.Map({
