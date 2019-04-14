@@ -60,6 +60,7 @@ import {FooterComponent} from './components/footer/footer.component';
 import {SidebarComponent} from './components/sidebar/sidebar.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
 import {ComponentsModule} from './components/components.module';
+import { DetailCommandeComponent } from './All-Views/detail-commande/detail-commande.component';
 
 
 
@@ -94,6 +95,7 @@ import {ComponentsModule} from './components/components.module';
     FooterComponent,
     SidebarComponent,
     NavbarComponent,
+    DetailCommandeComponent,
   ],
   imports: [
     NgbModule,
@@ -129,6 +131,7 @@ import {ComponentsModule} from './components/components.module';
 
 
     RouterModule.forRoot([
+      { path: 'KidsPay/Aceuilparent/Historique/Commandedetail', component: DetailCommandeComponent },
       { path: 'KidsPay/Aceuilparent/stat', component: StatComponent },
       { path: 'KidsPay/Aceuilparent/updateenfant', component: EnfantUpdateComponent },
       { path: 'KidsPay/Aceuilparent/updateprofile', component: ProfileUpdateComponent },

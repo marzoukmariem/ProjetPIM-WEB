@@ -36,7 +36,7 @@
               </thead>
               <tbody>
               <tr *ngFor="let emp of service.listhist2">
-                <td>{{emp.dateachat.substr(0,10)}} à<br>{{emp.dateachat.substr(11,18).substr(0,2)}}h{{emp.dateachat.substr(11,18).substr(2,3)}} min</td>
+                <td (click)="detail(emp.id)" >{{emp.dateachat.substr(0,10)}} à<br>{{emp.dateachat.substr(11,18).substr(0,2)}}h{{emp.dateachat.substr(11,18).substr(2,3)}} min</td>
                 <div *ngFor="let item2 of this.service.lisstores">
                   <td  *ngIf="(emp.idstore == item2.StoreID )">
                      {{item2.nom}}&nbsp; :&nbsp;{{ item2.adresse}}</td> </div>

@@ -308,10 +308,12 @@ getsommebyid(id: number) {
 
     }
 activercompteenfant(id: number) {
-    this.http.get(environment.apiURL + '/ActiverCompteEnfant/?idEnfant=' + id).subscribe(resp => { console.log('hello from service activer'); });
+    this.http.get(environment.apiURL + '/ActiverCompteEnfant/?idEnfant=' + id)
+      .subscribe(resp => { console.log('hello from service activer'); });
   }
 Desactivercompteenfant(id: number) {
-    this.http.get(environment.apiURL + '/DesactiverCompteEnfant/?idEnfant=' + id).subscribe(resp => {console.log('hello from service desactiver'); });
+    this.http.get(environment.apiURL + '/DesactiverCompteEnfant/?idEnfant=' + id)
+      .subscribe(resp => {console.log('hello from service desactiver'); });
   }
 gethistoriquebyenfant(id: number) {
 
@@ -326,6 +328,7 @@ gethistoriquebyenfant(id: number) {
 
  // @ts-ignore
       this.historique = {
+        id: null,
         idstore: null,
         nommagasin: '',
         dateachat: null,
@@ -363,7 +366,7 @@ gethistoriquebyenfant(id: number) {
 
 
 
-
+      this.historique.id = resp[i].pk;
       this.historique.dateachat = resp[i].fields.dateCommande;
 
       this.historique.prixcommande = resp[i].fields.prixTotal;
