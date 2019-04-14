@@ -4,15 +4,20 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Historique } from '../Models/historique.model';
 import { Enfant } from '../Models/enfant.model';
+import { Product } from '../Models/product.model.';
 @Injectable({
   providedIn: 'root'
 })
 export class StoreService {
+  formData1: Product;
   formData: Store
   readonly rootURL = "http://localhost:8000/kidspay/"
   list: Store[] = [];
+  list2: Product[] = [];
+
   listeEnfant2: Enfant[] = [];
   store: Store
+  product: Product
   store2: Store
   listhist2: Historique[] = [];
   listhist3: Historique[] = [];
@@ -27,10 +32,21 @@ export class StoreService {
   enfant2: Enfant;
   listeLastTransactionsRecentes: Historique[] = []
   enfant3: Enfant;
+  k:number=0;
+
+  
 
 
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    // @ts-ignore
+    this.formData1 = {
+      id: null,
+      nom: '',
+      genre:'',
+      code:'',
+      Store:null
+    };
+   }
 
   saveOrUpdateStore() {
     var body = {
@@ -81,11 +97,40 @@ export class StoreService {
 
   }
 
+
+  getProductsByStore(id: number): any {
+    this.http.get(this.rootURL + 'getproductsbystore/?idstore=' + id).subscribe(resp => {
+      console.log(resp, "nb elment");
+      //console.log(resp['length'], "nb elment");
+
+      this.list2 = []
+      for (var i = 0; i < Number(resp['length']); i++) {
+
+        // @ts-ignore
+        this.product = {
+          id: null,
+          nom: "",
+          photo: "",
+          Store: null,
+          code:""
+        }
+        this.product.id = resp[i]["pk"];
+        this.product.nom = resp[i]["fields"]["nom"];
+        this.product.photo = resp[i]["fields"]["photo"];
+        this.product.Store = resp[i]["fields"]["Store"];
+        this.product.code = resp[i]["fields"]["code"];
+        this.product.genre = resp[i]["fields"]["genre"];
+        this.list2.push(this.product);
+      }
+      //console.log(this.list, "list");
+    })
+  }
+
   getNumberOfTransactions(id: number) {
     this.nbtransaction = 0;
     this.http.get(this.rootURL + 'getStoreByIdCommercant/?idCommercant=' + id).subscribe(resp => {
       for (var i = 0; i < Number(resp['length']); i++) {
-
+// @ts-ignore
         this.store = {
           StoreID: null,
           nom: "",
@@ -204,6 +249,7 @@ export class StoreService {
 
 
   getLastTransactions(id: number) {
+    this.k=0
     this.listeEnfant2 = []
     this.listeStore2 = []
     this.listhist3 = []
@@ -278,8 +324,10 @@ export class StoreService {
 
               }
 
-              if(this.historique3.store!=null && this.historique3.store.Commercant==id){
+              if(this.historique3.store!=null && this.historique3.store.Commercant==id&&this.k<3){
                 this.listhist3.push(this.historique3);
+                this.k++
+                console.log(this.k,'k')
               }
               
 
@@ -295,7 +343,9 @@ export class StoreService {
   }
 
 
-
+  ajoutProduit(Data) {
+    return this.http.post(environment.apiURL + '/produits/'  , Data);
+  }
 
 
 }

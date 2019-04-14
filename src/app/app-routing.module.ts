@@ -30,7 +30,7 @@ const routes: Routes = [
       }]},
       {
         path: 'KidsPay/Aceuilcommercant/Historique',
-        component: AdminLayoutComponent2,
+        component: AdminLayoutComponent,
         children: [
           {
             path: '',

@@ -62,38 +62,38 @@
   <div class="container">
       <div class="row">
           <div class="col-md-10 offset-md-1">
-<form #form="ngForm" autocomplete="off" *ngIf="service.formData" (submit)="onSubmit(form)">
+<form id="contact" #form="ngForm" autocomplete="off" *ngIf="service.formData" (submit)="onSubmit(form)">
  <input type="hidden" name ="CommercantID" #prenom="ngModel" [(ngModel)]="service.formData.id">
   <div class="row">
     <div class="col-md-6">
       <div class="form-group">
         <label>Nom</label>
-        <input name ="nom" #nom="ngModel" [(ngModel)]="service.formData.nom" class="form-control">
+        <input type="text" name ="nom" #nom="ngModel" [(ngModel)]="service.formData.nom" class="form-control">
       </div>
       <div class="form-group">
         <label>Prenom</label>
-        <input name ="prenom" #prenom="ngModel" [(ngModel)]="service.formData.prenom" class="form-control">
+        <input type="text" name ="prenom" #prenom="ngModel" [(ngModel)]="service.formData.prenom" class="form-control">
       </div>
       <div class="form-group">
         <label>E-mail</label>
-        <input name ="email" #email="ngModel" [(ngModel)]="service.formData.email" class="form-control">
+        <input type="text" name ="email" #email="ngModel" [(ngModel)]="service.formData.email" class="form-control">
       </div>
     </div>
     <div class="col-md-6">
       <div class="form-group">
         <label>Numero</label>
-        <input name ="numTel" #numTel="ngModel" [(ngModel)]="service.formData.numTel" class="form-control">
+        <input type="text" name ="numTel" #numTel="ngModel" [(ngModel)]="service.formData.numTel" class="form-control">
       </div>
-      <div class="form-group">
-        <input type="hidden" name ="role" #role="ngModel" [(ngModel)]="service.formData.role" class="form-control" readonly>
-      </div>
+      
       <div class="form-group">
         <label>CIN</label>
-        <input name ="cin" #cin="ngModel" [(ngModel)]="service.formData.cin" class="form-control">
+        
+        <input type="text" type="text"  name ="cin" #cin="ngModel" [(ngModel)]="service.formData.cin" class="form-control">
+      
       </div>
       <div class="form-group">
         <label>Password</label>
-        <input name ="password" #password="ngModel" [(ngModel)]="service.formData.password" class="form-control">
+        <input type="text" name ="password" #password="ngModel" [(ngModel)]="service.formData.password" class="form-control">
       </div>
     </div>
   </div>

@@ -37,7 +37,7 @@ export class CommercantComponent implements OnInit {
       role:'commercant',
       cin:'',
       email:'',
-      password:''
+      password:'',
     }
   }
 
@@ -46,7 +46,7 @@ export class CommercantComponent implements OnInit {
     this.service.saveOrUpdateCommercant().subscribe(res =>{
       this.resetForm();
       alert('Submittedsuccessfully')
-      this.router.navigate(['/AceuilAdmin/commercants'])
+      this.router.navigate(['KidsPay/AceuilAdmin/commercants'])
     })
   }
 

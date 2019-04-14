@@ -63,7 +63,6 @@ import {ComponentsModule} from './components/components.module';
 import { DetailCommandeComponent } from './All-Views/detail-commande/detail-commande.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -125,7 +124,7 @@ import { DetailCommandeComponent } from './All-Views/detail-commande/detail-comm
     MatTooltipModule,
     ChartistModule,
     NgbModule,
-
+    
 
 
 

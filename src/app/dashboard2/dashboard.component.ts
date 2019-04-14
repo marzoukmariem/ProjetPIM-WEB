@@ -13,7 +13,7 @@ import { Historique } from '../Models/historique.model';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent2 implements OnInit {
   store0: Store
   listeStore0: Store[] = [];
   historique3: Historique;
@@ -40,7 +40,6 @@ export class DashboardComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.commercantnumber = params.idc;
       console.log('id:' + this.commercantnumber); // popular
-      this.commercantnumber =+localStorage.getItem("token");
 
 
     })
@@ -548,7 +547,7 @@ export class DashboardComponent implements OnInit {
                                 /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
 
                                 const dataDailySalesChart: any = {
-                                  labels: ['', '', '', '', '', "aujourd'hui",'' ],
+                                  labels: ['', '', '', '', '', "aujourd'hui", ''],
                                   series: [
                                     [this.nbrClientParJour6, this.nbrClientParJour5, this.nbrClientParJour4, this.nbrClientParJour3, this.nbrClientParJour2, this.nbrClientParJour1, this.nbrClientParJour0]
                                   ]
@@ -557,10 +556,10 @@ export class DashboardComponent implements OnInit {
 
                                 const optionsDailySalesChart: any = {
                                   lineSmooth: Chartist.Interpolation.cardinal({
-                                    tension: 0
+                                    tension: 0.5
                                   }),
                                   low: 0,
-                                  high: this.max + 2, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+                                  high: this.max + 1, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
                                   chartPadding: { top: 0, right: 0, bottom: 0, left: 0 },
                                 }
 
@@ -607,7 +606,7 @@ export class DashboardComponent implements OnInit {
                                     showGrid: false
                                   },
                                   low: 0,
-                                  high: this.maxS+20,
+                                  high: this.maxS,
                                   chartPadding: { top: 0, right: 5, bottom: 0, left: 0 }
                                 };
                                 var responsiveOptions: any[] = [
@@ -641,8 +640,7 @@ export class DashboardComponent implements OnInit {
   }
 
   histo(id: number) {
-    this.router.navigate(['KidsPay/Aceuilcommercant/Historique/dashboard1'], { queryParams: { idm: id } });
-    localStorage.setItem("selectedStore", id+""); 
+    this.router.navigate(['KidsPay/Aceuilcommercant/Historique/dashboard'], { queryParams: { idm: id } });
   }
 
 }
