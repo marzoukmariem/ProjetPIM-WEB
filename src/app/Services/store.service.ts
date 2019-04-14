@@ -103,7 +103,7 @@ export class StoreService {
       console.log(resp, "nb elment");
       //console.log(resp['length'], "nb elment");
 
-      this.list = []
+      this.list2 = []
       for (var i = 0; i < Number(resp['length']); i++) {
 
         // @ts-ignore
@@ -130,7 +130,7 @@ export class StoreService {
     this.nbtransaction = 0;
     this.http.get(this.rootURL + 'getStoreByIdCommercant/?idCommercant=' + id).subscribe(resp => {
       for (var i = 0; i < Number(resp['length']); i++) {
-
+// @ts-ignore
         this.store = {
           StoreID: null,
           nom: "",

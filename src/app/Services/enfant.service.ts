@@ -282,12 +282,13 @@ getStoresList() {
       console.log(resp);
       // @ts-ignore
       for (let i = 0; i < Number(resp.length); i++) {
+        // @ts-ignore
         this.store1 = {
           StoreID: null,
           nom: '',
           adresse: '',
           Commercant: null,
-
+          
         };
         this.store1.StoreID = resp[i].id;
         this.store1.nom = resp[i].nom;
@@ -340,7 +341,7 @@ gethistoriquebyenfant(id: number) {
 
 
       this.http.get(environment.apiURL + '/getstorebyid/?idstore=' + idstore).subscribe(rep => {
-
+// @ts-ignore
         this.store = {
           StoreID: null,
           nom: '',

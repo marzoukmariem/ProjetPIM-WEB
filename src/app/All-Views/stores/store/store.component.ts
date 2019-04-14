@@ -4,6 +4,12 @@ import { NgForm } from '@angular/forms';
 import { CommercantService } from 'src/app/Services/commercant.service';
 import { Commercant } from 'src/app/Models/commercant.model';
 import { Router, ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+
+import * as mapboxgl from 'mapbox-gl'
+import { environment } from 'src/environments/environment';
+import { Services } from '@angular/core/src/view';
+
 declare var $: any;
 
 @Component({
@@ -14,15 +20,30 @@ declare var $: any;
 export class StoreComponent implements OnInit {
   commercantList : Commercant[]
   isValid:boolean= true;
+  
+  file: File = null;
+  fileToUpload: File = null;
+  imageUrl = '/assets/img/newpicture.png';
+  
+  map:mapboxgl.Map;
+  style = 'mapbox://styles/mapbox/outdoors-v9'
+  lng = 35.248709
+  lat =  9.143212;
+  message = 'here'
+  marker = new mapboxgl.Marker({
+    draggable: true
+    })
 
   constructor(private service: StoreService,
     private commercantService: CommercantService,
     private router : Router,
-    private currentRoute:ActivatedRoute ) { 
-      
+    private currentRoute:ActivatedRoute,
+    private http: HttpClient ) { 
+      mapboxgl.accessToken=environment.mapbox.accessToken
   }
 
   ngOnInit() {
+    this.initializeMap();
     this.commercantService.getCommercantList().then(res=> this.commercantList = res as Commercant[])
     let storeID = this.currentRoute.snapshot.paramMap.get('id')
     if(storeID==null)
@@ -34,14 +55,77 @@ this.service.formData = res
     
   }
 
+  featuredPhotoSelected(event: any) {
+
+
+    this.file = event.target.files[0];
+    console.log('selected file name: =', this.file.name);
+
+    this.fileToUpload = event.target.files.item(0);
+    const reader = new FileReader();
+    reader.onload = (event1: any) => {
+     this.imageUrl = event1.target.result;
+   };
+    reader.readAsDataURL(this.fileToUpload);
+
+
+ }
+
+  initializeMap() {
+
+    if (navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(position=>{
+        this.lat= position.coords.latitude
+        this.lng= position.coords.longitude
+        this.map.flyTo({
+          center:[this.lng,this.lat]
+        })
+      })
+    }
+
+    this.buildMap()
+  }
+  buildMap(){
+    this.map = new mapboxgl.Map({
+      container: 'map',
+      style: this.style,
+      zoom: 10,
+      center:[this.lat,this.lng]
+    })
+
+    this.map.addControl(new mapboxgl.NavigationControl())
+
+    this.marker
+      .setLngLat([this.lat, this.lng])
+      .addTo(this.map);
+ 
+      this.marker.on('dragend', (event)=>{
+        var lngLat = this.marker.getLngLat();
+    //console.log(lngLat.lng+"-"+lngLat.lat )
+    this.service.formData.longitude=lngLat.lng
+    this.service.formData.latitude=lngLat.lat
+    console.log(this.service.formData)
+      });
+
+  }
+  
+  onDragEnd() {
+    
+    }
+   
+
   resetForm(form? :NgForm){
     if (form=null)
     form.reset();
+    // @ts-ignore
     this.service.formData={
       StoreID:null,
       nom:'',
       adresse:'',
-      Commercant:0
+      Commercant:0,
+      latitude:0,
+      longitude:0,
+      photo:''
     }
   }
 
@@ -50,12 +134,45 @@ this.service.formData = res
    
   }
 
-  onSubmit(form:NgForm){
-    $('#spinner2').show();
-    this.service.saveOrUpdateStore().subscribe(res=>{
-      this.resetForm();
-      //this.toastr.success('Submitted successfuly','KidsPay');
-      this.router.navigate(['/KidsPay/AceuilAdmin/stores']);
-    });
+  
+
+  onSubmit(form?: NgForm) {
+    {try {
+      const formData = new FormData();
+      formData.append('file', this.file);
+      this.http.post('http://localhost/kidspay/up.php', formData)
+        .subscribe((data) => {
+          console.log('Got some data from backend ', data);
+          // @ts-ignore
+          console.log('Got some data from backend ', data.url);
+         
+        // @ts-ignore
+        this.service.formData.photo= data.url
+      
+        console.log(this.service.formData,'aaaaaaaaaaaaaaaaaaaaaaaaaa')
+
+      // console.log(author,"author")
+          this.service.saveOrUpdateStore()
+        .subscribe(resp => {
+            console.log(resp, 'res');
+            alert('ajouté avec succès');
+            this.router.navigate(['KidsPay/AceuilAdmin/stores']);
+          
+          },
+          error => {
+            console.log(error, 'error');
+          });
+
+
+        }, (error) => {
+          console.log('Error! ', error);
+        });
+
+
+    } catch (e) {
+      console.log(e);
+    }
+
+    }}
+
   }
-}

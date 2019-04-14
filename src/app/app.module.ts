@@ -62,7 +62,6 @@ import {NavbarComponent} from './components/navbar/navbar.component';
 import {ComponentsModule} from './components/components.module';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -123,7 +122,7 @@ import {ComponentsModule} from './components/components.module';
     MatTooltipModule,
     ChartistModule,
     NgbModule,
-
+    
 
 
 
