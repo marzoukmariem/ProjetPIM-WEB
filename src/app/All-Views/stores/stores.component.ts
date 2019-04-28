@@ -13,6 +13,8 @@ export class StoresComponent implements OnInit {
   storeList;
   ownersList;
   showSpinner : boolean=true;
+searchInput: string;
+  store: any;
 
   constructor(private service: StoreService,
     private router: Router) { }
@@ -45,5 +47,30 @@ export class StoresComponent implements OnInit {
     }
   }
 
+  update(){
+    console.log(this.searchInput);
+    this.service.getStoresListSearch(this.searchInput).then(res => {
+      
+      this.storeList = []
+      for (var i = 0; i < Number(res['length']); i++) {
+
+        // @ts-ignore
+        this.store = {
+          id: null,
+          nom: "",
+          adresse: "",
+          Commercant: null,
+        }
+        this.store.id = res[i]["pk"];
+        this.store.nom = res[i]["fields"]["nom"];
+        this.store.adresse = res[i]["fields"]["adresse"];
+        this.store.Commercant = res[i]["fields"]["Commercant"];
+        this.storeList.push(this.store);
+
+     } })
+  ;
+  
+
+  }
   
 }

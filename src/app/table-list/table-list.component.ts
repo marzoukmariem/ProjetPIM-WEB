@@ -79,6 +79,7 @@ export class TableListComponent implements OnInit {
 
   ngOnInit() {
     this.service.getHistoriqueByStore(this.storenumber);
+    this.service.listhist4=[]
 
 
     /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
@@ -166,6 +167,17 @@ export class TableListComponent implements OnInit {
     console.log(localStorage.getItem("selectedStore"),"selectedStore")
     this.router.navigate(['KidsPay/Aceuilcommercant/Historique/dashboard2'], { queryParams: { idm: this.storenumber } });
     
+  }
+
+  goToNewStoreProducts(){
+    console.log(localStorage.getItem("selectedStore"),"selectedStore")
+    this.router.navigate(['KidsPay/Aceuilcommercant/Historique/dashboard3NewProduct'], { queryParams: { idm: this.storenumber } });
+    
+  }
+
+  detailCommande(id){
+    this.service.getHistoriqueByCommande(id)
+    console.log('click')
   }
 
 }

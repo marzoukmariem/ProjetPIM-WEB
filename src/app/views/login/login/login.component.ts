@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     return this.test;
   }
 
-  readonly rootURL = "http://localhost:8000/kidspay/"
+  readonly rootURL = "http://79.137.75.40:8000/kidspay/"
 
   constructor(
     private router: Router, private service: UserService
@@ -78,7 +78,7 @@ export class LoginComponent implements OnInit {
             console.log("hello parent", "heloo");
             this.router.navigate(['KidsPay/Aceuilparent'], { queryParams: { idp: resp["0"]["pk"]} });
           }
-          if (resp["0"]["fields"]["role"] == "commercant") {
+          if (resp["0"]["fields"]["role"] == "Commercant") {
             console.log("hello comercant", "comm");
 
             localStorage.setItem("token", resp["0"]["pk"]);

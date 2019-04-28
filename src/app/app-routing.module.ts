@@ -4,8 +4,11 @@ import { CommercantsComponent } from './All-Views/commercants/commercants.compon
 import { CommercantComponent } from './All-Views/commercants/commercant/commercant.component';
 import { StoresComponent } from './All-Views/stores/stores.component';
 import { StoreComponent } from './All-Views/stores/store/store.component';
+import { StoreEditComponent } from './All-Views/stores/store/storeEdit.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AdminLayoutComponent2 } from './layouts/admin-layout2/admin-layout.component2';
+import { CommercantEditComponent } from './All-Views/commercants/commercant/commercantEdit.component';
+import { CodesComponent } from './All-Views/Codes/codes/codes.component';
 
 
 const routes: Routes = [
@@ -13,12 +16,12 @@ const routes: Routes = [
   {path: 'KidsPay/AceuilAdmin/commercants', component: CommercantsComponent},
   {path: 'KidsPay/AceuilAdmin/commercant', children: [
       {path: '', component: CommercantComponent},
-      {path: 'edit/:id', component: CommercantComponent}
+      {path: 'edit/:id', component: CommercantEditComponent}
     ]},
   {path: 'KidsPay/AceuilAdmin/stores', component: StoresComponent},
   {path: 'KidsPay/AceuilAdmin/store', children: [
       {path: '', component: StoreComponent},
-      {path: 'edit/:id', component: StoreComponent}
+      {path: 'edit/:id', component: StoreEditComponent}
     ]},
   {
     path: 'KidsPay/AceuilComerçant',
@@ -35,7 +38,8 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
-          }]}
+          }]},
+      {path: 'KidsPay/AceuilAdmin/codes', component: CodesComponent},
 ];
 
 @NgModule({

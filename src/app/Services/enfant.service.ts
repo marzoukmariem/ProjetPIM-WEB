@@ -116,10 +116,10 @@ export class EnfantService {
   somme: number;
   idenf: number;
 
-  readonly rootURL = 'http://192.168.43.223:8000/kidspay/';
+  readonly rootURL = 'http://79.137.75.40/kidspay/';
   private z1: string;
 
-  apiUrl = 'http://localhost/kidspay/up.php';
+  apiUrl = 'http://79.137.75.40/kidspay/up.php';
 
   upload(formData) {
 
@@ -389,7 +389,7 @@ gethistoriquebyenfant(id: number) {
 }
 uploadimage(file: File) {
   console.log('hello1');
-  this.http.post('http://localhost/kidspay/up.php', file);
+  this.http.post('http://79.137.75.40/kidspay/up.php', file);
   console.log('hello2');
   }
 

@@ -11,6 +11,8 @@ declare var $: any;
 })
 export class CommercantsComponent implements OnInit {
 commercantList;
+  commercant: any;
+  searchInput: any;
 
   constructor(private service:CommercantService,
     private router:Router,
@@ -41,5 +43,32 @@ commercantList;
       }); 
     }
   }
+
+  update(){
+    console.log(this.searchInput);
+    this.service.getCommencantListSearch(this.searchInput).then(res => {
+      
+      this.commercantList = []
+      for (var i = 0; i < Number(res['length']); i++) {
+
+        // @ts-ignore
+        this.commercant = {
+          
+        }
+        this.commercant.id = res[i]["pk"];
+        this.commercant.nom = res[i]["fields"]["nom"];
+        this.commercant.prenom = res[i]["fields"]["prenom"];
+        this.commercant.email = res[i]["fields"]["email"];
+        this.commercant.numTel = res[i]["fields"]["numTel"];
+        this.commercant.cin = res[i]["fields"]["cin"];
+        this.commercant.role = res[i]["fields"]["role"];
+        this.commercantList.push(this.commercant);
+        console.log(this.commercantList)
+     } })
+  ;
+  
+
+  }
+  
 
 }

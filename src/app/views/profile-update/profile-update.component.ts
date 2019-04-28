@@ -77,7 +77,7 @@ export class ProfileUpdateComponent implements OnInit {
     {try {
       const formData = new FormData();
       formData.append('file', this.file);
-      this.http.post('http://localhost/kidspay/up.php', formData)
+      this.http.post('http://79.137.75.40/kidspay/up.php', formData)
         .subscribe((data) => {
           console.log('Got some data from backend ', data);
           // @ts-ignore

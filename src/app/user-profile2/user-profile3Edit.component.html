@@ -10,11 +10,8 @@
                     <div class="card-body">
                         <table class="table">
                             <thead class=" text-info">
-                                <th>Photo</th>
-                                <th>Nom</th>
-                                <th>categorie</th>
+                                
                                 <th>Code</th>
-                                <th>Prix</th>
                                 <th>modifier</th>
                                 <th>supprimer</th>
 
@@ -22,16 +19,9 @@
                             <tbody>
                                 <tr *ngFor="let emp of service.list2">
 
-                                    <td>
-
-
-                                        <img class="img" src="http://79.137.75.40/kidspay/{{emp.photo}}" />
-
-                                    </td>
-                                    <td> {{emp.nom }}   </td>
-                                    <td> {{emp.categorie }} </td>
-                                    <td> {{emp.code }}  </td>
-                                    <td> {{emp.prix }}  </td>
+                                    
+                                    <td> {{emp.code }}</td>
+                                    
                                           <td>
                                                 <button type="button" class="btn btn-outline-secondary" (click)="openForEdit(emp.id)"><i class="fa fa-edit fa-lg"></i></button>
                                           </td><td>
@@ -71,6 +61,7 @@
                                     </mat-form-field>
                                 </div>
                             </div>
+                            
                             <div class="row">
                                     <div class="col-md-9">
                                         <mat-form-field class="example-full-width">
@@ -79,19 +70,20 @@
                                         </mat-form-field>
                                     </div>
                                 </div>
-                            
+
                             <div class="row">
                                 <div class="col-md-9">
 
-                                    <select name="categorie" #categorie="ngModel" [(ngModel)]="service.formData1.categorie" class="form-control">
-                                        <option value="">-categorie-</option>
+                                    <select name="category" #categorie="ngModel" [(ngModel)]="service.formData1.categorie" class="form-control">
+                                        <option value="">-category-</option>
                                         <option value="Boisson">Boisson</option>
                                         <option value="Alimentation">Alimentation</option>
                                     </select>
 
                                 </div>
                             </div>
-                            <button mat-raised-button type="submit" class="btn btn-danger pull-right">Ajouter</button>
+                            <button mat-raised-button type="submit" class="btn btn-success pull-right">Update</button>
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right">Cancel</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>

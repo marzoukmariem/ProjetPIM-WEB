@@ -34,7 +34,7 @@ export class DashboardComponent implements OnInit {
   min: number = 0
   maxS: number = 0
   minS: number = 0
-  readonly rootURL = "http://localhost:8000/kidspay/"
+  readonly rootURL = "http://79.137.75.40/kidspay/"
 
   constructor(private service: StoreService, private route: ActivatedRoute, private router: Router, private http: HttpClient) {
     this.route.queryParams.subscribe(params => {
@@ -607,7 +607,7 @@ export class DashboardComponent implements OnInit {
                                     showGrid: false
                                   },
                                   low: 0,
-                                  high: this.maxS+20,
+                                  high: this.maxS+5,
                                   chartPadding: { top: 0, right: 5, bottom: 0, left: 0 }
                                 };
                                 var responsiveOptions: any[] = [

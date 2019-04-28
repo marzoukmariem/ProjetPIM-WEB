@@ -76,12 +76,13 @@
                 </div>
                 <div class="form-group">
                   <label>Commercant associé</label>
-                  <select name="Commercant" #Commercant="ngModel" [(ngModel)]="service.formData.Commercant"
-                    class="form-control">
-                    <option value="0">-select-</option>
-                    <option *ngFor="let item of commercantList" value="{{item.id}}">
-                      {{item.nom +' '+ item.prenom +' / CIN:'+ item.cin}}</option>
-                  </select>
+                  <input type="text" list="browsers" name="browser" name="Commercant" #Commercant="ngModel" [(ngModel)]="service.formData.Commercant"
+                    class="form-control" (keyup)="update2()">
+                    <datalist id="browsers">
+                    <option value="-select-">-select-</option>
+                    <option *ngFor="let item of commercantList" value="{{item.id}} - {{item.nom +' '+ item.prenom +' / CIN:'+ item.cin}}">
+                     </option>
+                    </datalist>
                 </div>
                 
                   <div class="card card-profile">
@@ -91,9 +92,7 @@
   
              
                           <input type="file" (change)="featuredPhotoSelected($event)">
-                         
                         </div>  
-                      
                   </div>
              
                 <div class="form-group">

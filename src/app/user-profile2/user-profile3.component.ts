@@ -9,10 +9,10 @@ import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-user-profile',
-  templateUrl: './user-profile.component.html',
+  templateUrl: './user-profile3.component.html',
   styleUrls: ['./user-profile.component.css']
 })
-export class UserProfile2Component implements OnInit {
+export class UserProfile3Component implements OnInit {
   storenumber: number
 
   file: File = null;
@@ -103,7 +103,7 @@ export class UserProfile2Component implements OnInit {
     }
 
     openForEdit(id:number){
-      this.router.navigate(['/KidsPay/Aceuilcommercant/Historique/dashboard2Edit/'+id], { queryParams: { idm: this.storenumber } })
+      this.router.navigate(['/KidsPay/Aceuilcommercant/Historique/dashboard3Edit/'+id], { queryParams: { idm: this.storenumber } })
     }
   
 

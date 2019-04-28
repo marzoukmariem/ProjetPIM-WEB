@@ -9,7 +9,7 @@ declare var $: any;
   templateUrl: './commercant.component.html',
   styleUrls: ["./commercant.component.css"]
 })
-export class CommercantComponent implements OnInit {
+export class CommercantEditComponent implements OnInit {
 
   constructor(private service: CommercantService,
     private router: Router,
@@ -21,7 +21,9 @@ export class CommercantComponent implements OnInit {
     this.resetForm();
     else {
       this.service.getCommercantById(parseInt(commercantId)).then(res=>{
+        
         this.service.formData = res;
+        this.service.formData.photo='aa'
       }); 
     }
   }
@@ -35,16 +37,17 @@ export class CommercantComponent implements OnInit {
       nom:'',
       prenom:'',
       numTel:'',
-      role:'Commercant',
+      role:'commercant',
       cin:'',
       email:'',
       password:'',
+      photo:'',
     }
   }
 
   onSubmit(form:NgForm){
     $('#spinner2').show();
-    this.service.saveOrUpdateCommercant().subscribe(res =>{
+    this.service.UpdateCommercant().subscribe(res =>{
       this.resetForm();
       alert('Submittedsuccessfully')
       this.router.navigate(['KidsPay/AceuilAdmin/commercants'])

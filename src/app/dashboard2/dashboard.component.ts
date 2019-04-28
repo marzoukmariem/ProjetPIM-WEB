@@ -34,7 +34,7 @@ export class DashboardComponent2 implements OnInit {
   min: number = 0
   maxS: number = 0
   minS: number = 0
-  readonly rootURL = "http://localhost:8000/kidspay/"
+  readonly rootURL = "http://79.137.75.40:8000/kidspay/"
 
   constructor(private service: StoreService, private route: ActivatedRoute, private router: Router, private http: HttpClient) {
     this.route.queryParams.subscribe(params => {
@@ -597,7 +597,7 @@ export class DashboardComponent2 implements OnInit {
                                 var datawebsiteViewsChart = {
                                   labels: ['', '', '', '', '', "aujourd'hui", ''],
                                   series: [
-                                    [this.listeSommeParJour[0], this.listeSommeParJour[1], this.listeSommeParJour[2], this.listeSommeParJour[3], this.listeSommeParJour[4], this.listeSommeParJour[5], this.listeSommeParJour[6]]
+                                    [this.listeSommeParJour[6], this.listeSommeParJour[5], this.listeSommeParJour[4], this.listeSommeParJour[3], this.listeSommeParJour[2], this.listeSommeParJour[1], this.listeSommeParJour[0]]
 
                                   ]
                                 };

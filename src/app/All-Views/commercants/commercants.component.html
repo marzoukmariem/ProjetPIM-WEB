@@ -67,7 +67,14 @@
             Stores</a>
         </h1>
 
-
+        <div style="height: 20px;"></div>
+        <div class="col-md-3 offset-md-2">
+        <div class="md-form active-pink-2 mb-3">
+            <div class="active-pink-3 active-pink-4 mb-4">
+                <input class="form-control" type="text" placeholder="Search" aria-label="Search" style="color: white;" (keyup)="update()" [(ngModel)]="searchInput">
+              </div>
+        </div>
+      </div>        
 
 
         <div class="container">
@@ -89,12 +96,12 @@
                 <tbody>
 
                   <tr *ngFor="let item of commercantList">
-                    <td *ngIf="(item.role == 'commercant')" (click)="openForEdit(item.id)">{{item.nom}}</td>
-                    <td *ngIf="(item.role == 'commercant')" (click)="openForEdit(item.id)">{{item.prenom}}</td>
-                    <td *ngIf="(item.role == 'commercant')" (click)="openForEdit(item.id)">{{item.email}}</td>
-                    <td *ngIf="(item.role == 'commercant')" (click)="openForEdit(item.id)">{{item.numTel}}</td>
-                    <td *ngIf="(item.role == 'commercant')" (click)="openForEdit(item.id)">{{item.cin}}</td>
-                    <td *ngIf="(item.role == 'commercant')">
+                    <td *ngIf="(item.role == 'Commercant')" (click)="openForEdit(item.id)">{{item.nom}}</td>
+                    <td *ngIf="(item.role == 'Commercant')" (click)="openForEdit(item.id)">{{item.prenom}}</td>
+                    <td *ngIf="(item.role == 'Commercant')" (click)="openForEdit(item.id)">{{item.email}}</td>
+                    <td *ngIf="(item.role == 'Commercant')" (click)="openForEdit(item.id)">{{item.numTel}}</td>
+                    <td *ngIf="(item.role == 'Commercant')" (click)="openForEdit(item.id)">{{item.cin}}</td>
+                    <td *ngIf="(item.role == 'Commercant')">
                       <a class="btn text-danger" (click)="onOrderDelete(item.id)"><i class="fa fa-trash fa-lg"></i></a>
 
                     </td>

@@ -9,27 +9,34 @@ import { Product } from '../Models/product.model.';
   providedIn: 'root'
 })
 export class StoreService {
+ 
   formData1: Product;
   formData: Store
-  readonly rootURL = "http://localhost:8000/kidspay/"
+  readonly rootURL = "http://79.137.75.40:8000/kidspay/"
   list: Store[] = [];
   list2: Product[] = [];
-
+  x:string;
+  y:number;
   listeEnfant2: Enfant[] = [];
   store: Store
   product: Product
+  product2: Product
   store2: Store
   listhist2: Historique[] = [];
+  listhist4: Product[] = [];
   listhist3: Historique[] = [];
   historique: Historique;
+  product3: Product;
   historique3: Historique;
   enfant: Enfant;
   balance: any;
   nbmagazins: number
   nbtransaction: number
   listeEnfant: Enfant[] = [];
+  listeProduit: Product[] = [];
   listeStore2: Store[] = [];
   enfant2: Enfant;
+  product5: Product;
   listeLastTransactionsRecentes: Historique[] = []
   enfant3: Enfant;
   k:number=0;
@@ -42,16 +49,40 @@ export class StoreService {
     this.formData1 = {
       id: null,
       nom: '',
-      genre:'',
+      categorie:'categorie',
       code:'',
       Store:null
     };
    }
 
-  saveOrUpdateStore() {
+
+   UpdateStore(): any {
+     console.log('updating')
+    this.x=this.formData.Commercant.toString()
+    this.x=this.x.substr(0, 1);
+    console.log(this.x,'xxx')
+    this.y=parseInt(this.x, 10);
+    console.log(this.y,'yyy')
+    this.formData.Commercant=this.y
     var body = {
       ...this.formData
     }
+    console.log(this.formData)
+    return this.http.put(environment.apiURL + '/stores/'+this.formData.id+'/', body)
+  }
+
+  saveOrUpdateStore() {
+    
+    this.x=this.formData.Commercant.toString()
+    this.x=this.x.substr(0, 1);
+    console.log(this.x,'xxx')
+    this.y=parseInt(this.x, 10);
+    console.log(this.y,'yyy')
+    this.formData.Commercant=this.y
+    var body = {
+      ...this.formData
+    }
+    console.log(this.formData)
     return this.http.post(environment.apiURL + '/stores/', body)
   }
 
@@ -59,16 +90,24 @@ export class StoreService {
     return this.http.get(environment.apiURL + '/stores/').toPromise();
   }
 
+  getStoresListSearch(searchInput) {
+    return this.http.get(environment.apiURL + '/getStoresListSearch/?searchInput='+searchInput).toPromise();
+  }
+
   getCommercantList() {
     return this.http.get(environment.apiURL + '/users/').toPromise();
   }
 
   getStoreByID(id: number): any {
-    return this.http.get(environment.apiURL + '/stores/' + id).toPromise();
+    return this.http.get(environment.apiURL + '/stores/' + id+'/').toPromise();
   }
 
   deleteStore(id: number) {
-    return this.http.delete(environment.apiURL + '/stores/' + id).toPromise();
+    return this.http.delete(environment.apiURL + '/stores/' + id+'/').toPromise();
+  }
+
+  deleteProduct(id: number) {
+    return this.http.delete(environment.apiURL + '/produits/' + id+'/').toPromise();
   }
 
   getallStoresbyid(id: number) {
@@ -112,18 +151,54 @@ export class StoreService {
           nom: "",
           photo: "",
           Store: null,
-          code:""
+          code:"",
+          prix:null,
         }
         this.product.id = resp[i]["pk"];
         this.product.nom = resp[i]["fields"]["nom"];
         this.product.photo = resp[i]["fields"]["photo"];
         this.product.Store = resp[i]["fields"]["Store"];
         this.product.code = resp[i]["fields"]["code"];
-        this.product.genre = resp[i]["fields"]["genre"];
+        this.product.categorie = resp[i]["fields"]["categorie"];
+        this.product.prix = resp[i]["fields"]["prix"];
         this.list2.push(this.product);
       }
       //console.log(this.list, "list");
     })
+  }
+
+  getNewProductsByStore(id: number): any {
+    this.http.get(this.rootURL + 'getproductsbystore/?idstore=' + id).subscribe(resp => {
+      console.log(resp, "nb elment");
+      //console.log(resp['length'], "nb elment");
+
+      this.list2 = []
+      for (var i = 0; i < Number(resp['length']); i++) {
+
+        // @ts-ignore
+        this.product = {
+          id: null,
+          nom: "",
+          photo: "",
+          Store: null,
+          code:"",
+          prix:null,
+        }
+        this.product.id = resp[i]["pk"];
+        this.product.nom = resp[i]["fields"]["nom"];
+        this.product.photo = resp[i]["fields"]["photo"];
+        this.product.Store = resp[i]["fields"]["Store"];
+        this.product.code = resp[i]["fields"]["code"];
+        this.product.categorie = resp[i]["fields"]["categorie"];
+        this.product.prix = resp[i]["fields"]["prix"];
+        this.list2.push(this.product);
+      }
+      //console.log(this.list, "list");
+    })
+  }
+
+  getProduct(id:number) :any{
+    return this.http.get(environment.apiURL+'/produits/'+id+'/').toPromise();
   }
 
   getNumberOfTransactions(id: number) {
@@ -208,6 +283,7 @@ export class StoreService {
         for (var i = 0; i < Number(resp2['length']); i++) {
           // @ts-ignore
           this.historique = {
+            id:null,
             enfant: null,
             store: null,
             nommagasin: "",
@@ -231,12 +307,14 @@ export class StoreService {
               this.enfant2.nom = this.listeEnfant[j].nom
               this.enfant2.prenom = this.listeEnfant[j].prenom
               this.historique.enfant = this.listeEnfant[j]
+
             }
           }
 
 
           this.historique.dateachat = (resp2[i]["fields"]["dateCommande"]).substring(0, 10);
           this.historique.prixcommande = resp2[i]["fields"]["prixTotal"];
+          this.historique.id = resp2[i]["pk"];
 
           this.listhist2.push(this.historique);
         }
@@ -345,6 +423,77 @@ export class StoreService {
 
   ajoutProduit(Data) {
     return this.http.post(environment.apiURL + '/produits/'  , Data);
+  }
+
+  updateProduit(Data) {
+    return this.http.put(environment.apiURL + '/produits/'+Data.id+'/'  , Data);
+  }
+
+
+  getHistoriqueByCommande(id: number) {
+    this.listeProduit = []
+
+    this.http.get(this.rootURL + 'getligneCommandeByCommande/?idcommande=' + id).subscribe(resp2 => {
+
+      this.http.get(this.rootURL + 'produits/').subscribe(resp => {
+
+        for (var i = 0; i < Number(resp['length']); i++) {
+          // @ts-ignore
+          this.product2 = {
+            id: null,
+            nom: '',
+            photo: ''
+          }
+
+          this.product2.id = resp[i]["id"];
+          this.product2.nom = resp[i]["nom"];
+          this.product2.photo = resp[i]["photo"];
+
+          this.listeProduit.push(this.product2);
+        }
+
+
+        
+
+        this.listhist4 = []
+        for (var i = 0; i < Number(resp2['length']); i++) {
+          // @ts-ignore
+          this.product3 = {
+           
+            nom: "",
+            
+            photo: "",
+          }
+
+          //console.log(this.listeProduit, "wtf");
+          for (var j = 0; j < this.listeProduit.length; j++) {
+            console.log(resp2[i]["fields"]["Produit"])
+            console.log(this.listeProduit[j].id)
+            if (resp2[i]["fields"]["Produit"] == this.listeProduit[j].id) {
+              console.log('here')
+              // @ts-ignore
+              this.product5 = {
+                id: null,
+                nom: '',
+                photo: ''
+              }
+
+              this.product5.nom = this.listeProduit[j].nom
+              this.product5.photo = this.listeProduit[j].photo
+              this.product2 = this.product5
+            }
+          }
+
+
+          
+
+          this.listhist4.push(this.product2);
+        }
+
+      })
+
+    })
+
   }
 
 

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {User} from '../Models/user.model';
 import {HttpClient} from '@angular/common/http';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,11 +9,11 @@ import {HttpClient} from '@angular/common/http';
 export class UserService {
   formData: User;
   Data: [any];
-  readonly rootURL = 'http://localhost:8000/kidspay/';
+  readonly rootURL = 'http://79.137.75.40:8000/kidspay/';
   constructor(private http: HttpClient) { }
 
   toconnect(email: string , password: string) {
-    return this.http.get(this.rootURL + 'login/?email=' + email + '&password=' + password);
+    return this.http.get(environment.apiURL + '/login/?email=' + email + '&password=' + password);
 
 
   }

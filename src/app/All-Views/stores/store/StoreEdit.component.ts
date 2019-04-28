@@ -17,7 +17,7 @@ declare var $: any;
   templateUrl: './store.component.html',
   styleUrls: ['./store.component.css']
 })
-export class StoreComponent implements OnInit {
+export class StoreEditComponent implements OnInit {
   commercantList : Commercant[]
   isValid:boolean= true;
   
@@ -27,8 +27,8 @@ export class StoreComponent implements OnInit {
   
   map:mapboxgl.Map;
   style = 'mapbox://styles/mapbox/outdoors-v9'
-  lng = 35.248709
-  lat =  9.143212;
+  lng = 37.00121803133517
+  lat =  10.986769595762837;
   message = 'here'
   marker = new mapboxgl.Marker({
     draggable: true
@@ -43,21 +43,25 @@ export class StoreComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.initializeMap();
+    
     this.commercantService.getCommercantList().then(res=> this.commercantList = res as Commercant[])
     let storeID = this.currentRoute.snapshot.paramMap.get('id')
     if(storeID==null)
     this.resetForm();
     else
 this.service.getStoreByID(parseInt(storeID)).then(res=>{
+  this.initializeMap();
 this.service.formData = res
+this.imageUrl='http://79.137.75.40/kidspay/'+this.service.formData.photo
+this.lat=this.service.formData.latitude
+this.lng=this.service.formData.longitude
 });
     
   }
 
   featuredPhotoSelected(event: any) {
 
-
+    
     this.file = event.target.files[0];
     console.log('selected file name: =', this.file.name);
 
@@ -75,13 +79,13 @@ this.service.formData = res
 
     if (navigator.geolocation){
       navigator.geolocation.getCurrentPosition(position=>{
-        this.lat= position.coords.latitude
-        this.lng= position.coords.longitude
+        this.lat= this.service.formData.latitude
+        this.lng= this.service.formData.longitude
         this.map.flyTo({
-          center:[position.coords.longitude,position.coords.latitude]
+          center:[this.lng,this.lat]
         })
         this.marker
-      .setLngLat([position.coords.longitude, position.coords.latitude])
+      .setLngLat([this.lng, this.lat])
       .addTo(this.map);
       })
     }
@@ -95,13 +99,13 @@ this.service.formData = res
       container: 'map',
       style: this.style,
       zoom: 10,
-      center:[this.lat,this.lng]
+      center:[this.lng,this.lat]
     })
 
     this.map.addControl(new mapboxgl.NavigationControl())
 
     this.marker
-      .setLngLat([this.lat, this.lng])
+      .setLngLat([this.lng, this.lat])
       .addTo(this.map);
  
       this.marker.on('dragend', (event)=>{
@@ -124,7 +128,7 @@ this.service.formData = res
     form.reset();
     // @ts-ignore
     this.service.formData={
-      StoreID:null,
+      id:null,
       nom:'',
       adresse:'',
       Commercant:0,
@@ -157,7 +161,7 @@ this.service.formData = res
         console.log(this.service.formData,'aaaaaaaaaaaaaaaaaaaaaaaaaa')
 
       // console.log(author,"author")
-          this.service.saveOrUpdateStore()
+          this.service.UpdateStore()
         .subscribe(resp => {
             console.log(resp, 'res');
             alert('ajouté avec succès');
