@@ -63,7 +63,7 @@ import {NavbarComponent} from './components/navbar/navbar.component';
 import {ComponentsModule} from './components/components.module';
 import { CommercantEditComponent } from './All-Views/commercants/commercant/commercantEdit.component';
 import { CodesComponent } from './All-Views/Codes/codes/codes.component';
-
+import { DetailCommandeComponent } from './All-Views/detail-commande/detail-commande.component';
 
 @NgModule({
   declarations: [
@@ -99,6 +99,7 @@ import { CodesComponent } from './All-Views/Codes/codes/codes.component';
     SidebarComponent,
     NavbarComponent,
     CodesComponent,
+    DetailCommandeComponent,
   ],
   imports: [
     NgbModule,
@@ -128,12 +129,13 @@ import { CodesComponent } from './All-Views/Codes/codes/codes.component';
     MatTooltipModule,
     ChartistModule,
     NgbModule,
-    
+
 
 
 
 
     RouterModule.forRoot([
+      { path: 'KidsPay/Aceuilparent/Historique/Commandedetail', component: DetailCommandeComponent },
       { path: 'KidsPay/Aceuilparent/stat', component: StatComponent },
       { path: 'KidsPay/Aceuilparent/updateenfant', component: EnfantUpdateComponent },
       { path: 'KidsPay/Aceuilparent/updateprofile', component: ProfileUpdateComponent },

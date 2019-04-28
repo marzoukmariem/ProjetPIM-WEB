@@ -4,7 +4,7 @@ import { Enfant } from './enfant.model';
 import { Store } from './store.model';
 
 export class Historique {
-  public id:number;
+  public id: number;
   public  idstore: number;
   public  nommagasin: string;
   public dateachat: _date;

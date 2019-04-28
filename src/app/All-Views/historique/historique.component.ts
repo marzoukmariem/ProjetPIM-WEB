@@ -81,8 +81,9 @@ export class HistoriqueComponent implements OnInit {
   }
 
 
-
-
+  detail(id) {
+    this.router.navigate(['KidsPay/Aceuilparent/Historique/Commandedetail'], { queryParams: { idc: id} });
+  }
 
 
 
@@ -208,6 +209,9 @@ export class HistoriqueComponent implements OnInit {
     this.startAnimationForBarChart(websiteViewsChart);
 
   }
+
+
+
   onChange(isChecked) {
     this.value = isChecked;
     console.log(this.isChecked);
