@@ -94,6 +94,12 @@ export class StoreService {
     return this.http.get(environment.apiURL + '/getStoresListSearch/?searchInput='+searchInput).toPromise();
   }
 
+  refresh() {
+    
+    return this.http.get('http://79.137.75.40:3001/newProduct?p=1').subscribe();
+    console.log('refreeeeeeeeeeeeeeeeeeeesh')
+  }
+
   getCommercantList() {
     return this.http.get(environment.apiURL + '/users/').toPromise();
   }
@@ -168,7 +174,7 @@ export class StoreService {
   }
 
   getNewProductsByStore(id: number): any {
-    this.http.get(this.rootURL + 'getproductsbystore/?idstore=' + id).subscribe(resp => {
+    this.http.get(this.rootURL + 'getnewproductsbystore/?idstore=' + id).subscribe(resp => {
       console.log(resp, "nb elment");
       //console.log(resp['length'], "nb elment");
 

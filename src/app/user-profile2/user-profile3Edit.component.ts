@@ -88,7 +88,7 @@ export class UserProfile3EditComponent implements OnInit {
         .subscribe(resp => {
             console.log(resp, 'res');
             alert('produit ajouté avec succès');
-            this.service.getProductsByStore(this.storenumber);
+            this.service.getNewProductsByStore(this.storenumber);
           //  this.router.navigate(['KidsPay/AceuilAdmin/parents']);
           },
           error => {
@@ -119,7 +119,7 @@ export class UserProfile3EditComponent implements OnInit {
     onOrderDelete(id: number) {
       if (confirm('Are you sure to delete this ?')) {
         this.service.deleteProduct(id).then(res => {
-          this.service.getProductsByStore(this.storenumber);
+          this.service.getNewProductsByStore(this.storenumber);
         });
       }
     }
@@ -131,7 +131,7 @@ export class UserProfile3EditComponent implements OnInit {
       console.log(localStorage.getItem("idProduit"), "idProduit");
 
       
-    this.service.getProductsByStore(this.storenumber);
+    this.service.getNewProductsByStore(this.storenumber);
     this.service.getProduct(parseInt(localStorage.getItem("idProduit"))).then(res=>{
         
       this.service.formData1 = res;

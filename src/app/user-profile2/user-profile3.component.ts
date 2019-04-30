@@ -29,7 +29,7 @@ export class UserProfile3Component implements OnInit {
   }
 
   ngOnInit() {
-    this.service.getProductsByStore(this.storenumber);
+    this.service.getNewProductsByStore(this.storenumber);
      
     }
 
@@ -75,7 +75,7 @@ export class UserProfile3Component implements OnInit {
         .subscribe(resp => {
             console.log(resp, 'res');
             alert('produit ajouté avec succès');
-            this.service.getProductsByStore(this.storenumber);
+            this.service.getNewProductsByStore(this.storenumber);
           //  this.router.navigate(['KidsPay/AceuilAdmin/parents']);
           },
           error => {
@@ -97,7 +97,7 @@ export class UserProfile3Component implements OnInit {
     onOrderDelete(id: number) {
       if (confirm('Are you sure to delete this ?')) {
         this.service.deleteProduct(id).then(res => {
-          this.service.getProductsByStore(this.storenumber);
+          this.service.getNewProductsByStore(this.storenumber);
         });
       }
     }

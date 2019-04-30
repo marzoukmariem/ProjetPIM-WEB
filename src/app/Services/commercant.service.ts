@@ -20,6 +20,11 @@ export class CommercantService {
      return this.http.post(environment.apiURL+'/users/',body)
   }
 
+  addcarte(body){
+    
+    return this.http.post('http://79.137.75.40:8000/kidspay/cartes/',body)
+ }
+
   UpdateCommercant(){
     var body={
       ...this.formData

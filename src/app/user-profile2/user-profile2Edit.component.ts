@@ -86,6 +86,7 @@ export class UserProfile2EditComponent implements OnInit {
           this.service.updateProduit(produit)
           
         .subscribe(resp => {
+          this.service.refresh();
             console.log(resp, 'res');
             alert('produit ajouté avec succès');
             this.service.getProductsByStore(this.storenumber);

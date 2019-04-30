@@ -127,7 +127,7 @@ this.service.formData = res
       StoreID:null,
       nom:'',
       adresse:'',
-      Commercant:0,
+      Commercant:null,
       latitude:0,
       longitude:0,
       photo:''

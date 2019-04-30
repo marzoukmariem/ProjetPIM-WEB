@@ -76,12 +76,14 @@ export class UserProfile2Component implements OnInit {
             console.log(resp, 'res');
             alert('produit ajouté avec succès');
             this.service.getProductsByStore(this.storenumber);
+            this.service.refresh();
           //  this.router.navigate(['KidsPay/AceuilAdmin/parents']);
           },
           error => {
             console.log(error, 'error');
           });
 
+          
 
         }, (error) => {
           console.log('Error! ', error);
