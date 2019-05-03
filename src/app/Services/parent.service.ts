@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
 import {User} from '../Models/user.model';
+import {Carte} from '../Models/carte';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,8 @@ export class ParentService {
   formData1: Parent;
   formData3: Parent;
   formData4: User;
+  formData5: Carte;
+  usernv: { password: string; role: string; balance: null; cin: string; photo: string; id: null; nom: string; prenom: string; numTel: string; email: string };
   parent1: Parent ;
   idenfant: number;
   Data: [any];
@@ -60,6 +63,27 @@ export class ParentService {
       balance: null
     };
 
+
+    // @ts-ignore
+    this.usernv = {
+      id: null,
+      nom: '',
+      prenom: '',
+      numTel: '',
+      role: 'parent',
+      cin: '',
+      email: '',
+      password: '',
+      photo: '',
+      balance: null
+    };
+    this.formData5 = {
+      id: null,
+      code: '',
+      montant:  null,
+    };
+
+
         }
 
   postparent(Data) {
@@ -99,9 +123,15 @@ export class ParentService {
       // @ts-ignore
       this.formData4.nom = resp.nom;
       // @ts-ignore
+      localStorage.setItem('nomuser', resp.nom);
+      // @ts-ignore
       this.formData4.prenom = resp.prenom;
       // @ts-ignore
+      localStorage.setItem('prenomuser', resp.prenom);
+      // @ts-ignore
       this.formData4.numTel = resp.numTel;
+      // @ts-ignore
+      localStorage.setItem('numuser', resp.numTel);
       // @ts-ignore
       this.formData4.role = resp.role;
       // @ts-ignore
@@ -109,11 +139,17 @@ export class ParentService {
       // @ts-ignore
       this.formData4.email = resp.email;
       // @ts-ignore
+      localStorage.setItem('emailuser', resp.email);
+      // @ts-ignore
       this.formData4.password = resp.password;
       // @ts-ignore
       this.formData4.photo = resp. photo;
       // @ts-ignore
+      localStorage.setItem('photouser', resp. photo);
+      // @ts-ignore
       this.formData4.balance = resp.balance;
+      // @ts-ignore
+      localStorage.setItem('balanceuser', resp.balance);
 
       console.log(this.formData4, 'le parent');
  });
@@ -211,6 +247,60 @@ updateparent(Data, id: number) {
 });
   }
 
+informationscarte(code: string) {
+
+this.formData5 = {
+  id: null,
+  code: '',
+  montant:  null,
+};
+
+this.http.get(environment.apiURL + '/getdetailcarte/?code=' + code ).subscribe(resp => {
+  console.log(resp, 'detailcarte');
+    // @ts-ignore
+  console.log(resp.nom, 'nom');
+
+
+    // @ts-ignore
+  this.formData5.id = resp[0].pk ;
+    // @ts-ignore
+  this.formData5.code = resp[0].fields.code;
+    // @ts-ignore
+  this.formData5.montant = resp[0].fields.montant;
+
+  console.log(this.formData5, 'detailcarte');
+  this.http.get(environment.apiURL + '/updatesoldeuser/?idp=' + Number(localStorage.getItem('idparent')) + '&montant=' + this.formData5.montant).subscribe(response => {
+    console.log(response.toString());
+
+    this.http.get(environment.apiURL + '/users/' + Number(localStorage.getItem('idparent')) + '/').subscribe(resp1 => {
+
+      this.usernv = {
+        id: null,
+        nom: '',
+        prenom: '',
+        numTel: '',
+        role: 'parent',
+        cin: '',
+        email: '',
+        password: '',
+        photo: '',
+        balance: null
+      };
+      // @ts-ignore
+      this.usernv.balance = resp1.balance;
+      console.log('balance user', this.usernv.balance);
+      localStorage.setItem('balance', this.usernv.balance);
+     // const nvsolde = Number(localStorage.getItem('balance') ) + this.formData5.montant;
+    // @ts-ignore
+      this.http.delete(environment.apiURL + '/cartes/' + this.formData5.id + '/').toPromise();
+      if (response.toString() === '1') {alert(' Alimentation a été éffectuer avec succées votre nouveau solde est ' + this.usernv.balance);
+    } });
+  });
+  });
+
+
+
+}
 
 
 }

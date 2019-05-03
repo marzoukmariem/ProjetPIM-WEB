@@ -48,7 +48,7 @@ export class ParentaddComponent implements OnInit {
         nom:this.service.formData.nom,
         prenom:this.service.formData.prenom,
         numTel: this.service.formData.numTel,
-        role: "parent",
+        role: "Parent",
         cin:this.service.formData.cin,
         email: this.service.formData.email,
         password:this.service.formData.password
