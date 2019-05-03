@@ -8,6 +8,7 @@ import {noop} from 'rxjs';
 import {Historique} from '../../Models/historique.model';
 import {Enfant} from '../../Models/enfant.model';
 import * as Chartist from 'chartist';
+import {environment} from '../../../environments/environment';
 
 
 @Component({
@@ -16,15 +17,31 @@ import * as Chartist from 'chartist';
   styleUrls: ['./acceuil-parent.component.css']
 })
 export class AcceuilParentComponent implements OnInit, ControlValueAccessor {
-
+  URLphoto = 'http://79.137.75.40/kidspay/';
   constructor(private service: EnfantService, private route: ActivatedRoute, private router: Router, private service1: ParentService) {
-
-    this.route.queryParams.subscribe(params => {
+   this.URLphoto = environment.apiURL1;
+   this.route.queryParams.subscribe(params => {
       console.log(params); // {order: "popular"}
-
-      this.parentnumber = params.idp;
+      console.log('id from session', localStorage.getItem('idparent'));
+     // localStorage.setItem('idparent', params.idp);
+      this.parentnumber = Number(localStorage.getItem('idparent'));
       console.log('id:' + this.parentnumber); // popular
     });
+   this.service.getJ(this.parentnumber);
+   this.service.getF(this.parentnumber);
+   this.service.getM(this.parentnumber);
+   this.service.getAv(this.parentnumber);
+   this.service.getMai(this.parentnumber);
+   this.service.getJuin(this.parentnumber);
+   this.service.getJuillet(this.parentnumber);
+   this.service.getOut(this.parentnumber);
+   this.service.getSeptembre(this.parentnumber);
+   this.service.getOctobre(this.parentnumber);
+   this.service.getNovembre(this.parentnumber);
+   this.service.getDcembre(this.parentnumber);
+   this.service.gettop3forall(this.parentnumber);
+   this.service.getallproduit();
+
   }
 
   // get accessor
@@ -130,17 +147,24 @@ export class AcceuilParentComponent implements OnInit, ControlValueAccessor {
 
 
   ngOnInit() {
+if ( localStorage.getItem('session') === 'false') {
 
-   this.service1.getparent(this.parentnumber);
-   localStorage.setItem('idparent', (this.parentnumber).toString());
-   console.log(localStorage.getItem('idparent'));
-   this.service.getallenfantbyid(this.parentnumber);
-   console.log('listenfantfromacceuil ', this.service.list );
+  this.router.navigate(['KidsPay/Erreur']);
 
-   this.listenf = this.service.list;
-   console.log('this.service.list ', this.service.list );
-   this.service.remplirlistsum(this.parentnumber);
-   console.log('listfromacceuil ', this.service.listsum );
+
+}
+this.service1.getparent(this.parentnumber);
+
+localStorage.setItem('idparent', (this.parentnumber).toString());
+console.log(localStorage.getItem('idparent'));
+this.service.getallenfantbyid(this.parentnumber);
+console.log('listenfantfromacceuil ', this.service.list );
+
+
+this.listenf = this.service.list;
+console.log('this.service.list ', this.service.list );
+this.service.remplirlistsum(this.parentnumber);
+console.log('listfromacceuil ', this.service.listsum );
 
 
 
@@ -148,14 +172,14 @@ export class AcceuilParentComponent implements OnInit, ControlValueAccessor {
 
     /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
 
-   const dataDailySalesChart: any = {
+const dataDailySalesChart: any = {
       labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
       series: [
         [12, 17, 7, 17, 23, 18, 38]
       ]
     };
 
-   const optionsDailySalesChart: any = {
+const optionsDailySalesChart: any = {
       lineSmooth: Chartist.Interpolation.cardinal({
         tension: 0
       }),
@@ -164,21 +188,21 @@ export class AcceuilParentComponent implements OnInit, ControlValueAccessor {
       chartPadding: { top: 0, right: 0, bottom: 0, left: 0},
     };
 
-   const dailySalesChart = new Chartist.Line('#dailySalesChart', dataDailySalesChart, optionsDailySalesChart);
+const dailySalesChart = new Chartist.Line('#dailySalesChart', dataDailySalesChart, optionsDailySalesChart);
 
-   this.startAnimationForLineChart(dailySalesChart);
+this.startAnimationForLineChart(dailySalesChart);
 
 
     /* ----------==========     Completed Tasks Chart initialization    ==========---------- */
 
-   const dataCompletedTasksChart: any = {
+const dataCompletedTasksChart: any = {
       labels: ['12p', '3p', '6p', '9p', '12p', '3a', '6a', '9a'],
       series: [
         [230, 750, 450, 300, 280, 240, 200, 190]
       ]
     };
 
-   const optionsCompletedTasksChart: any = {
+const optionsCompletedTasksChart: any = {
       lineSmooth: Chartist.Interpolation.cardinal({
         tension: 0
       }),
@@ -187,23 +211,25 @@ export class AcceuilParentComponent implements OnInit, ControlValueAccessor {
       chartPadding: { top: 0, right: 0, bottom: 0, left: 0}
     };
 
-   const completedTasksChart = new Chartist.Line('#completedTasksChart', dataCompletedTasksChart, optionsCompletedTasksChart);
+const completedTasksChart = new Chartist.Line('#completedTasksChart', dataCompletedTasksChart, optionsCompletedTasksChart);
 
     // start animation for the Completed Tasks Chart - Line Chart
-   this.startAnimationForLineChart(completedTasksChart);
+this.startAnimationForLineChart(completedTasksChart);
 
 
 
     /* ----------==========     Emails Subscription Chart initialization    ==========---------- */
 
-   const datawebsiteViewsChart = {
+const datawebsiteViewsChart = {
       labels: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
       series: [
-        [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895]
+        [this.service.janvier, this.service.février, this.service.Mars, this.service.avril,
+          this.service.mai, this.service.juin, this.service.juillet, this.service.aout, this.service.septembre,
+          this.service.octobre, this.service.novembre, this.service.decembre]
 
       ]
     };
-   const optionswebsiteViewsChart = {
+const optionswebsiteViewsChart = {
       axisX: {
         showGrid: false
       },
@@ -211,7 +237,7 @@ export class AcceuilParentComponent implements OnInit, ControlValueAccessor {
       high: 1000,
       chartPadding: { top: 0, right: 5, bottom: 0, left: 0}
     };
-   const responsiveOptions: any[] = [
+const responsiveOptions: any[] = [
       ['screen and (max-width: 640px)', {
         seriesBarDistance: 5,
         axisX: {
@@ -221,10 +247,10 @@ export class AcceuilParentComponent implements OnInit, ControlValueAccessor {
         }
       }]
     ];
-   const websiteViewsChart = new Chartist.Bar('#websiteViewsChart', datawebsiteViewsChart, optionswebsiteViewsChart, responsiveOptions);
+const websiteViewsChart = new Chartist.Bar('#websiteViewsChart', datawebsiteViewsChart, optionswebsiteViewsChart, responsiveOptions);
 
     // start animation for the Emails Subscription Chart
-   this.startAnimationForBarChart(websiteViewsChart);
+this.startAnimationForBarChart(websiteViewsChart);
 
   }
 

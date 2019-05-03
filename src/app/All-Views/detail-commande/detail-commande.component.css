@@ -1,0 +1,10 @@
+.column {
+  float: left;
+  width: 50%;
+  padding: 20px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+.resimg {
+  width: auto;
+  height: auto;
+}

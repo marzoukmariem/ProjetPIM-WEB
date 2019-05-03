@@ -1,13 +1,4 @@
 
-
-body {
-  position: relative;
-  top: 0px;
-  left: 40px;
-
-}
-
-
 /* The switch - the box around the slider */
 .switch {
   position: relative;
@@ -122,4 +113,11 @@ input:checked + .slider:before {
 
 
 
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
 

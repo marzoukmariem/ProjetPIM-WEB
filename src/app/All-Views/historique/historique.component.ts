@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Store} from '../../Models/store.model';
 import {noop} from 'rxjs';
 import * as Chartist from 'chartist';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-historique',
@@ -11,21 +12,6 @@ import * as Chartist from 'chartist';
   styleUrls: ['./historique.component.css']
 })
 export class HistoriqueComponent implements OnInit {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   // get accessor
   get value(): any {
@@ -36,14 +22,41 @@ export class HistoriqueComponent implements OnInit {
   set value(value: any) {
     this.isChecked = value;
   }
+
+
+
+
+
+
+
   constructor(private service: EnfantService, private route: ActivatedRoute, private router: Router) {
+    this.URLphoto = environment.apiURL1;
+    this.photouser = localStorage.getItem('photouser');
+
+    this.nomuser = localStorage.getItem('nom');
+
+    this.prenomuser = localStorage.getItem('prenom');
+
+    this.numuser = localStorage.getItem('numuser');
+    this.email = localStorage.getItem('emailuser');
+    this.balanceuser = localStorage.getItem('balanceuser');
+
     this.route.queryParams.subscribe(params => {
       console.log(params); // {order: "popular"}
 
       this.enfantnumber = params.idp;
       console.log('id:' + this.enfantnumber); // popular
     });
+    this.service.gettop3(this.enfantnumber);
+    this.service.getallproduit();
   }
+  URLphoto = '';
+photouser = '';
+  nomuser = '';
+  prenomuser = '';
+  numuser = '';
+  email = '';
+  balanceuser = null;
   storeList: Store[] = [];
   enfantnumber: number;
   @Input() label: string;
@@ -54,6 +67,14 @@ export class HistoriqueComponent implements OnInit {
 
   private  onTouchedCallback: () => void = noop;
   private  onChangeCallback: (_: any) => void = noop;
+
+
+
+  logout() {
+
+    localStorage.clear();
+    this.router.navigate(['KidsPay/login']);
+  }
 
 
   startAnimationForBarChart(chart) {
@@ -124,6 +145,12 @@ export class HistoriqueComponent implements OnInit {
 
     seq = 0;
   }  ngOnInit() {
+    if ( localStorage.getItem('session') === 'false') {
+
+      this.router.navigate(['KidsPay/Erreur']);
+
+
+    }
     this.service.gethistoriquebyenfant(this.enfantnumber);
     this.service.getStoresList();
     console.log('nvlist:' + this.storeList);
