@@ -1,0 +1,77 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-info">
+            <h4 class="card-title">Mes Informations</h4>
+            <p class="card-category"></p>
+          </div>
+          <div class="card-body">
+            <form id="contact" #form="ngForm" autocomplete="off"  (submit)="onSubmit(form)">
+                <input type="hidden" name ="CommercantID" #prenom="ngModel" [(ngModel)]="user1.id">
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Nom" [(ngModel)]="user1.nom" name="nom">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Prenom" [(ngModel)]="user1.prenom" name="prenom">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Adresse Email" type="text" [(ngModel)]="user1.email" name="email">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Numero de Telephone" type="text" [(ngModel)]="user1.numTel"
+                      name="numtel">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Role" type="text" disabled [(ngModel)]="user1.role" name="Role">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Mot De Passe" type="password" [(ngModel)]="user1.password"
+                      name="password">
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <button mat-raised-button type="submit" class="btn btn-danger pull-right" >Confirm</button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-profile">
+          <div class="card-avatar">
+
+            <img class="img" src="./assets/img/faces/Untitled.png" />
+
+          </div>
+          <div class="card-body">
+            <h6 class="card-category text-gray">balance: {{balance}} DT</h6>
+            <h4 class="card-title">{{user1.nom}} {{user1.prenom}}</h4>
+            <p class="card-description">
+              Pour toute modification de vos informations. veuillez contacter l'admin
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

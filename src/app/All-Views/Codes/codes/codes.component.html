@@ -1,0 +1,44 @@
+<div id="content" #content>
+  <mat-card>
+    <div class="alert alert-info">
+      <strong>Generation de carte</strong>
+    </div>
+    <div style="text-align: center">
+      <input type="button" value="Imprimer" (click)="captureScreen()" />
+    </div>
+  </mat-card>
+</div>
+
+<div class="main-content" style="background: white">
+  <div class="container-fluid" id="contentToConvert">
+
+      <div style="height: 50px;"></div>
+
+    <div class="row" >
+        
+            
+      <div class="col-lg-4 col-md-6 col-sm-6" *ngFor="let item of cartes1" >
+        <div class="card border-success  card-stats" style="background-color:rgb(255, 255, 255)" >
+          <div class="card-header card-header-icon"  >
+              <div class="card-icon bg-white" style="height: 1;">
+              <img src="/assets/img/logoKidspay.png" />
+              </div>
+              <p class="card-category">Carte {{item.montant}} DT</p>
+            <h4 class="card-title"> {{item.code}}
+              
+            </h4>
+          </div>  
+          <div class="card-footer" style="text-align: center">
+            pour recharger votre compte veillez
+            introduire ce code soit dans l'interface mobile ou web de votre compte
+          </div>
+        </div>
+      </div>
+      
+      
+
+     
+
+    </div>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 export class Commercant {
+  id:number
   CommercantID:number
   nom: string
   prenom : string
@@ -7,5 +8,5 @@ export class Commercant {
   cin : string
   email : string
   password: string
-  
+  photo:string
 }

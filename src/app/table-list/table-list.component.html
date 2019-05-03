@@ -1,8 +1,9 @@
 <div class="main-content">
   <div class="container-fluid">
       <div class="row">
-          <div class="col-md-8">
+          <div class="col-md-7">
                 <button mat-raised-button type="submit" class="btn btn-outline-primary" (click)="goToStoreProducts()">Liste Des Produit</button>
+                <button mat-raised-button type="submit" class="btn btn-outline-secondary" (click)="goToNewStoreProducts()">Liste Des Nouveau Produit</button>
               <div class="card">
                   
                     
@@ -20,9 +21,9 @@
                               </thead>
                               <tbody>
                                 <tr *ngFor="let emp of service.listhist2">
-                                    <td >{{emp.dateachat}} </td>
-                                    <td >{{emp.enfant.nom}} {{emp.enfant.prenom}} </td>
-                                    <td >{{emp.prixcommande}} DT</td>
+                                    <td (click)="detailCommande(emp.id)" >{{emp.dateachat}} </td>
+                                    <td (click)="detailCommande(emp.id)">{{emp.enfant.nom}} {{emp.enfant.prenom}} </td>
+                                    <td (click)="detailCommande(emp.id)">{{emp.prixcommande}} DT</td>
                                   </tr>
                               </tbody>
                           </table>
@@ -31,24 +32,45 @@
               </div>
           </div>
 
-          
-            <div class="col-md-4">
-                  <div class="card card-chart">
-                      <div class="card-header card-header-danger">
-                          <div class="ct-chart" id="dailySalesChart"></div>
-                      </div>
-                      <div class="card-body">
-                          <h4 class="card-title">Revenus Clients Par Jour</h4>
-                          <p class="card-category">
-                                  Statistique par rapport a ce magazin</p>
-                      </div>
-                      <div class="card-footer">
-                          <div class="stats">
-                              <i class="material-icons">access_time</i> Mise a jours recente
-                          </div>
+          <div class="col-md-5">
+               
+              <div class="card">
+                  
+                    
+                  <div class="card-header card-header-danger">   
+                      <h4 class="card-title ">historique achat</h4>
+                      <p class="card-category"> Les lignes de commance de celle choisie</p>
+                  </div>
+                  <div class="card-body">
+                      <div class="table-responsive">
+                            <table class="table">
+                                    <thead class=" text-info">
+                                        <th>Photo</th>
+                                        <th>Nom</th>
+                                        
+                                       
+        
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let emp2 of service.listhist4">
+        
+                                            <td>
+        
+        
+                                                <img class="img" src="http://79.137.75.40/kidspay/{{emp2.photo}}" />
+        
+                                            </td>
+                                            <td>{{emp2.nom }} </td>
+                                            
+                                        </tr>
+                                    </tbody>
+                                </table>
                       </div>
                   </div>
               </div>
+          </div>
+
+          
         
           
       </div>

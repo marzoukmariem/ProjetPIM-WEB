@@ -21,6 +21,7 @@ import { CommercantsComponent } from './All-Views/commercants/commercants.compon
 import { CommercantComponent } from './All-Views/commercants/commercant/commercant.component';
 import { LayoutModule } from './views/layout/layout.module';
 import { StoreComponent } from './All-Views/stores/store/store.component';
+import { StoreEditComponent } from './All-Views/stores/store/storeEdit.component';
 import { StoresComponent } from './All-Views/stores/stores.component';
 import { HistoriqueComponent } from './All-Views/historique/historique.component';
 import { ParenteditComponent } from './All-Views/parents/parentedit/parentedit.component';
@@ -60,11 +61,12 @@ import {FooterComponent} from './components/footer/footer.component';
 import {SidebarComponent} from './components/sidebar/sidebar.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
 import {ComponentsModule} from './components/components.module';
+import { CommercantEditComponent } from './All-Views/commercants/commercant/commercantEdit.component';
+import { CodesComponent } from './All-Views/Codes/codes/codes.component';
 import { DetailCommandeComponent } from './All-Views/detail-commande/detail-commande.component';
 import { TestreponsiveComponent } from './All-Views/testreponsive/testreponsive.component';
 import { ErreurpageComponent } from './All-Views/erreurpage/erreurpage.component';
 import { AlimentationuserComponent } from './All-Views/alimentationuser/alimentationuser.component';
-
 
 
 @NgModule({
@@ -80,7 +82,9 @@ import { AlimentationuserComponent } from './All-Views/alimentationuser/alimenta
     CommAcceuilComponent,
     CommercantsComponent,
     CommercantComponent,
+    CommercantEditComponent,
     StoreComponent,
+    StoreEditComponent,
     StoresComponent,
     HistoriqueComponent,
     ParenteditComponent,
@@ -98,6 +102,7 @@ import { AlimentationuserComponent } from './All-Views/alimentationuser/alimenta
     FooterComponent,
     SidebarComponent,
     NavbarComponent,
+    CodesComponent,
     DetailCommandeComponent,
     TestreponsiveComponent,
     ErreurpageComponent,

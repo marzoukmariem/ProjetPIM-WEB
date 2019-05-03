@@ -12,6 +12,8 @@ import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { DashboardComponent2 } from 'src/app/dashboard2/dashboard.component';
+import { UserProfile2Component } from 'src/app/user-profile2/user-profile.component';
+import { UserProfileEditComponent } from 'src/app/user-profile/user-profileEdit.component';
 
 
 import {
@@ -22,7 +24,11 @@ import {
   MatTooltipModule,
   MatSelectModule
 } from '@angular/material';
-import { UserProfile2Component } from 'src/app/user-profile2/user-profile.component';
+import { UserProfile2EditComponent } from 'src/app/user-profile2/user-profile2Edit.component';
+import { UserProfile3Component } from 'src/app/user-profile2/user-profile3.component';
+import { UserProfile3EditComponent } from 'src/app/user-profile2/user-profile3Edit.component';
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -39,14 +45,17 @@ import { UserProfile2Component } from 'src/app/user-profile2/user-profile.compon
     DashboardComponent,
     DashboardComponent2,
     UserProfileComponent,
+    UserProfileEditComponent,
     UserProfile2Component,
+    UserProfile3Component,
     TableListComponent,
     TypographyComponent,
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
-
+    UserProfile2EditComponent,
+    UserProfile3EditComponent
 
   ]
 })

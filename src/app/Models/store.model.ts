@@ -1,5 +1,5 @@
 export class Store {
-
+  public id: number;
   public StoreID: number;
   public nom: string;
   public adresse: string;

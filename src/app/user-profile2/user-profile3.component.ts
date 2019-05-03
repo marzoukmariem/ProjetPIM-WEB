@@ -9,10 +9,10 @@ import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-user-profile',
-  templateUrl: './user-profile.component.html',
+  templateUrl: './user-profile3.component.html',
   styleUrls: ['./user-profile.component.css']
 })
-export class UserProfile2Component implements OnInit {
+export class UserProfile3Component implements OnInit {
   storenumber: number
 
   file: File = null;
@@ -29,7 +29,7 @@ export class UserProfile2Component implements OnInit {
   }
 
   ngOnInit() {
-    this.service.getProductsByStore(this.storenumber);
+    this.service.getNewProductsByStore(this.storenumber);
      
     }
 
@@ -75,15 +75,13 @@ export class UserProfile2Component implements OnInit {
         .subscribe(resp => {
             console.log(resp, 'res');
             alert('produit ajouté avec succès');
-            this.service.getProductsByStore(this.storenumber);
-            this.service.refresh();
+            this.service.getNewProductsByStore(this.storenumber);
           //  this.router.navigate(['KidsPay/AceuilAdmin/parents']);
           },
           error => {
             console.log(error, 'error');
           });
 
-          
 
         }, (error) => {
           console.log('Error! ', error);
@@ -99,13 +97,13 @@ export class UserProfile2Component implements OnInit {
     onOrderDelete(id: number) {
       if (confirm('Are you sure to delete this ?')) {
         this.service.deleteProduct(id).then(res => {
-          this.service.getProductsByStore(this.storenumber);
+          this.service.getNewProductsByStore(this.storenumber);
         });
       }
     }
 
     openForEdit(id:number){
-      this.router.navigate(['/KidsPay/Aceuilcommercant/Historique/dashboard2Edit/'+id], { queryParams: { idm: this.storenumber } })
+      this.router.navigate(['/KidsPay/Aceuilcommercant/Historique/dashboard3Edit/'+id], { queryParams: { idm: this.storenumber } })
     }
   
 

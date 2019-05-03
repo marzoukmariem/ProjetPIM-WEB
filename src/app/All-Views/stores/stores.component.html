@@ -26,8 +26,8 @@
             </a>
           </li>
           <li class="menu-apple">
-            <a href="#">
-              <span>Mon compte</span>
+            <a routerLink="/KidsPay/AceuilAdmin/codes" routerLinkA  ctive="active">
+              <span>Codes</span>
             </a>
           </li>
           <li class="menu-mac">
@@ -65,8 +65,17 @@
             Commercants</a>
           <a class="btn btn-secondary" routerLink="/KidsPay/AceuilAdmin/stores"><i class="fa fa-table"></i> Gestion
             Stores</a>
+            <div style="height: 20px;"></div>
+            <div class="col-md-3 offset-md-2">
+            <div class="md-form active-pink-2 mb-3">
+                <div class="active-pink-3 active-pink-4 mb-4">
+                    <input class="form-control" type="text" placeholder="Search" aria-label="Search" style="color: white;" (keyup)="update()" [(ngModel)]="searchInput">
+                  </div>
+            </div>
+          </div>
+        
         </h1>
-
+        
 
 
 
@@ -95,7 +104,7 @@
             </div>
             </td>
             <td>
-              <a class="btn text-dan*ger" (click)="onOrderDelete(item.id)"><i class="fa fa-trash fa-lg"></i></a>
+              <a class="btn text-danger" (click)="onOrderDelete(item.id)"><i class="fa fa-trash fa-lg"></i></a>
             </td>
             </tr>
             </tbody>

@@ -10,11 +10,9 @@
                     <div class="card-body">
                         <table class="table">
                             <thead class=" text-info">
-                                <th>Photo</th>
-                                <th>Nom</th>
-                                <th>categorie</th>
+                                
                                 <th>Code</th>
-                                <th>Prix</th>
+                                
                                 <th>modifier</th>
                                 <th>supprimer</th>
 
@@ -22,16 +20,9 @@
                             <tbody>
                                 <tr *ngFor="let emp of service.list2">
 
-                                    <td>
-
-
-                                        <img class="img" src="http://79.137.75.40/kidspay/{{emp.photo}}" />
-
-                                    </td>
-                                    <td> {{emp.nom }}   </td>
-                                    <td> {{emp.categorie }} </td>
+                                    
                                     <td> {{emp.code }}  </td>
-                                    <td> {{emp.prix }}  </td>
+                                   
                                           <td>
                                                 <button type="button" class="btn btn-outline-secondary" (click)="openForEdit(emp.id)"><i class="fa fa-edit fa-lg"></i></button>
                                           </td><td>

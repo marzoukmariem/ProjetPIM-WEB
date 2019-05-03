@@ -50,7 +50,7 @@
                               
                           </div>
                          
-                          <button mat-raised-button type="submit" class="btn btn-danger pull-right">Update Profile</button>
+                          <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="goToEdit()">Update Profile</button>
                           <div class="clearfix"></div>
                       </form>
                   </div>
@@ -67,7 +67,7 @@
                       <h6 class="card-category text-gray">balance: {{balance}} DT</h6>
                       <h4 class="card-title">{{user1.nom}} {{user1.prenom}}</h4>
                       <p class="card-description">
-                       Pour toute modification de vos informations. veuillez contacter l'admin
+                       En cas d'oublie de mot passe, veuillez contacter l'admin
                       </p>
                       
                   </div>

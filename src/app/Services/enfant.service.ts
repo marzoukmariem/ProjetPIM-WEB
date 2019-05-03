@@ -170,7 +170,7 @@ export class EnfantService {
   readonly rootURL = 'http://192.168.43.223:8000/kidspay/';
   private z1: string;
 
-  apiUrl = 'http://localhost/kidspay/up.php';
+  apiUrl = 'http://79.137.75.40/kidspay/up.php';
 
   upload(formData) {
 
