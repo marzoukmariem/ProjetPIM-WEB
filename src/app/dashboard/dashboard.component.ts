@@ -34,7 +34,7 @@ export class DashboardComponent implements OnInit {
   min: number = 0
   maxS: number = 0
   minS: number = 0
-  readonly rootURL = "http://79.137.75.40:8000/kidspay/"
+  readonly rootURL = environment.apiURL+"/"
 
   constructor(private service: StoreService, private route: ActivatedRoute, private router: Router, private http: HttpClient) {
     this.route.queryParams.subscribe(params => {
@@ -548,7 +548,7 @@ export class DashboardComponent implements OnInit {
                                 /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
 
                                 const dataDailySalesChart: any = {
-                                  labels: ['', '', '', '', '', "aujourd'hui",'' ],
+                                  labels: ['', '', '', '', '', '',"aujourd'hui" ],
                                   series: [
                                     [this.nbrClientParJour6, this.nbrClientParJour5, this.nbrClientParJour4, this.nbrClientParJour3, this.nbrClientParJour2, this.nbrClientParJour1, this.nbrClientParJour0]
                                   ]

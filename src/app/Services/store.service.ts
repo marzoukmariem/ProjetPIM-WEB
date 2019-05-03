@@ -12,7 +12,8 @@ export class StoreService {
  
   formData1: Product;
   formData: Store
-  readonly rootURL = "http://79.137.75.40:8000/kidspay/"
+  readonly rootURL = environment.apiURL+"/"
+  readonly rootURL2 = environment.apiURL2+"/"
   list: Store[] = [];
   list2: Product[] = [];
   x:string;
@@ -49,7 +50,7 @@ export class StoreService {
     this.formData1 = {
       id: null,
       nom: '',
-      categorie:'categorie',
+      categorie:'',
       code:'',
       Store:null
     };
@@ -379,7 +380,7 @@ export class StoreService {
 
 
 
-          for (var i = 0; i < Number(resp2['length']); i++) {
+          for (var i = Number(resp2['length'])-1; i >-1 ; i--) {
             // @ts-ignore
             this.historique3 = {
               enfant: null,
@@ -408,7 +409,7 @@ export class StoreService {
 
               }
 
-              if(this.historique3.store!=null && this.historique3.store.Commercant==id&&this.k<3){
+              if(this.historique3.store!=null && this.historique3.store.Commercant==id&&this.k<10){
                 this.listhist3.push(this.historique3);
                 this.k++
                 console.log(this.k,'k')

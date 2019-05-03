@@ -83,7 +83,7 @@
                                       <th>Adresse</th>
                                   </thead>
                                   <tbody>
-                                      <tr *ngFor="let emp of service.list">
+                                      <tr *ngFor="let emp of service.list  | paginate:{id:'second', itemsPerPage: 5, currentPage: s}  ">
                                           <td (click)="histo(emp.StoreID)">{{emp.nom}}</td>
                                           <td (click)="histo(emp.StoreID)">{{emp.adresse}}</td>
                                         </tr>
@@ -91,6 +91,8 @@
                               </table>
                           </div>
                       </div>
+                      <pagination-controls (pageChange)="s = $event" id="second"></pagination-controls>
+
             </div>
             <div class="col-lg-6 col-md-12">
                 <div class="card">
@@ -107,7 +109,7 @@
                                 <th>Magazin</th>
                             </thead>
                             <tbody>
-                              <tr *ngFor="let emp of service.listhist3">
+                              <tr *ngFor="let emp of service.listhist3 | paginate:{ itemsPerPage: 4, currentPage: p}">
                                   <td>{{emp.enfant.nom}} {{emp.enfant.prenom}}</td>
                                   <td>{{emp.prixcommande}}</td>
                                   <td>{{emp.store.nom}}</td>
@@ -116,6 +118,8 @@
                             </tbody>
                         </table>
                     </div>
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
                 </div>
             </div>
 

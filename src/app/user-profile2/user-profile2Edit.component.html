@@ -12,25 +12,26 @@
                             <thead class=" text-info">
                                 <th>Photo</th>
                                 <th>Nom</th>
-                                <th>categorie</th>
+                                <th>Categorie</th>
                                 <th>Code</th>
+                                <th>Prix</th>
                                 <th>modifier</th>
                                 <th>supprimer</th>
 
                             </thead>
                             <tbody>
-                                <tr *ngFor="let emp of service.list2">
+                                <tr *ngFor="let emp of service.list2  | paginate:{ itemsPerPage: 100, currentPage: p}">
 
                                     <td>
 
 
-                                        <img class="img" src="http://79.137.75.40/kidspay/{{emp.photo}}" />
+                                        <img class="img" src="{{service.rootURL2}}{{emp.photo}}" />
 
                                     </td>
                                     <td> {{emp.nom }}</td>
                                     <td>{{emp.categorie }} </td>
                                     <td> {{emp.code }}</td>
-                                    
+                                    <td> {{emp.prix }}</td>
                                           <td>
                                                 <button type="button" class="btn btn-outline-secondary" (click)="openForEdit(emp.id)"><i class="fa fa-edit fa-lg"></i></button>
                                           </td><td>
@@ -41,6 +42,7 @@
                         </table>
                     </div>
                 </div>
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
             </div>
             <div class="col-md-4">
                 <div class="card card-profile">
@@ -92,7 +94,7 @@
                                 </div>
                             </div>
                             <button mat-raised-button type="submit" class="btn btn-success pull-right">Update</button>
-                            <button mat-raised-button type="submit" class="btn btn-danger pull-right">Cancel</button>
+                            <button mat-raised-button  class="btn btn-danger pull-right" (click)="cancel()">Cancel</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>

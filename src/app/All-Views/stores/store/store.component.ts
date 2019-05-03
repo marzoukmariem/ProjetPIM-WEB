@@ -145,7 +145,7 @@ this.service.formData = res
     {try {
       const formData = new FormData();
       formData.append('file', this.file);
-      this.http.post('http://79.137.75.40/kidspay/up.php', formData)
+      this.http.post(environment.apiURL2+'/up.php', formData)
         .subscribe((data) => {
           console.log('Got some data from backend ', data);
           // @ts-ignore
@@ -171,6 +171,7 @@ this.service.formData = res
 
         }, (error) => {
           console.log('Error! ', error);
+          alert('veuillez choisir une photo');
         });
 
 

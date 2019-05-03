@@ -64,6 +64,7 @@ import {ComponentsModule} from './components/components.module';
 import { CommercantEditComponent } from './All-Views/commercants/commercant/commercantEdit.component';
 import { CodesComponent } from './All-Views/Codes/codes/codes.component';
 import { DetailCommandeComponent } from './All-Views/detail-commande/detail-commande.component';
+import {NgxPaginationModule} from 'ngx-pagination'
 
 @NgModule({
   declarations: [
@@ -102,6 +103,7 @@ import { DetailCommandeComponent } from './All-Views/detail-commande/detail-comm
     DetailCommandeComponent,
   ],
   imports: [
+    NgxPaginationModule,
     NgbModule,
     CommonModule,
     BrowserModule,

@@ -22,11 +22,12 @@ import {
   MatRippleModule,
   MatFormFieldModule,
   MatTooltipModule,
-  MatSelectModule
+  MatSelectModule,
 } from '@angular/material';
 import { UserProfile2EditComponent } from 'src/app/user-profile2/user-profile2Edit.component';
 import { UserProfile3Component } from 'src/app/user-profile2/user-profile3.component';
 import { UserProfile3EditComponent } from 'src/app/user-profile2/user-profile3Edit.component';
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { UserProfile3EditComponent } from 'src/app/user-profile2/user-profile3Ed
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
+    NgxPaginationModule
   ],
   declarations: [
     DashboardComponent,

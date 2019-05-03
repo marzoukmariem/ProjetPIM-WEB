@@ -40,7 +40,7 @@ export class UserProfile3EditComponent implements OnInit {
     this.service.getProduct(parseInt(this.productId)).then(res=>{
         
       this.service.formData1 = res;
-      this.imageUrl='http://79.137.75.40/kidspay/'+this.service.formData1.photo
+      this.imageUrl=environment.apiURL2+'/'+this.service.formData1.photo
     });
     }
 
@@ -64,7 +64,7 @@ export class UserProfile3EditComponent implements OnInit {
     {try {
       const formData = new FormData();
       formData.append('file', this.file);
-      this.http.post('http://79.137.75.40/kidspay/up.php', formData)
+      this.http.post(environment.apiURL2+'/up.php', formData)
         .subscribe((data) => {
           console.log('Got some data from backend ', data);
           // @ts-ignore
@@ -87,7 +87,7 @@ export class UserProfile3EditComponent implements OnInit {
           
         .subscribe(resp => {
             console.log(resp, 'res');
-            alert('produit ajouté avec succès');
+            alert('produit mis a jour avec succès');
             this.service.getNewProductsByStore(this.storenumber);
           //  this.router.navigate(['KidsPay/AceuilAdmin/parents']);
           },
@@ -98,10 +98,10 @@ export class UserProfile3EditComponent implements OnInit {
           this.service.formData1.nom=''
         this.service.formData1.categorie=''
         this.service.formData1.code=''
-        this.service.formData1.prix=0
+        this.service.formData1.prix=null
        
         this.imageUrl = '/assets/img/newProduct.png';
-        this.service.formData1.prix
+        
 
         }, (error) => {
           console.log('Error! ', error);
@@ -135,11 +135,23 @@ export class UserProfile3EditComponent implements OnInit {
     this.service.getProduct(parseInt(localStorage.getItem("idProduit"))).then(res=>{
         
       this.service.formData1 = res;
-      this.imageUrl='http://79.137.75.40/kidspay/'+this.service.formData1.photo
+      this.imageUrl=environment.apiURL2+'/'+this.service.formData1.photo
     });
     }
 
-    
+    cancel() {
+      // @ts-ignore
+      this.service.formData1 = {
+        id: null,
+        nom: '',
+        categorie: '',
+        code: '',
+        Store: null,
+        prix:null
+      };
+      this.router.navigate(['/KidsPay/Aceuilcommercant/Historique/dashboard3NewProduct'], { queryParams: { idm: this.storenumber } })
+    }
+  
 
     
 

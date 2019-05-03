@@ -52,7 +52,7 @@ export class StoreEditComponent implements OnInit {
 this.service.getStoreByID(parseInt(storeID)).then(res=>{
   this.initializeMap();
 this.service.formData = res
-this.imageUrl='http://79.137.75.40/kidspay/'+this.service.formData.photo
+this.imageUrl=environment.apiURL2+'/'+this.service.formData.photo
 this.lat=this.service.formData.latitude
 this.lng=this.service.formData.longitude
 });
@@ -149,7 +149,7 @@ this.lng=this.service.formData.longitude
     {try {
       const formData = new FormData();
       formData.append('file', this.file);
-      this.http.post('http://79.137.75.40/kidspay/up.php', formData)
+      this.http.post(environment.apiURL2+'/up.php', formData)
         .subscribe((data) => {
           console.log('Got some data from backend ', data);
           // @ts-ignore
@@ -164,7 +164,7 @@ this.lng=this.service.formData.longitude
           this.service.UpdateStore()
         .subscribe(resp => {
             console.log(resp, 'res');
-            alert('ajouté avec succès');
+            alert('edit avec succès');
             this.router.navigate(['KidsPay/AceuilAdmin/stores']);
           
           },
@@ -175,6 +175,15 @@ this.lng=this.service.formData.longitude
 
         }, (error) => {
           console.log('Error! ', error);
+
+          this.service.UpdateStore()
+        .subscribe(resp => {
+            console.log(resp, 'res');
+            alert('edit avec succès');
+            this.router.navigate(['KidsPay/AceuilAdmin/stores']);
+          
+          })
+          
         });
 
 

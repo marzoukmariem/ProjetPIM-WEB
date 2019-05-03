@@ -53,7 +53,7 @@ export class UserProfile3Component implements OnInit {
     {try {
       const formData = new FormData();
       formData.append('file', this.file);
-      this.http.post('http://79.137.75.40/kidspay/up.php', formData)
+      this.http.post(environment.apiURL2+'/up.php', formData)
         .subscribe((data) => {
           console.log('Got some data from backend ', data);
           // @ts-ignore
@@ -74,8 +74,18 @@ export class UserProfile3Component implements OnInit {
           this.service.ajoutProduit(produit)
         .subscribe(resp => {
             console.log(resp, 'res');
-            alert('produit ajouté avec succès');
+            alert('produit mis a jour avec succès');
             this.service.getNewProductsByStore(this.storenumber);
+            this.service.refresh();
+            // @ts-ignore
+     this.service.formData1 = {
+      id: null,
+      nom: '',
+      categorie: '',
+      code: '',
+      Store: null
+    };
+
           //  this.router.navigate(['KidsPay/AceuilAdmin/parents']);
           },
           error => {
@@ -97,6 +107,7 @@ export class UserProfile3Component implements OnInit {
     onOrderDelete(id: number) {
       if (confirm('Are you sure to delete this ?')) {
         this.service.deleteProduct(id).then(res => {
+          this.service.refresh();
           this.service.getNewProductsByStore(this.storenumber);
         });
       }
@@ -104,6 +115,10 @@ export class UserProfile3Component implements OnInit {
 
     openForEdit(id:number){
       this.router.navigate(['/KidsPay/Aceuilcommercant/Historique/dashboard3Edit/'+id], { queryParams: { idm: this.storenumber } })
+    }
+
+    cancel(){
+      
     }
   
 
