@@ -1,0 +1,101 @@
+<html>
+
+<head>
+  <script>
+    addEventListener("load", function () {
+      setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+      window.scrollTo(0, 1);
+    }
+  </script>
+
+
+</head>
+
+<body>
+<header>
+  <nav>
+    <div class="menu-container">
+      <!-- Menu -->
+      <ul class="menu">
+        <li class="menu-apple">
+          <a  routerLink="/KidsPay/AceuilAdmin/Gestioncompte" routerLinkActive="active">
+            <span>Home</span>
+          </a>
+        </li>
+        <li class="menu-apple">
+          <a routerLink="/KidsPay/AceuilAdmin/codes" routerLinkA ctive="active">
+            <span>Codes</span>
+          </a>
+        </li>
+        <li class="menu-mac">
+          <a routerLink="/KidsPay/AceuilAdmin/parents" routerLinkActive="active">
+
+            <span>Gestion des Parents</span>
+          </a>
+        </li>
+        <li class="menu-iPad">
+          <a routerLink="/KidsPay/AceuilAdmin/commercants" routerLinkActive="active">
+            <span>Gestion des Commerçants</span>
+          </a>
+        </li>
+        <li class="menu-iPad">
+          <a routerLink="/KidsPay/login" routerLinkActive="active">
+            <span>se déconnecter</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<div class="fade-screen"></div>
+<div class="w3layouts-main">
+  <div class="bg-layer">
+    <div class="jumbtron">
+      <h3 class="display-4 text-center"><img src="/assets/img/logoKidspay.png"></h3>
+      <br><br>
+      <hr>
+
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 offset-md-1">
+            <form id="contact" #form="ngForm" autocomplete="off" *ngIf="service.formData6"  (submit)="onSubmit(form)"   >
+              <input type="hidden" name ="CommercantID"  >
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Nom</label>
+                    <input type="text" name ="nom"  #nom="ngModel" [(ngModel)]="service.formData6.nom" required pattern="[A-Za-z ]*">
+                  </div>
+                  <div class="form-group">
+                    <label>Prenom</label>
+                    <input type="text" name ="prenom"  #prenom="ngModel" [(ngModel)]="service.formData6.prenom" required pattern="[A-Za-z ]*">
+                  </div>
+
+                  <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" name ="email" #email="ngModel" [(ngModel)]="service.formData6.email" required pattern="[A-Za-z ]*">
+                  </div>
+                  <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name ="password" #password="ngModel" [(ngModel)]="service.formData6.password" required pattern="[A-Za-z ]*">
+                  </div>
+
+              <div class="form-group">
+                <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> modifier</button>
+             </div></div></div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+</body>
+
+</html>

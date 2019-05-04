@@ -389,13 +389,8 @@ nav {
   font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
 }
 
-#contact {
-  background-color:transparent;
-  padding: 50px;
-  margin: 150px 0;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 
-}
+
 
 #contact h3 {
   display: block;
@@ -412,13 +407,7 @@ nav {
   font-weight: 400;
 }
 
-fieldset {
-  border: medium none !important;
-  margin: 0 0 10px;
-  min-width: 100%;
-  padding: 0;
-  width: 100%;
-}
+
 
 #contact input[type="text"],
 #contact input[type="email"],
@@ -449,16 +438,7 @@ fieldset {
   resize: none;
 }
 
-#contact button[type="submit"] {
-  cursor: pointer;
-  width: 100%;
-  border: none;
-  background: #0071BC;
-  color: #FFF;
-  margin: 0 0 5px;
-  padding: 10px;
-  font-size: 15px;
-}
+
 
 #contact button[type="submit"]:hover {
   background: #0071BC;

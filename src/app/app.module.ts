@@ -67,6 +67,8 @@ import { DetailCommandeComponent } from './All-Views/detail-commande/detail-comm
 import { TestreponsiveComponent } from './All-Views/testreponsive/testreponsive.component';
 import { ErreurpageComponent } from './All-Views/erreurpage/erreurpage.component';
 import { AlimentationuserComponent } from './All-Views/alimentationuser/alimentationuser.component';
+import {OverlayModule} from '@angular/cdk/overlay';
+import {GestionadminComponent} from './All-Views/gestionadmin/gestionadmin.component';
 
 
 @NgModule({
@@ -107,6 +109,7 @@ import { AlimentationuserComponent } from './All-Views/alimentationuser/alimenta
     TestreponsiveComponent,
     ErreurpageComponent,
     AlimentationuserComponent,
+    GestionadminComponent,
 
   ],
   imports: [
@@ -137,7 +140,7 @@ import { AlimentationuserComponent } from './All-Views/alimentationuser/alimenta
     MatTooltipModule,
     ChartistModule,
     NgbModule,
-
+    OverlayModule,
 
 
 
@@ -160,10 +163,11 @@ import { AlimentationuserComponent } from './All-Views/alimentationuser/alimenta
       { path: 'KidsPay/test', component: TestreponsiveComponent },
       { path: 'KidsPay/Erreur', component: ErreurpageComponent },
       { path: 'KidsPay/Aceuilparent/AlimenterParent', component: AlimentationuserComponent },
+      { path: 'KidsPay/AceuilAdmin/Gestioncompte', component: GestionadminComponent },
     ])
 
   ],
-  providers: [ParentService,  AngularFireStorage],
+  providers: [ParentService,  AngularFireStorage, EnfantService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

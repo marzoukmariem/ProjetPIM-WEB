@@ -138,7 +138,7 @@
       <!-- / .main-navbar -->
 
 
-      <div class="row" style="margin-left: 5%;margin-top: 4%;margin-right: 3%">
+
     <!-- End Discussions Component -->
         <div class="column">
         <div class="card" >
@@ -176,21 +176,20 @@
           <div class="row">
             <div class="card">
               <div class="card-header card-header-success" style="background:  url('/assets/img/accviole.jpg');">
-                <h4 class="card-title">TOP 3 </h4>
+                <h4 class="card-title">TOP  </h4>
                 <p class="card-category">Produits Achetés</p>
               </div>
               <div class="card-body table-responsive">
                 <table class="table table-hover">
 
                   <tbody>
-                  <tr *ngFor="let emp of service.listlignecommande1">
-                    <td  ></td>
-                    <div *ngFor="let item2 of  service.listlignecommande2">
-                      <td  *ngIf="(emp.idproduit == item2.idproduit )" style="font-size: 15px;">
-                        <img src="{{this.URLphoto}}{{item2.photoproduit}}" style="width:60px;height:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{item2.nomproduit}}</td>
+                  <tr *ngFor="let emp of service.listtopproducts">
+                    <td  > <img src="{{this.URLphoto}}{{emp.photoproduit}}" style="width:60px;height:60px;">&nbsp;&nbsp;&nbsp;</td>
 
-                    </div>
-                    <td  ></td>
+                      <td>{{emp.nomproduit}}  </td>
+
+
+                    <td  >{{emp.quantiteproduit}} </td>
                   </tr>
 
                   </tbody>
@@ -236,7 +235,6 @@
 
 
 
-      </div>
 
 
 

@@ -20,24 +20,10 @@ import {DeetilCommande} from '../Models/deetil-commande';
 @Injectable({
   providedIn: 'root'
 })
+
+
+
 export class EnfantService {
-  downloadURL: Observable < string > ;
-  imageUrl = '/assets/img/enfant3.jpg';
-  img: object = [];
-  formData3: Enfant;
-  formData4: Enfant;
-  janvier = 0;
-  février = 0;
-  Mars = 0;
-  avril = 0;
-  mai = 0;
-  juin = 0;
-  juillet = 0;
-  aout = 0;
-  septembre = 0;
-  octobre = 0;
-  novembre = 0;
-  decembre = 0;
 
 
   constructor(private http: HttpClient, private storage: AngularFireStorage) {
@@ -60,7 +46,14 @@ export class EnfantService {
     };
 
 
+// @ts-ignore
+    this.produits = {
+      photoproduit: '',
+    nomproduit: '',
+    quantiteproduit: null,
 
+
+};
 
 
 
@@ -136,8 +129,34 @@ export class EnfantService {
       parent: null,
     };
   }
-  formData: Enfant;
 
+  downloadURL: Observable < string > ;
+  imageUrl = '/assets/img/enfant3.jpg';
+  img: object = [];
+  formData3: Enfant;
+  formData4: Enfant;
+  listdepparjours: number [] = [];
+  listmois: number [] = [];
+  listjours: number [] = [];
+  listid: number [] = [];
+  listjours1: number [] = [];
+  listid2: number [] = [];
+  janvier = 0;
+  février = 0;
+  Mars = 0;
+  avril = 0;
+  mai = 0;
+  juin = 0;
+  juillet = 0;
+  aout = 0;
+  septembre = 0;
+  octobre = 0;
+  novembre = 0;
+  decembre = 0;
+  tot1 = 0;
+  formData: Enfant;
+  listtopproducts: Topproduit[] = [];
+  produits: Topproduit;
   enfant: Enfant;
   list: Enfant[] = [];
   listsen: Enfant[] = [];
@@ -171,6 +190,10 @@ export class EnfantService {
   private z1: string;
 
   apiUrl = 'http://79.137.75.40/kidspay/up.php';
+
+
+
+
 
   upload(formData) {
 
@@ -996,4 +1019,139 @@ getallproduit() {
 
 
 
+gettopproduitparenfant(id: number) {
+this.listtopproducts = [];
+
+this.http.get(environment.apiURL + '/ProduitAchetParEnfant/?idenfant=' + id).subscribe(resp => {
+    console.log(resp, 'produitsss');
+    // @ts-ignore
+    for (let i = 0; i < Number(resp.length); i++) {
+      // @ts-ignore
+          this.produits = {
+        photoproduit: '',
+        nomproduit: '',
+        quantiteproduit: null,
+
+
+      };
+      // @ts-ignore
+          this.produits.photoproduit = resp[i].photo;
+        // @ts-ignore
+          this.produits.nomproduit = resp[i].nom;
+        // @ts-ignore
+          this.produits.quantiteproduit = resp[i]['SUM(LC.quantite)'];
+          console.log(resp[0].photo, 'respph');
+        //  console.log(resp[i].SUM(LC.quantite), 'resp[i].SUM(LC.quantite)');
+          this.listtopproducts.push(this.produits);
+    }
+
+    });
+
+console.log('listproduittop', this.listtopproducts);
+}
+
+
+getsumachatparmois(id: number, mois: number) {
+  for (let i = 1; i < 13; i++) {
+    this.http.get(environment.apiURL + '/getdepenseparmoisenfant/?mois=' + i + '&idenfant=' + id).subscribe(resp1 => {
+      // @ts-ignore
+      console.log(resp1, 'resultatmois');
+
+      // @ts-ignore
+      if (resp1.janvier === null) {
+        this.listmois.push(0);
+
+      } else {
+        // @ts-ignore
+        this.listmois.push(resp1.janvier);
+
+      }
+
+
+    });
+  }
+  console.log('listmois', this.listmois);
+}
+  getlistjourscommandes(id: number) {
+
+    for (let i = 1; i < 8; i++) {
+      this.http.get(environment.apiURL + '/getcommandejours' + i + '/?idenfant=' + id).subscribe(resp1 => {
+        // @ts-ignore
+        console.log(resp1.toString(), 'resultatjours');
+
+        // @ts-ignore
+        if ( resp1.Sum_dep.Sum_dep === null) {
+          this.listjours.push(0);
+
+        } else {
+          // @ts-ignore
+          this.listjours.push( resp1.Sum_dep.Sum_dep);
+
+        }
+
+
+      });
+    }
+    console.log('listjours',  this.listjours);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+  getdailypourtousenfants(id: number) {
+
+    for (let i = 1; i < 8; i++) {
+      this.http.get(environment.apiURL + '/sommecommandeparjourspourtousenfant' + i + '/?idenfant=' + id).subscribe(resp1 => {
+        // @ts-ignore
+        console.log(resp1.toString(), 'this.listdepparjours');
+
+        // @ts-ignore
+        if ( resp1.janvier === null) {
+          this.listdepparjours.push(0);
+
+        } else {
+          // @ts-ignore
+          this.listdepparjours.push( resp1.janvier);
+
+        }
+
+
+      });
+    }
+    console.log('lrs', this.listdepparjours);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+class Topproduit {
+  photoproduit: string;
+  nomproduit: string;
+  quantiteproduit: number;
 }

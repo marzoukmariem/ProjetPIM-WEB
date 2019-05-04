@@ -101,7 +101,7 @@ export class LoginComponent implements OnInit {
 
           } if (resp['0'].fields.role == 'admin') {
             console.log('hello admin', 'heloo');
-            this.router.navigate(['KidsPay/AceuilAdmin/']);
+            this.router.navigate(['KidsPay/AceuilAdmin/Gestioncompte']);
           }
 
 

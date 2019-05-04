@@ -12,8 +12,8 @@ export const environment = {
     storageBucket: 'projetpim-web.appspot.com',
     messagingSenderId: '990597631882'
   },
-  apiURL : 'http://127.0.0.1:8000/kidspay',
-  apiURL1 : 'http://127.0.0.1/kidspay/',
+  apiURL : 'http://79.137.75.40:8000/kidspay',
+  apiURL1 : 'http://79.137.75.40/kidspay/',
 
 
   mapbox: {

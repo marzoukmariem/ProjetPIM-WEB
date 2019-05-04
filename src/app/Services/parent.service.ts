@@ -16,6 +16,7 @@ export class ParentService {
   formData3: Parent;
   formData4: User;
   formData5: Carte;
+  formData6: Parent;
   usernv: { password: string; role: string; balance: null; cin: string; photo: string; id: null; nom: string; prenom: string; numTel: string; email: string };
   parent1: Parent ;
   idenfant: number;
@@ -28,6 +29,17 @@ export class ParentService {
 
     // @ts-ignore
     this.formData1 = {
+      id: null,
+      nom: '',
+      prenom: '',
+      numTel: '',
+      role: 'parent',
+      cin: '',
+      email: '',
+      password: '',
+    };
+    // @ts-ignore
+    this.formData6 = {
       id: null,
       nom: '',
       prenom: '',
@@ -227,6 +239,33 @@ remplirform(id: number) {
 
 
       console.log(this.formData1, 'formservice');
+
+    });
+
+  }
+  remplirform1(id: number) {
+
+    this.http.get(environment.apiURL + '/users/' + id + '/').subscribe(resp => {
+      // @ts-ignore
+      console.log(resp.nom, 'nom');
+
+
+      // @ts-ignore
+      this.formData6.nom = resp.nom;
+      // @ts-ignore
+      this.formData6.prenom = resp.prenom;
+      // @ts-ignore
+      this.formData6.email = resp.email;
+      // @ts-ignore
+      this.formData6.cin = resp.cin;
+      // @ts-ignore
+      this.formData6.password = resp.password;
+      // @ts-ignore
+      this.formData6.numTel = resp.numTel;
+
+
+
+      console.log(this.formData6, 'formservice');
 
     });
 

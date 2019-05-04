@@ -223,7 +223,7 @@ padding: 5px 10px;
 display: block;
 background: transparent;
 }
-/* Second, Third and more Tiers	
+/* Second, Third and more Tiers
 * We move the 2nd and 3rd etc tier dropdowns to the left
 * by the amount of the width of the first tier.
 */
@@ -347,7 +347,7 @@ padding: 14px 20px;
 color: #FFF;
 font-size: 15px;
 }
-/* 
+/*
 nav ul li ul li .toggle,
 nav ul ul a {
 background-color: #212121;
@@ -412,17 +412,13 @@ box-shadow: 1px 1px 4px #c1c1c1;
 }
 .slider-img {
 background: url('assets/img/acc.jpg') no-repeat 0px 0px;
--webkit-background-size: cover;
--moz-background-size: cover;
--o-background-size: cover;
--ms-background-size: cover;
-min-height: 800px;
+
 }
 
 
 .imglogo{
 width:15%;
-height:15%;	
+height:15%;
 }
 .slider-info h5 {
 font-size: 2em;
@@ -614,7 +610,7 @@ text-align: center;
 border: 2px solid #007bff;
 border-radius: 100px;
 }
-.text-grid-info{  
+.text-grid-info{
 left: -49px;
 top: 4px;}
 .team-bottom-grid {
@@ -716,7 +712,7 @@ display: inline-block;
 @media(max-width:1440px){
 .slider-img {
 min-height: 680px;
-}	
+}
 .slider-info {
 padding: 16em 0 0;
 }
@@ -836,7 +832,7 @@ font-size: 1.6em;
 }
 .slider-info p {
 padding: 14px 0px 0px;
-}	
+}
 }
 @media(max-width:991px){
 .service-list-w3layouts:nth-child(3),.service-list-w3layouts:nth-child(4){
@@ -915,7 +911,7 @@ min-height:481px;
 }
 .slider-info h4 {
 font-size: 1.8em;
-}	
+}
 .slider-info {
 padding: 11em 0 0;
 }
@@ -975,7 +971,7 @@ font-size:33px;
 }
 .contact-forms textarea {
 height: 10em;
-}	
+}
 .button, .jst-matter {
 height: 254px;
 }
@@ -1132,7 +1128,7 @@ font-size: 1.2em;
 }
 .contact-forms textarea {
 height: 8em;
-}	
+}
 }
 @media(max-width:320px){
 .slider-info h4 {
