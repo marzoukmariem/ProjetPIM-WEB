@@ -22,9 +22,12 @@
     <td ><a class="btn-outline-primary" (click)="Edit(emp.id)"  > <i class="fa fa-pencil fa-lg"></i></a>
     </td>
 
-
     </tr>
+  <tr>
+    <td></td><td> <pagination-controls  (pageChange)="s = $event" id="second" ></pagination-controls></td>
+    <td></td><td></td><td></td><td></td>
+   </tr>
   </tbody>
 
 </table>
-<pagination-controls (pageChange)="s = $event" id="second"></pagination-controls>
+

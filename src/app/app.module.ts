@@ -70,7 +70,6 @@ import { AlimentationuserComponent } from './All-Views/alimentationuser/alimenta
 import {OverlayModule} from '@angular/cdk/overlay';
 import {GestionadminComponent} from './All-Views/gestionadmin/gestionadmin.component';
 import {NgxPaginationModule} from 'ngx-pagination'
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -113,7 +112,6 @@ import {NgxPaginationModule} from 'ngx-pagination'
 
   ],
   imports: [
-    NgxPaginationModule,
     NgbModule,
     CommonModule,
     BrowserModule,
@@ -142,6 +140,8 @@ import {NgxPaginationModule} from 'ngx-pagination'
     ChartistModule,
     NgbModule,
     OverlayModule,
+    NgxPaginationModule,
+
 
 
 
