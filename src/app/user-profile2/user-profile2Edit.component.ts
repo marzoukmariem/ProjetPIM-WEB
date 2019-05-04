@@ -19,6 +19,9 @@ export class UserProfile2EditComponent implements OnInit {
   fileToUpload: File = null;
   imageUrl = '/assets/img/newProduct.png';
   productId = this.currentRoute.snapshot.paramMap.get('id')
+  _codePrix_: number;
+  _codeCode_: any;
+  _codeNom_: any;
   constructor(private service: StoreService,
     private route: ActivatedRoute,
     private router: Router,
@@ -61,6 +64,15 @@ export class UserProfile2EditComponent implements OnInit {
   }
 
   onSubmit(form?: NgForm) {
+    this.hasDigitNomFind(this.service.formData1.nom)
+    this.hasNoDigitFind(this.service.formData1.code)
+    this.hasNoDigitPrixFind(this.service.formData1.prix+"")
+
+    if (this._codeNom_ == -1 || this._codeNom_ == 10 || this._codeCode_ == 1 || this._codeCode_ == 10 || this._codePrix_ == 1 || this._codePrix_ == 10 || this.service.formData1.categorie=="") {
+      alert('veuillez valider tous les champs')
+    } else {
+
+
     {
       try {
         const formData = new FormData();
@@ -80,7 +92,7 @@ export class UserProfile2EditComponent implements OnInit {
               photo: data.url,
               prix: this.service.formData1.prix,
             };
-
+            
 
             // console.log(author,"author")
             console.log(produit.id, "yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy")
@@ -115,6 +127,39 @@ export class UserProfile2EditComponent implements OnInit {
 
           }, (error) => {
             console.log('Error! ', error);
+
+            const produit = {
+              id: this.productId,
+              nom: this.service.formData1.nom,
+              categorie: this.service.formData1.categorie,
+              code: this.service.formData1.code,
+              Store: this.storenumber,
+              // @ts-ignore
+              photo: this.service.formData1.photo,
+              prix: this.service.formData1.prix,
+            };
+            
+
+            // console.log(author,"author")
+            console.log(produit.id, "yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy")
+            this.service.updateProduit(produit)
+
+              .subscribe(resp => {
+                this.service.refresh();
+                console.log(resp, 'res');
+                alert('produit mis a jour avec succès');
+                this.service.getProductsByStore(this.storenumber);
+                // @ts-ignore
+                this.service.formData1 = {
+                  id: null,
+                  nom: '',
+                  categorie: '',
+                  code: '',
+                  Store: null
+                };
+                //  this.router.navigate(['KidsPay/AceuilAdmin/parents']);
+              })
+
           });
 
 
@@ -124,6 +169,9 @@ export class UserProfile2EditComponent implements OnInit {
 
     }
     this.router.navigate(['/KidsPay/Aceuilcommercant/Historique/dashboard2'], { queryParams: { idm: this.storenumber } })
+
+  }
+
 
   }
 
@@ -151,6 +199,8 @@ export class UserProfile2EditComponent implements OnInit {
     });
   }
 
+  
+
 
   cancel() {
     // @ts-ignore
@@ -164,5 +214,61 @@ export class UserProfile2EditComponent implements OnInit {
     this.router.navigate(['/KidsPay/Aceuilcommercant/Historique/dashboard2'], { queryParams: { idm: this.storenumber } })
   }
 
+
+  hasDigitNomFind(_str_) {
+    this._codeNom_ = 10;  /*When empty string found*/
+    var _strArray = [];
+  
+    if (_str_ !== '' || _str_ !== undefined || _str_ !== null) {
+      _strArray = _str_.split('');
+      for (var i = 0; i < _strArray.length; i++) {
+        if (!isNaN(parseInt(_strArray[i]))) {
+          this._codeNom_ = -1;
+          break;
+        } else {
+          this._codeNom_ = 1;
+        }
+      }
+  
+    }
+    return this._codeNom_;
+  }
+
+  hasNoDigitFind(_str_) {
+    this._codeCode_ = 10;  /*When empty string found*/
+    var _strArray = [];
+  
+    if (_str_ !== '' || _str_ !== undefined || _str_ !== null) {
+      _strArray = _str_.split('');
+      for (var i = 0; i < _strArray.length; i++) {
+        if (!isNaN(parseInt(_strArray[i]))) {
+          this._codeCode_ = -1;
+        } else {
+          this._codeCode_ = 1;
+        }
+      }
+  
+    }
+    return this._codeCode_;
+  }
+
+  hasNoDigitPrixFind(_str_) {
+    this._codePrix_ = 10;  /*When empty string found*/
+    var _strArray = [];
+  
+    if (_str_ !== '' || _str_ !== undefined || _str_ !== null) {
+      _strArray = _str_.split('');
+      for (var i = 0; i < _strArray.length; i++) {
+        if (!isNaN(parseInt(_strArray[i]))) {
+          this._codePrix_ = -1;
+          break;
+        } else {
+          this._codePrix_ = 1;
+        }
+      }
+  
+    }
+    return this._codePrix_;
+  }
 
 }

@@ -31,6 +31,7 @@ export class StoreService {
   historique3: Historique;
   enfant: Enfant;
   balance: any;
+  nomEtPrenom: any;
   nbmagazins: number
   nbtransaction: number
   listeEnfant: Enfant[] = [];
@@ -254,6 +255,8 @@ export class StoreService {
         // @ts-ignore
         this.balance = 0;
         this.balance = resp[i]["fields"]["balance"];
+        this.nomEtPrenom = resp[i]["fields"]["nom"] + " " + resp[i]["fields"]["prenom"];
+
 
       }
 

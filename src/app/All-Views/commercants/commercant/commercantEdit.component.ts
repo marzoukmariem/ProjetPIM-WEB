@@ -14,6 +14,8 @@ export class CommercantEditComponent implements OnInit {
   _codeNum_: number;
   _codeNom_: number;
   _codeCin_: number;
+  userEmail: string;
+  userCin: string;
   constructor(private service: CommercantService,
     private router: Router,
     private currentRoute:ActivatedRoute) { }
@@ -27,6 +29,8 @@ export class CommercantEditComponent implements OnInit {
         
         this.service.formData = res;
         this.service.formData.photo='aa'
+        this.userEmail=this.service.formData.email
+        this.userCin=this.service.formData.cin
       }); 
     }
   }
@@ -49,7 +53,20 @@ export class CommercantEditComponent implements OnInit {
   }
 
   onSubmit(form:NgForm){
-
+    var emailExiste=0
+    var cinExiste=0
+    this.service.getCommercantList().then(res => { 
+     console.log(res,'hereeeeeeeeeeeeeeeeeeeeeeeeeee')
+      for (var i = 0; i < Number(res['length']); i++) {
+        console.log(res,res[i]["email"])
+        if(res[i]["email"]==this.service.formData.email && this.userEmail!=this.service.formData.email){
+          emailExiste=1
+          
+        }
+        if(res[i]["cin"]==this.service.formData.cin && this.userCin!=this.service.formData.cin){
+          cinExiste=1
+        }
+     } 
     this.hasDigitNomFind(this.service.formData.nom)
     this.hasDigitFind(this.service.formData.prenom)
     this.hasNoDigitFind(this.service.formData.numTel)
@@ -60,8 +77,11 @@ export class CommercantEditComponent implements OnInit {
     console.log(this._codeCin_,'codeCin')
     if (this._code_ == -1 || this._code_ == 10 || this._codeNom_ == -1 || this._codeNom_ == 10|| !this.isEmail(this.service.formData.email ) || this._codeNum_ == 1 || this._codeNum_ == 10|| this._codeCin_ == 1 || this._codeCin_ == 10 || this.service.formData.numTel.length<8 ||  this.service.formData.cin.length!=8 || String(this.service.formData.password).length==0 ) {
       alert('veuillez valider tous les champs')
-    } else {
-
+    }else if(emailExiste==1){
+      alert('ce commercant possede deja un compte, email redandant')
+    }else if(cinExiste==1){
+      alert('ce commercant possede deja un compte, cin redandante')
+    } else{
     $('#spinner2').show();
     this.service.UpdateCommercant().subscribe(res =>{
       this.resetForm();
@@ -69,7 +89,7 @@ export class CommercantEditComponent implements OnInit {
       this.router.navigate(['KidsPay/AceuilAdmin/commercants'])
     })
   }
-
+})
 }
 
 

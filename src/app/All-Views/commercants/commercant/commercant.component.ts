@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommercantService } from 'src/app/Services/commercant.service';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ComponentsModule } from 'src/app/components/components.module';
 declare var $: any;
 
 @Component({
@@ -46,6 +47,21 @@ export class CommercantComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    var emailExiste=0
+    var cinExiste=0
+    this.service.getCommercantList().then(res => { 
+     console.log(res,'hereeeeeeeeeeeeeeeeeeeeeeeeeee')
+      for (var i = 0; i < Number(res['length']); i++) {
+        console.log(res,res[i]["email"])
+        if(res[i]["email"]==this.service.formData.email){
+          emailExiste=1
+          
+        }
+        if(res[i]["cin"]==this.service.formData.cin){
+          cinExiste=1
+        }
+     } 
+
     this.hasDigitNomFind(this.service.formData.nom)
     this.hasDigitFind(this.service.formData.prenom)
     this.hasNoDigitFind(this.service.formData.numTel)
@@ -56,7 +72,11 @@ export class CommercantComponent implements OnInit {
     console.log(this._codeCin_,'codeCin')
     if (this._code_ == -1 || this._code_ == 10 || this._codeNom_ == -1 || this._codeNom_ == 10|| !this.isEmail(this.service.formData.email ) || this._codeNum_ == 1 || this._codeNum_ == 10|| this._codeCin_ == 1 || this._codeCin_ == 10 || this.service.formData.numTel.length<8 ||  this.service.formData.cin.length!=8 || String(this.service.formData.password).length==0 ) {
       alert('veuillez valider tous les champs')
-    } else {
+    } else if(emailExiste==1){
+      alert('ce commercant possede deja un compte, email redandant')
+    }else if(cinExiste==1){
+      alert('ce commercant possede deja un compte, cin redandante')
+    } else{
       $('#spinner2').show();
       this.service.saveOrUpdateCommercant().subscribe(res => {
         this.resetForm();
@@ -65,6 +85,8 @@ export class CommercantComponent implements OnInit {
       })
 
     }
+
+  })
 
   }
   

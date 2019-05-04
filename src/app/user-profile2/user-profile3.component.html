@@ -1,10 +1,10 @@
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-info">
-                        <h4 class="card-title">Produits inscrits</h4>
+                        <h4 class="card-title">Nouveau Produits</h4>
                         <p class="card-category"></p>
                     </div>
                     <div class="card-body">
@@ -34,60 +34,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card card-profile">
-                    <div class="card-avatar">
-
-                        <img class="img" [src]="imageUrl" />
-
-                    </div>
-                    <h6 class="card-category text-gray">click to add a new product picture</h6>
-                    <div class="card-body">
-                        <input type="file" (change)="featuredPhotoSelected($event)">
-                        <form id="contact" #form="ngForm" autocomplete="off" *ngIf="service.formData1"
-                            (submit)="onSubmit(form)">
-                            <div class="row">
-                                <div class="col-md-9">
-                                    <mat-form-field class="example-full-width">
-                                        <input matInput name="nom" placeholder="Product Name" #nom="ngModel"
-                                            [(ngModel)]="service.formData1.nom">
-                                    </mat-form-field>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-9">
-                                    <mat-form-field class="example-full-width">
-                                        <input matInput name="code" placeholder="Code" #code="ngModel"
-                                            [(ngModel)]="service.formData1.code">
-                                    </mat-form-field>
-                                </div>
-                            </div>
-                            <div class="row">
-                                    <div class="col-md-9">
-                                        <mat-form-field class="example-full-width">
-                                            <input matInput name="prix" placeholder="Prix" #code="ngModel"
-                                                [(ngModel)]="service.formData1.prix">
-                                        </mat-form-field>
-                                    </div>
-                                </div>
-                            
-                            <div class="row">
-                                <div class="col-md-9">
-
-                                    <select name="categorie" #categorie="ngModel" [(ngModel)]="service.formData1.categorie" class="form-control">
-                                        <option value="">-categorie-</option>
-                                        <option value="Boisson">Boisson</option>
-                                        <option value="Alimentation">Alimentation</option>
-                                    </select>
-
-                                </div>
-                            </div>
-                            <button mat-raised-button type="submit" class="btn btn-danger pull-right">Ajouter</button>
-                            <div class="clearfix"></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </div>
 </div>

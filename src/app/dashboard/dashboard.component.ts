@@ -34,7 +34,7 @@ export class DashboardComponent implements OnInit {
   min: number = 0
   maxS: number = 0
   minS: number = 0
-  readonly rootURL = environment.apiURL+"/"
+  readonly rootURL = environment.apiURL + "/"
 
   constructor(private service: StoreService, private route: ActivatedRoute, private router: Router, private http: HttpClient) {
     this.route.queryParams.subscribe(params => {
@@ -53,7 +53,7 @@ export class DashboardComponent implements OnInit {
     delays = 80;
     durations = 500;
 
-    chart.on('draw', function(data) {
+    chart.on('draw', function (data) {
       if (data.type === 'line' || data.type === 'area') {
         data.element.animate({
           d: {
@@ -88,7 +88,7 @@ export class DashboardComponent implements OnInit {
     delays2 = 80;
     durations2 = 500;
     // @ts-ignore
-    chart.on('draw', function(data) {
+    chart.on('draw', function (data) {
       if (data.type === 'bar') {
         seq2++;
         data.element.animate({
@@ -147,7 +147,13 @@ export class DashboardComponent implements OnInit {
 
           this.historique3.dateachat = (resp2[i].dateCommande).substring(0, 10);
           this.historique3.prixcommande = (resp2[i].prixTotal);
-          this.revenuCeJour = this.revenuCeJour + this.historique3.prixcommande;
+          this.historique3.idstore = (resp2[i].Store);
+          for (let k = 0; k < this.service.list.length; k++) {
+            if (this.service.list[k].StoreID == this.historique3.idstore) {
+              console.log(this.service.list[k].StoreID,)
+              this.revenuCeJour = this.revenuCeJour + this.historique3.prixcommande;
+            }
+          }
           // @ts-ignore
           for (let j = 0; j < this.listeStore0.length; j++) {
             // @ts-ignore
@@ -210,7 +216,13 @@ export class DashboardComponent implements OnInit {
 
               this.historique3.dateachat = (resp2[i].dateCommande).substring(0, 10);
               this.historique3.prixcommande = (resp2[i].prixTotal);
+              this.historique3.idstore = (resp2[i].Store);
+          for (let k = 0; k < this.service.list.length; k++) {
+            if (this.service.list[k].StoreID == this.historique3.idstore) {
+              console.log(this.service.list[k].StoreID,)
               this.revenuCeJour = this.revenuCeJour + this.historique3.prixcommande;
+            }
+          }
 
               for (let j = 0; j < this.listeStore0.length; j++) {
 
@@ -270,8 +282,13 @@ export class DashboardComponent implements OnInit {
 
                   this.historique3.dateachat = (resp2[i].dateCommande).substring(0, 10);
                   this.historique3.prixcommande = (resp2[i].prixTotal);
-                  this.revenuCeJour = this.revenuCeJour + this.historique3.prixcommande;
-
+                  this.historique3.idstore = (resp2[i].Store);
+                  for (let k = 0; k < this.service.list.length; k++) {
+                    if (this.service.list[k].StoreID == this.historique3.idstore) {
+                      console.log(this.service.list[k].StoreID,)
+                      this.revenuCeJour = this.revenuCeJour + this.historique3.prixcommande;
+                    }
+                  }
                   for (let j = 0; j < this.listeStore0.length; j++) {
 
                     if (resp2[i].Store === this.listeStore0[j].StoreID) {
@@ -330,7 +347,13 @@ export class DashboardComponent implements OnInit {
 
                       this.historique3.dateachat = (resp2[i].dateCommande).substring(0, 10);
                       this.historique3.prixcommande = (resp2[i].prixTotal);
-                      this.revenuCeJour = this.revenuCeJour + this.historique3.prixcommande;
+                      this.historique3.idstore = (resp2[i].Store);
+          for (let k = 0; k < this.service.list.length; k++) {
+            if (this.service.list[k].StoreID == this.historique3.idstore) {
+              console.log(this.service.list[k].StoreID,)
+              this.revenuCeJour = this.revenuCeJour + this.historique3.prixcommande;
+            }
+          }
 
                       for (let j = 0; j < this.listeStore0.length; j++) {
 
@@ -390,7 +413,13 @@ export class DashboardComponent implements OnInit {
 
                           this.historique3.dateachat = (resp2[i].dateCommande).substring(0, 10);
                           this.historique3.prixcommande = (resp2[i].prixTotal);
-                          this.revenuCeJour = this.revenuCeJour + this.historique3.prixcommande;
+                          this.historique3.idstore = (resp2[i].Store);
+                          for (let k = 0; k < this.service.list.length; k++) {
+                            if (this.service.list[k].StoreID == this.historique3.idstore) {
+                              console.log(this.service.list[k].StoreID,)
+                              this.revenuCeJour = this.revenuCeJour + this.historique3.prixcommande;
+                            }
+                          }
                           // @ts-ignore
                           for (let j = 0; j < this.listeStore0.length; j++) {
 
@@ -450,7 +479,13 @@ export class DashboardComponent implements OnInit {
 
                               this.historique3.dateachat = (resp2[i].dateCommande).substring(0, 10);
                               this.historique3.prixcommande = (resp2[i].prixTotal);
-                              this.revenuCeJour = this.revenuCeJour + this.historique3.prixcommande;
+                              this.historique3.idstore = (resp2[i].Store);
+                              for (let k = 0; k < this.service.list.length; k++) {
+                                if (this.service.list[k].StoreID == this.historique3.idstore) {
+                                  console.log(this.service.list[k].StoreID,)
+                                  this.revenuCeJour = this.revenuCeJour + this.historique3.prixcommande;
+                                }
+                              }
 
                               for (let j = 0; j < this.listeStore0.length; j++) {
 
@@ -510,7 +545,13 @@ export class DashboardComponent implements OnInit {
 
                                   this.historique3.dateachat = (resp2[i].dateCommande).substring(0, 10);
                                   this.historique3.prixcommande = (resp2[i].prixTotal);
-                                  this.revenuCeJour = this.revenuCeJour + this.historique3.prixcommande;
+                                  this.historique3.idstore = (resp2[i].Store);
+          for (let k = 0; k < this.service.list.length; k++) {
+            if (this.service.list[k].StoreID == this.historique3.idstore) {
+              console.log(this.service.list[k].StoreID,)
+              this.revenuCeJour = this.revenuCeJour + this.historique3.prixcommande;
+            }
+          }
                                   // @ts-ignore
                                   for (let j = 0; j < this.listeStore0.length; j++) {
 
@@ -566,7 +607,7 @@ export class DashboardComponent implements OnInit {
                                 /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
 
                                 const dataDailySalesChart: any = {
-                                  labels: ['', '', '', '', '', '',"aujourd'hui" ],
+                                  labels: ['', '', '', '', '', '', "aujourd'hui"],
                                   series: [
                                     [this.nbrClientParJour6, this.nbrClientParJour5, this.nbrClientParJour4, this.nbrClientParJour3, this.nbrClientParJour2, this.nbrClientParJour1, this.nbrClientParJour0]
                                   ]

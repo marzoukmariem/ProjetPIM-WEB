@@ -24,7 +24,7 @@
                         <div class="card-icon">
                             <i class="material-icons">attach_money</i>
                         </div>
-                        <p class="card-category">Revenues</p>
+                        <p class="card-category">Revenues Totale</p>
                         <h3 class="card-title">{{service.balance}} DT</h3>
                     </div>
                     <div class="card-footer">
@@ -40,8 +40,8 @@
                         <div class="card-icon">
                             <i class="material-icons">stars</i>
                         </div>
-                        <p class="card-category">Meilleur Magazin Cette Semaine</p>
-                        <h3 class="card-title">store 1</h3>
+                        <p class="card-category">Commercant connecté</p>
+                        <h3 class="card-title">{{service.nomEtPrenom}}</h3>
                     </div>
                     <div class="card-footer">
                         <div class="stats">
@@ -60,7 +60,7 @@
                     </div>
                     <div class="card-footer">
                         <div class="stats">
-                            <i class="material-icons">update</i> nombre de transaction totale
+                            <i class="material-icons">update</i> nombre de transaction cette Semaine
                         </div>
                     </div>
                 </div>
@@ -83,7 +83,7 @@
                                       <th>Adresse</th>
                                   </thead>
                                   <tbody>
-                                      <tr *ngFor="let emp of service.list  | paginate:{id:'second', itemsPerPage: 5, currentPage: s}  ">
+                                      <tr style="cursor: pointer;" *ngFor="let emp of service.list  | paginate:{id:'second', itemsPerPage: 5, currentPage: s}  ">
                                           <td (click)="histo(emp.StoreID)">{{emp.nom}}</td>
                                           <td (click)="histo(emp.StoreID)">{{emp.adresse}}</td>
                                         </tr>
