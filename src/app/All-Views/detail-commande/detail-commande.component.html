@@ -156,7 +156,7 @@
                 <th>Prix Totale</th>
                 </thead>
                 <tbody>
-                <tr *ngFor="let emp of service1.listlignecommande">
+                <tr *ngFor="let emp of service1.listlignecommande | paginate:{id:'second', itemsPerPage: 5, currentPage: s}">
                   <td  ><img src="{{this.URLphoto}}{{emp.photoproduit}}" style="width:60px;height:60px;"> </td>
                   <td  >{{emp.nomproduit}} </td>
                   <td  >{{emp.quantiteproduit}} </td>
@@ -165,6 +165,7 @@
                 </tr>
                 </tbody>
               </table>
+              <pagination-controls (pageChange)="s = $event" id="second"></pagination-controls>
             </div>
           </div>
           <!-- End Discussions Component -->

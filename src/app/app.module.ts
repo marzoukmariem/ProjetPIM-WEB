@@ -69,7 +69,7 @@ import { ErreurpageComponent } from './All-Views/erreurpage/erreurpage.component
 import { AlimentationuserComponent } from './All-Views/alimentationuser/alimentationuser.component';
 import {OverlayModule} from '@angular/cdk/overlay';
 import {GestionadminComponent} from './All-Views/gestionadmin/gestionadmin.component';
-
+import {NgxPaginationModule} from 'ngx-pagination'
 
 @NgModule({
   declarations: [
@@ -113,6 +113,7 @@ import {GestionadminComponent} from './All-Views/gestionadmin/gestionadmin.compo
 
   ],
   imports: [
+    NgxPaginationModule,
     NgbModule,
     CommonModule,
     BrowserModule,

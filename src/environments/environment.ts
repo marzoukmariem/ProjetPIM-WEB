@@ -14,8 +14,7 @@ export const environment = {
   },
   apiURL : 'http://79.137.75.40:8000/kidspay',
   apiURL1 : 'http://79.137.75.40/kidspay/',
-
-
+  apiURL2 : 'http://79.137.75.40/kidspay',
   mapbox: {
     accessToken: 'pk.eyJ1IjoieHBlZWRodW50ZXIiLCJhIjoiY2p1ZzAyYWl5MGd0eTQzczBiMjR5cXVhNiJ9.FDe2N1Dxzt9kf4qoSgsyiA'
   }

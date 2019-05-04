@@ -13,26 +13,62 @@
               <div class="row">
                 <div class="col-md-6">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Nom" [(ngModel)]="user1.nom" name="nom">
+                    <input matInput placeholder="Nom" #nom="ngModel" [(ngModel)]="user1.nom" name="nom" required pattern="[A-Za-z ]*">
                   </mat-form-field>
+                  <div *ngIf="nom.invalid && (nom.dirty || nom.touched)" class="alert alert-danger">
+                    <div *ngIf="nom.errors.required">
+                      Name is required.
+                    </div>
+                    <div *ngIf="nom.errors.pattern">
+                      Name should not contain numbers or symbols.
+                    </div>
+                  </div>
                 </div>
                 <div class="col-md-6">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Prenom" [(ngModel)]="user1.prenom" name="prenom">
+                    <input matInput placeholder="Prenom" [(ngModel)]="user1.prenom" name="prenom"  #prenom="ngModel" required pattern="[A-Za-z ]*">
+                 
                   </mat-form-field>
+                  <div *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)" class="alert alert-danger">
+                    <div *ngIf="prenom.errors.required">
+                      Prenom is required.
+                    </div>
+                    <div *ngIf="prenom.errors.pattern">
+                      Prenom should not contain numbers or symbols.
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-6">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Adresse Email" type="text" [(ngModel)]="user1.email" name="email">
+                    <input matInput placeholder="Adresse Email" type="text" [(ngModel)]="user1.email" #email="ngModel" name="email" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
                   </mat-form-field>
+                  <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                    <div *ngIf="email.errors.required">
+                      Email is required.
+                    </div>
+                    <div *ngIf="email.errors.pattern">
+                      This Email is invalid.
+                    </div>
+                  </div>
                 </div>
                 <div class="col-md-6">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Numero de Telephone" type="text" [(ngModel)]="user1.numTel"
-                      name="numtel">
+                    <input matInput placeholder="Numero de Telephone" type="text" [(ngModel)]="user1.numTel" 
+                      name="numtel" #numTel="ngModel" required pattern="[0-9]*" minlength="8">
                   </mat-form-field>
+                  <div *ngIf="numTel.invalid && (numTel.dirty || numTel.touched)" class="alert alert-danger">
+                    <div *ngIf="numTel.errors.required">
+                      Numero is required.
+                    </div>
+                    <div *ngIf="numTel.errors.pattern">
+                      Phone number should contain only numbers
+                    </div>
+                    <div *ngIf="numTel.errors.minlength">
+                      Phone number should contain at least 8 numbers numbers
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="row">
@@ -66,7 +102,7 @@
             <h6 class="card-category text-gray">balance: {{balance}} DT</h6>
             <h4 class="card-title">{{user1.nom}} {{user1.prenom}}</h4>
             <p class="card-description">
-              Pour toute modification de vos informations. veuillez contacter l'admin
+              Pour modifier l'un de vos Magazins, veuillez contacter l'admin
             </p>
 
           </div>

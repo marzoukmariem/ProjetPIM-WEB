@@ -94,7 +94,7 @@
                   </th>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let item of storeList">
+                  <tr style="cursor: pointer;" *ngFor="let item of storeList">
                     <td (click)="openForEdit(item.id)">{{item.nom}}</td>
                     <td (click)="openForEdit(item.id)">{{item.adresse}}</td>
                     <td>

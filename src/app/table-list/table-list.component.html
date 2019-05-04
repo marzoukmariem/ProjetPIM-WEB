@@ -13,14 +13,14 @@
                   </div>
                   <div class="card-body">
                       <div class="table-responsive">
-                          <table class="table">
+                          <table class="table table-hover">
                               <thead class=" text-primary">
                                 <th>Date</th>
                                 <th>Nom et Prenom de l'Enfant Client</th>
                                 <th>Totale Achats</th>
                               </thead>
                               <tbody>
-                                <tr *ngFor="let emp of service.listhist2">
+                                <tr style="cursor: pointer;" *ngFor="let emp of service.listhist2.slice().reverse() | paginate:{ itemsPerPage: 5, currentPage: p}" >
                                     <td (click)="detailCommande(emp.id)" >{{emp.dateachat}} </td>
                                     <td (click)="detailCommande(emp.id)">{{emp.enfant.nom}} {{emp.enfant.prenom}} </td>
                                     <td (click)="detailCommande(emp.id)">{{emp.prixcommande}} DT</td>
@@ -30,6 +30,7 @@
                       </div>
                   </div>
               </div>
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
           </div>
 
           <div class="col-md-5">
@@ -57,10 +58,10 @@
                                             <td>
         
         
-                                                <img class="img" src="http://79.137.75.40/kidspay/{{emp2.photo}}" />
+                                                <img class="img" src="{{service.rootURL2}}{{emp2.photo}}" />
         
                                             </td>
-                                            <td>{{emp2.nom }} </td>
+                                            <td>{{emp2.nom }}</td>
                                             
                                         </tr>
                                     </tbody>

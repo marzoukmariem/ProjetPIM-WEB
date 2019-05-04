@@ -8,11 +8,13 @@
                         <p class="card-category"></p>
                     </div>
                     <div class="card-body">
-                        <table class="table">
+                            <input class="form-control" type="text" placeholder="Search" aria-label="Search"  (keyup)="update()" [(ngModel)]="searchInput">
+
+                        <table class="table table-hover">
                             <thead class=" text-info">
                                 <th>Photo</th>
                                 <th>Nom</th>
-                                <th>categorie</th>
+                                <th>Categorie</th>
                                 <th>Code</th>
                                 <th>Prix</th>
                                 <th>modifier</th>
@@ -20,12 +22,12 @@
 
                             </thead>
                             <tbody>
-                                <tr *ngFor="let emp of service.list2">
+                                <tr *ngFor="let emp of service.list2 | paginate:{ itemsPerPage: 100, currentPage: p}">
 
                                     <td>
 
 
-                                        <img class="img" src="http://79.137.75.40/kidspay/{{emp.photo}}" />
+                                        <img class="img" src="{{service.rootURL2}}{{emp.photo}}" />
 
                                     </td>
                                     <td> {{emp.nom }}   </td>
@@ -42,6 +44,7 @@
                         </table>
                     </div>
                 </div>
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
             </div>
             <div class="col-md-4">
                 <div class="card card-profile">
@@ -58,37 +61,57 @@
                             <div class="row">
                                 <div class="col-md-9">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput name="nom" placeholder="Product Name" #nom="ngModel"
-                                            [(ngModel)]="service.formData1.nom">
+                                        <input matInput name="nom" placeholder="Product Name" #nom="ngModel" 
+                                            [(ngModel)]="service.formData1.nom" pattern="[A-Za-z ]*">
                                     </mat-form-field>
+                                    <div *ngIf="nom.invalid && (nom.dirty || nom.touched)" class="alert alert-danger">
+                                        <div *ngIf="nom.errors.pattern">
+                                          Name should not contain numbers or symbols.
+                                        </div>
+                                      </div>
                                 </div>
+                                
                             </div>
                             <div class="row">
                                 <div class="col-md-9">
                                     <mat-form-field class="example-full-width">
                                         <input matInput name="code" placeholder="Code" #code="ngModel"
-                                            [(ngModel)]="service.formData1.code">
+                                            [(ngModel)]="service.formData1.code" pattern="[0-9]*">
                                     </mat-form-field>
+                                    <div *ngIf="code.invalid && (code.dirty || code.touched)" class="alert alert-danger">
+                                        <div *ngIf="code.errors.pattern">
+                                          Code should not contain only numbers .
+                                        </div>
+                                      </div>
                                 </div>
                             </div>
                             <div class="row">
                                     <div class="col-md-9">
                                         <mat-form-field class="example-full-width">
-                                            <input matInput name="prix" placeholder="Prix" #code="ngModel"
-                                                [(ngModel)]="service.formData1.prix">
+                                            <input matInput name="prix" placeholder="Prix" #prix="ngModel"
+                                                [(ngModel)]="service.formData1.prix"  pattern="[0-9.]*" >
                                         </mat-form-field>
+                                        <div *ngIf="prix.invalid && (prix.dirty || prix.touched)" class="alert alert-danger" >
+                                           
+                                            <div *ngIf="prix.errors.pattern">
+                                              Prix should contain only numbers .
+                                            </div>
+                                          </div>
                                     </div>
                                 </div>
                             
                             <div class="row">
                                 <div class="col-md-9">
 
-                                    <select name="categorie" #categorie="ngModel" [(ngModel)]="service.formData1.categorie" class="form-control">
-                                        <option value="">-categorie-</option>
+                                    <select name="categorie" #categorie="ngModel" [(ngModel)]="service.formData1.categorie" class="form-control"  >
+                                        <option value="">-Categorie-</option>
                                         <option value="Boisson">Boisson</option>
                                         <option value="Alimentation">Alimentation</option>
                                     </select>
-
+                                    <div *ngIf="categorie.invalid && (categorie.dirty || categorie.touched)" class="alert alert-danger" >
+                                        
+                                       
+                                      </div>
                                 </div>
                             </div>
                             <button mat-raised-button type="submit" class="btn btn-danger pull-right">Ajouter</button>

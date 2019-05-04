@@ -12,7 +12,8 @@ export class StoreService {
  
   formData1: Product;
   formData: Store
-  readonly rootURL = "http://79.137.75.40:8000/kidspay/"
+  readonly rootURL = environment.apiURL+"/"
+  readonly rootURL2 = environment.apiURL2+"/"
   list: Store[] = [];
   list2: Product[] = [];
   x:string;
@@ -30,6 +31,7 @@ export class StoreService {
   historique3: Historique;
   enfant: Enfant;
   balance: any;
+  nomEtPrenom: any;
   nbmagazins: number
   nbtransaction: number
   listeEnfant: Enfant[] = [];
@@ -49,7 +51,7 @@ export class StoreService {
     this.formData1 = {
       id: null,
       nom: '',
-      categorie:'categorie',
+      categorie:'',
       code:'',
       Store:null
     };
@@ -173,6 +175,37 @@ export class StoreService {
     })
   }
 
+  getProductsByStoreSearch(id: number,searchInput:String): any {
+    this.http.get(this.rootURL + 'getproductsbystoreSearch/?idstore=' + id+'&searchInput='+searchInput).subscribe(resp => {
+      console.log(resp, "nb elment");
+      //console.log(resp['length'], "nb elment");
+
+      this.list2 = []
+      for (var i = 0; i < Number(resp['length']); i++) {
+
+        // @ts-ignore
+        this.product = {
+          id: null,
+          nom: "",
+          photo: "",
+          Store: null,
+          code:"",
+          prix:null,
+        }
+        this.product.id = resp[i]["pk"];
+        this.product.nom = resp[i]["fields"]["nom"];
+        this.product.photo = resp[i]["fields"]["photo"];
+        this.product.Store = resp[i]["fields"]["Store"];
+        this.product.code = resp[i]["fields"]["code"];
+        this.product.categorie = resp[i]["fields"]["categorie"];
+        this.product.prix = resp[i]["fields"]["prix"];
+        this.list2.push(this.product);
+      }
+      //console.log(this.list, "list");
+    })
+  }
+
+
   getNewProductsByStore(id: number): any {
     this.http.get(this.rootURL + 'getnewproductsbystore/?idstore=' + id).subscribe(resp => {
       console.log(resp, "nb elment");
@@ -253,6 +286,8 @@ export class StoreService {
         // @ts-ignore
         this.balance = 0;
         this.balance = resp[i]["fields"]["balance"];
+        this.nomEtPrenom = resp[i]["fields"]["nom"] + " " + resp[i]["fields"]["prenom"];
+
 
       }
 
@@ -379,7 +414,7 @@ export class StoreService {
 
 
 
-          for (var i = 0; i < Number(resp2['length']); i++) {
+          for (var i = Number(resp2['length'])-1; i >-1 ; i--) {
             // @ts-ignore
             this.historique3 = {
               enfant: null,
@@ -408,7 +443,7 @@ export class StoreService {
 
               }
 
-              if(this.historique3.store!=null && this.historique3.store.Commercant==id&&this.k<3){
+              if(this.historique3.store!=null && this.historique3.store.Commercant==id&&this.k<10){
                 this.listhist3.push(this.historique3);
                 this.k++
                 console.log(this.k,'k')

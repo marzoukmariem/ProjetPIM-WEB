@@ -19,6 +19,9 @@ export class UserProfile3EditComponent implements OnInit {
   fileToUpload: File = null;
   imageUrl = '/assets/img/newProduct.png';
   productId= this.currentRoute.snapshot.paramMap.get('id')
+  _codePrix_: any;
+  _codeCode_: any;
+  _codeNom_: any;
   constructor(private service: StoreService, 
     private route: ActivatedRoute, 
     private router: Router, 
@@ -40,7 +43,7 @@ export class UserProfile3EditComponent implements OnInit {
     this.service.getProduct(parseInt(this.productId)).then(res=>{
         
       this.service.formData1 = res;
-      this.imageUrl='http://79.137.75.40/kidspay/'+this.service.formData1.photo
+     // this.imageUrl=environment.apiURL2+'/'+this.service.formData1.photo
     });
     }
 
@@ -61,10 +64,20 @@ export class UserProfile3EditComponent implements OnInit {
    }
 
    onSubmit(form?: NgForm) {
+
+    this.hasDigitNomFind(this.service.formData1.nom)
+    this.hasNoDigitFind(this.service.formData1.code)
+    this.hasNoDigitPrixFind(this.service.formData1.prix+"")
+
+    if (this._codeNom_ == -1 || this._codeNom_ == 10 || this._codeCode_ == 1 || this._codeCode_ == 10 || this._codePrix_ == 1 || this._codePrix_ == 10 || this.service.formData1.categorie=="") {
+      alert('veuillez valider tous les champs')
+    } else {
+
+
     {try {
       const formData = new FormData();
       formData.append('file', this.file);
-      this.http.post('http://79.137.75.40/kidspay/up.php', formData)
+      this.http.post(environment.apiURL2+'/up.php', formData)
         .subscribe((data) => {
           console.log('Got some data from backend ', data);
           // @ts-ignore
@@ -87,9 +100,10 @@ export class UserProfile3EditComponent implements OnInit {
           
         .subscribe(resp => {
             console.log(resp, 'res');
-            alert('produit ajouté avec succès');
+            alert('produit mis a jour avec succès');
             this.service.getNewProductsByStore(this.storenumber);
           //  this.router.navigate(['KidsPay/AceuilAdmin/parents']);
+          this.router.navigate(['/KidsPay/Aceuilcommercant/Historique/dashboard3NewProduct'], { queryParams: { idm: this.storenumber } })
           },
           error => {
             console.log(error, 'error');
@@ -98,13 +112,15 @@ export class UserProfile3EditComponent implements OnInit {
           this.service.formData1.nom=''
         this.service.formData1.categorie=''
         this.service.formData1.code=''
-        this.service.formData1.prix=0
+        this.service.formData1.prix=null
        
         this.imageUrl = '/assets/img/newProduct.png';
-        this.service.formData1.prix
+        
 
         }, (error) => {
           console.log('Error! ', error);
+
+          alert('veuillez choisir une photo');
         });
 
 
@@ -113,7 +129,10 @@ export class UserProfile3EditComponent implements OnInit {
     }
 
     }
-    this.router.navigate(['/KidsPay/Aceuilcommercant/Historique/dashboard3NewProduct'], { queryParams: { idm: this.storenumber } })
+
+  }
+
+    
   }
 
     onOrderDelete(id: number) {
@@ -135,12 +154,79 @@ export class UserProfile3EditComponent implements OnInit {
     this.service.getProduct(parseInt(localStorage.getItem("idProduit"))).then(res=>{
         
       this.service.formData1 = res;
-      this.imageUrl='http://79.137.75.40/kidspay/'+this.service.formData1.photo
+      //this.imageUrl=environment.apiURL2+'/'+this.service.formData1.photo
     });
     }
 
+    cancel() {
+      // @ts-ignore
+      this.service.formData1 = {
+        id: null,
+        nom: '',
+        categorie: '',
+        code: '',
+        Store: null,
+        prix:null
+      };
+      this.router.navigate(['/KidsPay/Aceuilcommercant/Historique/dashboard3NewProduct'], { queryParams: { idm: this.storenumber } })
+    }
+  
+    hasDigitNomFind(_str_) {
+      this._codeNom_ = 10;  /*When empty string found*/
+      var _strArray = [];
     
-
+      if (_str_ !== '' || _str_ !== undefined || _str_ !== null) {
+        _strArray = _str_.split('');
+        for (var i = 0; i < _strArray.length; i++) {
+          if (!isNaN(parseInt(_strArray[i]))) {
+            this._codeNom_ = -1;
+            break;
+          } else {
+            this._codeNom_ = 1;
+          }
+        }
+    
+      }
+      return this._codeNom_;
+    }
+  
+    hasNoDigitFind(_str_) {
+      this._codeCode_ = 10;  /*When empty string found*/
+      var _strArray = [];
+    
+      if (_str_ !== '' || _str_ !== undefined || _str_ !== null) {
+        _strArray = _str_.split('');
+        for (var i = 0; i < _strArray.length; i++) {
+          if (!isNaN(parseInt(_strArray[i]))) {
+            this._codeCode_ = -1;
+          } else {
+            this._codeCode_ = 1;
+          }
+        }
+    
+      }
+      return this._codeCode_;
+    }
+  
+    hasNoDigitPrixFind(_str_) {
+      this._codePrix_ = 10;  /*When empty string found*/
+      var _strArray = [];
+    
+      if (_str_ !== '' || _str_ !== undefined || _str_ !== null) {
+        _strArray = _str_.split('');
+        for (var i = 0; i < _strArray.length; i++) {
+          if (!isNaN(parseInt(_strArray[i]))) {
+            this._codePrix_ = -1;
+            break;
+          } else {
+            this._codePrix_ = 1;
+          }
+        }
+    
+      }
+      return this._codePrix_;
+    }
+  
     
 
   }

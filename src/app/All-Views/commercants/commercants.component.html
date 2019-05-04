@@ -89,13 +89,13 @@
                   <th>CIN</th>
                   <th>
                     <a class="btn btn-outline-success" routerLink="/KidsPay/AceuilAdmin/commercant"><i
-                        class="fa fa-plus-square"></i> Create New</a>
+                        class="fa fa-plus-square"></i> Nouveau Commercant</a>
                   </th>
                 </thead>
 
                 <tbody>
 
-                  <tr *ngFor="let item of commercantList">
+                  <tr style="cursor: pointer;" *ngFor="let item of commercantList">
                     <td *ngIf="(item.role == 'Commercant')" (click)="openForEdit(item.id)">{{item.nom}}</td>
                     <td *ngIf="(item.role == 'Commercant')" (click)="openForEdit(item.id)">{{item.prenom}}</td>
                     <td *ngIf="(item.role == 'Commercant')" (click)="openForEdit(item.id)">{{item.email}}</td>

@@ -23,7 +23,7 @@ export class ParentService {
   Data: [any];
   list: Parent[] = [];
   list1: Parent[];
-  readonly rootURL = 'http://79.137.75.40:8000/kidspay/';
+  readonly rootURL = environment.apiURL+'/';
   constructor(private http: HttpClient) {
     this.list1 = [];
 

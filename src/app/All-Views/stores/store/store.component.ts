@@ -33,6 +33,7 @@ export class StoreComponent implements OnInit {
   marker = new mapboxgl.Marker({
     draggable: true
     })
+  _codeNom_: number;
 
   constructor(private service: StoreService,
     private commercantService: CommercantService,
@@ -142,10 +143,15 @@ this.service.formData = res
   
 
   onSubmit(form?: NgForm) {
+    this.hasDigitNomFind(this.service.formData.nom)
+    if ( this._codeNom_ == -1 || this._codeNom_ == 10 || String(this.service.formData.adresse).length==0) {
+      alert('veuillez valider tous les champs')
+    } else {
+
     {try {
       const formData = new FormData();
       formData.append('file', this.file);
-      this.http.post('http://79.137.75.40/kidspay/up.php', formData)
+      this.http.post(environment.apiURL2+'/up.php', formData)
         .subscribe((data) => {
           console.log('Got some data from backend ', data);
           // @ts-ignore
@@ -171,6 +177,7 @@ this.service.formData = res
 
         }, (error) => {
           console.log('Error! ', error);
+          alert('veuillez choisir une photo');
         });
 
 
@@ -178,6 +185,28 @@ this.service.formData = res
       console.log(e);
     }
 
-    }}
+    }
+  }
+  }
+
+  hasDigitNomFind(_str_) {
+    this._codeNom_ = 10;  /*When empty string found*/
+    var _strArray = [];
+  
+    if (_str_ !== '' || _str_ !== undefined || _str_ !== null) {
+      _strArray = _str_.split('');
+      for (var i = 0; i < _strArray.length; i++) {
+        if (!isNaN(parseInt(_strArray[i]))) {
+          this._codeNom_ = -1;
+          break;
+        } else {
+          this._codeNom_ = 1;
+        }
+      }
+  
+    }
+    return this._codeNom_;
+  }
+
 
   }

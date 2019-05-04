@@ -13,7 +13,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class UserProfileComponent implements OnInit {
   user1: User
   balance:number=0
-  readonly rootURL = "http://79.137.75.40:8000/kidspay/"
+  readonly rootURL = environment.apiURL+"/"
   constructor(private http: HttpClient,
     private router: Router) { 
   }
