@@ -146,6 +146,7 @@ import {NgxPaginationModule} from 'ngx-pagination'
 
 
 
+    
     RouterModule.forRoot([
       { path: 'KidsPay/Aceuilparent/Historique/Commandedetail', component: DetailCommandeComponent },
       { path: 'KidsPay/Aceuilparent/stat', component: StatComponent },
