@@ -1,3 +1,4 @@
+
 <table class="table table-sm ">
   <thead >
   <th>NOM</th>
@@ -9,7 +10,7 @@
 
   </thead>
   <tbody>
-  <tr *ngFor="let emp of service.list">
+  <tr *ngFor="let emp of service.list | paginate:{id:'second', itemsPerPage: 10, currentPage: s}">
     <td  >{{emp.nom}} {{emp.prenom}}</td>
     <td >{{emp.numTel}}</td>
     <td >{{emp.email}}</td>
@@ -26,3 +27,4 @@
   </tbody>
 
 </table>
+<pagination-controls (pageChange)="s = $event" id="second"></pagination-controls>

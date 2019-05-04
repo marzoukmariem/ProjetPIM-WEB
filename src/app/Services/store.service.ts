@@ -175,6 +175,37 @@ export class StoreService {
     })
   }
 
+  getProductsByStoreSearch(id: number,searchInput:String): any {
+    this.http.get(this.rootURL + 'getproductsbystoreSearch/?idstore=' + id+'&searchInput='+searchInput).subscribe(resp => {
+      console.log(resp, "nb elment");
+      //console.log(resp['length'], "nb elment");
+
+      this.list2 = []
+      for (var i = 0; i < Number(resp['length']); i++) {
+
+        // @ts-ignore
+        this.product = {
+          id: null,
+          nom: "",
+          photo: "",
+          Store: null,
+          code:"",
+          prix:null,
+        }
+        this.product.id = resp[i]["pk"];
+        this.product.nom = resp[i]["fields"]["nom"];
+        this.product.photo = resp[i]["fields"]["photo"];
+        this.product.Store = resp[i]["fields"]["Store"];
+        this.product.code = resp[i]["fields"]["code"];
+        this.product.categorie = resp[i]["fields"]["categorie"];
+        this.product.prix = resp[i]["fields"]["prix"];
+        this.list2.push(this.product);
+      }
+      //console.log(this.list, "list");
+    })
+  }
+
+
   getNewProductsByStore(id: number): any {
     this.http.get(this.rootURL + 'getnewproductsbystore/?idstore=' + id).subscribe(resp => {
       console.log(resp, "nb elment");
