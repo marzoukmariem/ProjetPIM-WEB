@@ -136,7 +136,7 @@ iframe {
 }
 
 .container-login100 {
-  width: 100%;  
+  width: 100%;
   min-height: 100vh;
   display: -webkit-box;
   display: -webkit-flex;
@@ -186,7 +186,7 @@ iframe {
 .wrap-input100 {
   width: 100%;
   position: relative;
-  background-color: #fff;
+   background-color: #fff;
   border: 1px solid #e6e6e6;
 }
 

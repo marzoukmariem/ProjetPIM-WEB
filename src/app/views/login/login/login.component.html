@@ -44,8 +44,8 @@
         <label for="drop" class="toggle">Menu</label>
         <input type="checkbox" id="drop">
         <ul class="menu mt-2">
+          <li class="active"><a routerLink="/KidsPay/Acceuil" routerLinkActive="active"></a></li>
           <li class="active"><a routerLink="/KidsPay/Acceuil" routerLinkActive="active">Home</a></li>
-          <li class="mx-lg-3 mx-md-2 my-md-0 my-1"><a href="#about"></a></li>
           <li><a href="#contact"></a></li>
           <li><a href="#service"></a></li>
           <li><a href="#gallery"></a></li>
@@ -90,13 +90,13 @@
           <link rel="stylesheet" type="text/css" href="assets/loginstyle/css/main.css">
           <!--===============================================================================================-->
         </head>
-        <body>
 
-        <div class="limiter" >
-          <div class="container-login100" style="position: relative;
-              left:0px;top: -200px;">
-            <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
-              <form class="login100-form validate-form" #form="ngForm"  (submit)="login(form)">
+        <body >
+
+        <div class="limiter"  >
+          <div class="container-login100" >
+            <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50" style="position:relative;top: -200px" >
+              <form class="" #form="ngForm"  (submit)="login(form)" >
 					<span class="login100-form-title p-b-33">
 						Account Login
 					</span>
@@ -125,7 +125,6 @@
             </div>
           </div>
         </div>
-
 
 
         <!--===============================================================================================-->

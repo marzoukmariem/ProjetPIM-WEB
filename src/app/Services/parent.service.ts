@@ -154,8 +154,8 @@ export class ParentService {
       localStorage.setItem('emailuser', resp.email);
       // @ts-ignore
       this.formData4.password = resp.password;
-      // @ts-ignor
-      if (resp. photo === 'null') {resp. photo = 'images/2107985170_1556841583.jpeg'; }
+      // @ts-ignore
+      if (resp.photo === 'null') {resp.photo = 'images/2107985170_1556841583.jpeg'; }
       // @ts-ignore
       this.formData4.photo = resp. photo;
       // @ts-ignore
