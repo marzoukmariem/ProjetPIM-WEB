@@ -78,6 +78,15 @@ export class TableListComponent implements OnInit {
   };
 
   ngOnInit() {
+    
+    if ( localStorage.getItem('session') === 'false') {
+
+      this.router.navigate(['KidsPay/Erreur']);
+    
+    
+    }
+
+
     this.service.getHistoriqueByStore(this.storenumber);
     this.service.listhist4=[]
 

@@ -44,6 +44,12 @@ export class StoreComponent implements OnInit {
   }
 
   ngOnInit() {
+    if ( localStorage.getItem('session') === 'false') {
+
+      this.router.navigate(['KidsPay/Erreur']);
+    
+    
+    }
     this.initializeMap();
     this.commercantService.getCommercantList().then(res=> this.commercantList = res as Commercant[])
     let storeID = this.currentRoute.snapshot.paramMap.get('id')

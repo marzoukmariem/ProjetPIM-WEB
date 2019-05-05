@@ -36,7 +36,12 @@ export class UserProfile3EditComponent implements OnInit {
   }
 
   ngOnInit() {
+    if ( localStorage.getItem('session') === 'false') {
+
+      this.router.navigate(['KidsPay/Erreur']);
     
+    
+    }
     console.log(this.productId,'idProduit:')
 
     this.service.getNewProductsByStore(this.storenumber);

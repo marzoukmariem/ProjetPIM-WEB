@@ -43,7 +43,12 @@ export class StoreEditComponent implements OnInit {
   }
 
   ngOnInit() {
+    if ( localStorage.getItem('session') === 'false') {
+
+      this.router.navigate(['KidsPay/Erreur']);
     
+    
+    }
     this.commercantService.getCommercantList().then(res=> this.commercantList = res as Commercant[])
     let storeID = this.currentRoute.snapshot.paramMap.get('id')
     if(storeID==null)

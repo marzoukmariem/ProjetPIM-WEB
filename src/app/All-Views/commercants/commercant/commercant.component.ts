@@ -20,6 +20,12 @@ export class CommercantComponent implements OnInit {
               private currentRoute: ActivatedRoute) { }
   NomIsValid;
   ngOnInit() {
+    if ( localStorage.getItem('session') === 'false') {
+
+      this.router.navigate(['KidsPay/Erreur']);
+    
+    
+    }
     const commercantId = this.currentRoute.snapshot.paramMap.get('id');
     if (commercantId == null) {
       this.resetForm();

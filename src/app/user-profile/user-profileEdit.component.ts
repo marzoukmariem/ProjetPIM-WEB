@@ -28,6 +28,12 @@ export class UserProfileEditComponent implements OnInit {
   }
 
   ngOnInit() {
+    if ( localStorage.getItem('session') === 'false') {
+
+      this.router.navigate(['KidsPay/Erreur']);
+    
+    
+    }
      // @ts-ignore
     this.user1 = {
       id:null,

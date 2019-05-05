@@ -20,7 +20,12 @@ searchInput: string;
     private router: Router) { }
 
   ngOnInit() {
+    if ( localStorage.getItem('session') === 'false') {
+
+      this.router.navigate(['KidsPay/Erreur']);
     
+    
+    }
     $('#spinner2').hide();
     $('#spinner').show();
     this.service.getStoresList().then(res => this.storeList = res)

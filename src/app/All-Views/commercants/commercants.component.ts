@@ -19,10 +19,16 @@ commercantList;
    ) { }
 
   ngOnInit() {
+    if ( localStorage.getItem('session') === 'false') {
+
+      this.router.navigate(['KidsPay/Erreur']);
+    
+    
+    }
     $('#spinner').show();
     $('#spinner2').hide();
     this.service.getCommercantList().then(res => {this.commercantList = res;
-                                                  $('#spinner').hide();
+    $('#spinner').hide();
     });
 
   }

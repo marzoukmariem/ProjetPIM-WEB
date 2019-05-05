@@ -21,6 +21,12 @@ export class CommercantEditComponent implements OnInit {
               private currentRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    if ( localStorage.getItem('session') === 'false') {
+
+      this.router.navigate(['KidsPay/Erreur']);
+    
+    
+    }
     const commercantId = this.currentRoute.snapshot.paramMap.get('id');
     if (commercantId == null) {
     this.resetForm();

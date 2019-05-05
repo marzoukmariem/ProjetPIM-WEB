@@ -34,6 +34,12 @@ export class UserProfile2Component implements OnInit {
   }
 
   ngOnInit() {
+    if ( localStorage.getItem('session') === 'false') {
+
+      this.router.navigate(['KidsPay/Erreur']);
+    
+    
+    }
     this.service.getProductsByStore(this.storenumber);
       // @ts-ignore
     

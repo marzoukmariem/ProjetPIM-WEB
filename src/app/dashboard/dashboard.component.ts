@@ -107,6 +107,12 @@ export class DashboardComponent implements OnInit {
   }
   ngOnInit() {
 
+    if ( localStorage.getItem('session') === 'false') {
+
+      this.router.navigate(['KidsPay/Erreur']);
+    
+    
+    }
     this.service.getallStoresbyid(this.commercantnumber);
     this.service.getSolde(this.commercantnumber);
     this.service.getNumberOfStores(this.commercantnumber);
