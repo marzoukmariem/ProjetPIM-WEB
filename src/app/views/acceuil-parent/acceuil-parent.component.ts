@@ -31,6 +31,8 @@ export class AcceuilParentComponent implements OnInit, ControlValueAccessor {
       console.log('id:' + this.parentnumber); // popular
     });
 
+    this.lisms = [];
+    this.listmoispar = [];
    this.service.getJ(this.parentnumber);
    this.service.getF(this.parentnumber);
    this.service.getM(this.parentnumber);
@@ -155,12 +157,14 @@ export class AcceuilParentComponent implements OnInit, ControlValueAccessor {
 
 
   ngOnInit() {
+
 if ( localStorage.getItem('session') === 'false') {
 
   this.router.navigate(['KidsPay/Erreur']);
 
 
 }
+
 this.liststring = ['janvier' , 'fivrier' , 'mars' , 'avril' , 'mai' , 'juin' , 'juillet' , 'aout' , 'Septembre' , 'Octobre' , 'Novembre' , 'Decembre' ];
 console.log(this.liststring, 'listm');
 this.service.getdailypourtousenfants(this.parentnumber);
@@ -178,8 +182,8 @@ console.log('this.service.list ', this.service.list );
 this.service.remplirlistsum(this.parentnumber);
 console.log('listfromacceuil ', this.service.listsum );
 
-
-
+this.lisms = [];
+this.listmoispar = [];
 
 
 for (let i = 1; i < 8; i++) {

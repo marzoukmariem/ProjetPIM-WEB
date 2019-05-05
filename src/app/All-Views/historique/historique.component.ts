@@ -31,9 +31,11 @@ export class HistoriqueComponent implements OnInit {
 
 
   constructor(private service: EnfantService, private route: ActivatedRoute, private router: Router, private http: HttpClient) {
+
+    this.Listmoisenfant = [];
     this.URLphoto = environment.apiURL1;
     this.photouser = localStorage.getItem('photouser');
-
+    this.Listsemaines = [];
     this.nomuser = localStorage.getItem('nom');
 
     this.prenomuser = localStorage.getItem('prenom');
@@ -154,7 +156,8 @@ photouser = '';
 
 
     }
-
+    this.Listsemaines = [];
+    this.Listmoisenfant = [];
     this.service.getlistjourscommandes(this.enfantnumber);
 
 
