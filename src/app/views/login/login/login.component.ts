@@ -84,7 +84,8 @@ export class LoginComponent implements OnInit {
           console.log('id from login', localStorage.getItem('nom'));
           localStorage.setItem('prenom', resp['0'].fields.prenom);
           localStorage.setItem('balance', resp['0'].fields.balance);
-          localStorage.setItem('photouser', resp['0'].fields.role);
+          if (resp['0'].fields.photo === 'null') {resp['0'].fields.photo = 'images/2107985170_1556841583.jpeg'; }
+          localStorage.setItem('photouser', resp['0'].fields.photo);
           localStorage.setItem('numuser', resp['0'].fields.numTel);
           localStorage.setItem('login', resp['0'].fields.numTel);
           if (resp['0'].fields.role == 'Parent') {

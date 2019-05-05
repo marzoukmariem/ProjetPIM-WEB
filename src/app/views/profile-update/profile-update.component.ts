@@ -133,7 +133,7 @@ if ( this.fileToUpload !== null) {
             .subscribe(resp => {
                 console.log(resp, 'res');
                 alert('Parent a été modifié avec succès');
-                //  this.router.navigate(['KidsPay/AceuilAdmin/parents']);
+                this.router.navigate(['KidsPay/Aceuilparent/']);
               },
               error => {
                 console.log(error, 'error');
@@ -172,7 +172,7 @@ if ( this.fileToUpload !== null) {
     .subscribe(resp => {
         console.log(resp, 'res');
         alert('Parent a été modifié avec succès');
-        //  this.router.navigate(['KidsPay/AceuilAdmin/parents']);
+        this.router.navigate(['KidsPay/Aceuilparent/']);
       },
       error => {
         console.log(error, 'error');

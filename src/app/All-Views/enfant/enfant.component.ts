@@ -60,8 +60,8 @@ parentnumber: number;
           idtag: this.service.formData.idtag,
           etatCompte: '1',
           parent: this.parentnumber,
-          code: '1234',
-          photo: 'hello'
+          code: this.service.formData.code,
+          photo: 'null'
         };
 
 
