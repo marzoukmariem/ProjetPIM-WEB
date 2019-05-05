@@ -14,6 +14,7 @@ import { NgForm } from '@angular/forms';
 })
 export class UserProfile2EditComponent implements OnInit {
   storenumber: number
+  searchInput: string;
 
   file: File = null;
   fileToUpload: File = null;
@@ -269,6 +270,12 @@ export class UserProfile2EditComponent implements OnInit {
   
     }
     return this._codePrix_;
+  }
+
+
+  update(){
+    console.log(this.searchInput);
+    this.service.getProductsByStoreSearch(this.storenumber,this.searchInput)
   }
 
 }
