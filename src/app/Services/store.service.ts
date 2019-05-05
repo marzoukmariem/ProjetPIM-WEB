@@ -42,6 +42,7 @@ export class StoreService {
   listeLastTransactionsRecentes: Historique[] = []
   enfant3: Enfant;
   k:number=0;
+  email: any;
 
   
 
@@ -287,7 +288,7 @@ export class StoreService {
         this.balance = 0;
         this.balance = resp[i]["fields"]["balance"];
         this.nomEtPrenom = resp[i]["fields"]["nom"] + " " + resp[i]["fields"]["prenom"];
-
+        this.email = resp[i]["fields"]["email"]
 
       }
 
