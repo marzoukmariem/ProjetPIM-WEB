@@ -129,7 +129,7 @@ export class EnfantService {
       parent: null,
     };
   }
-
+   ph = '/assets/img/pro.png';
   downloadURL: Observable < string > ;
   imageUrl = '/assets/img/enfant3.jpg';
   img: object = [];
@@ -329,6 +329,7 @@ getallenfantbyid(id: number) {
           parent: null,
           photo: ''
         };
+        if ( resp[i].fields.photo === 'null') { resp[i].fields.photo = 'images/2107985170_1556841583.jpeg'; }
         this.enfant.id = resp[i].pk;
         this.enfant.nom = resp[i].fields.nom;
         this.enfant.prenom = resp[i].fields.prenom;
@@ -475,6 +476,8 @@ uploadimage(file: File) {
   remplirform(id: number) {
 
     this.http.get(environment.apiURL + '/enfants/' + id + '/').subscribe(resp => {
+      // @ts-ignore
+      if (resp.photo === 'null') {resp.photo = 'images/2107985170_1556841583.jpeg'; }
       // @ts-ignore
       this.formData3.nom = resp.nom;
       // @ts-ignore

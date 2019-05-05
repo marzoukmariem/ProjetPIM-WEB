@@ -51,7 +51,7 @@ export class EnfantUpdateComponent implements OnInit {
     this.prenomuser = localStorage.getItem('prenom');
 
     this.balanceuser = localStorage.getItem('balance');
-
+    // if (localStorage.getItem('photouser') !== 'null') {this.imageUrl = environment.apiURL1 + localStorage.getItem('photouser'); }
 
  }
 
@@ -141,7 +141,8 @@ export class EnfantUpdateComponent implements OnInit {
             .subscribe(resp => {
                 console.log(resp, 'res');
                 alert('Enfant a été modifié avec succès');
-                //  this.router.navigate(['KidsPay/AceuilAdmin/parents']);
+
+                 this.router.navigate(['KidsPay/Aceuilparent/']);
               },
               error => {
                 console.log(error, 'error');
@@ -184,7 +185,7 @@ export class EnfantUpdateComponent implements OnInit {
           .subscribe(resp1 => {
               console.log(resp1, 'res');
               alert('Enfant a été modifié avec succès');
-              //  this.router.navigate(['KidsPay/AceuilAdmin/parents']);
+              this.router.navigate(['KidsPay/Aceuilparent/']);
             },
             error => {
               alert('Error');
