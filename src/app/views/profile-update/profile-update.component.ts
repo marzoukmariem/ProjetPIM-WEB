@@ -15,6 +15,7 @@ import {environment} from '../../../environments/environment';
   styleUrls: ['./profile-update.component.css']
 })
 export class ProfileUpdateComponent implements OnInit {
+  _codeNum_: number;
   URLphoto = '';
   photouser = '';
   nomuser = '';
@@ -100,9 +101,50 @@ export class ProfileUpdateComponent implements OnInit {
     console.log(this.service.formData1, 'formserviceedit');
 
   }
+  hasNoDigitFind(_str_) {
+    this._codeNum_ = 10;  /*When empty string found*/
+    let _strArray = [];
 
+    if (_str_ !== '' || _str_ !== undefined || _str_ !== null) {
+      _strArray = _str_.split('');
+      for (let i = 0; i < _strArray.length; i++) {
+        if (!isNaN(parseInt(_strArray[i]))) {
+          this._codeNum_ = -1;
+        } else {
+          this._codeNum_ = 1;
+        }
+      }
+
+    }
+    return this._codeNum_;
+  }
   onSubmit(form?: NgForm) {
 
+    let email = 0;
+    const cinExiste = 0;
+    this.http.get(environment.apiURL +  '/users/').subscribe(res => {
+      console.log(res, 'hereeeeeeeeeeeeeeeeeeeeeeeeeee');
+
+        // @ts-ignore
+      for (let i = 0; i < Number(res.length); i++) {
+        console.log(res, res[i].email);
+        // @ts-ignore
+        if (res[i].email === this.service.formData1.email && res[i].id !== this.parentnumber ) {
+          email = 1;
+
+        }}
+
+
+      this.hasNoDigitFind(this.service.formData1.numTel);
+      console.log(this._codeNum_, 'oui');
+
+
+      if (String(this.service.formData1.password).length === 0 || email === 1 || String(this.service.formData1.email).length === 0 ||
+  String(this.service.formData1.numTel).length === 0 || String(this.service.formData1.prenom).length === 0 ||
+  String(this.service.formData1.password).length === 0 || String(this.service.formData1.nom).length === 0  || this._codeNum_ === 1) {
+  alert('Veuillez Remplir  Corectement les champs');
+
+} else {
 if ( this.fileToUpload !== null) {
 
   {
@@ -184,5 +226,9 @@ if ( this.fileToUpload !== null) {
 
 
 }
+
+}); }
+
+
 
 }

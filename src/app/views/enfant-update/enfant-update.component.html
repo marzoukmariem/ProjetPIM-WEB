@@ -167,20 +167,38 @@
                 <fieldset>
 
                   <div class="wrap-input100 rs1 validate-input">
-                    <input id="first-name" class="form-control" type="text" name="first-name" placeholder="First name" #prenom="ngModel" [(ngModel)]="service.formData3.prenom">
+                    <input id="first-name" class="form-control" type="text" name="first-name" placeholder="First name" #prenom="ngModel" [(ngModel)]="service.formData3.prenom" required>
                     <span class="focus-input100"></span>
                   </div>
+
                 </fieldset>
+                <div *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)" class="alert alert-danger">
+                  <div *ngIf="prenom.errors.required">
+                    Last name is required.
+                  </div>
+                </div>
                 <div class="wrap-input100 rs1 validate-input">
-                  <input class="form-control" type="text" name="last-name" placeholder="Last name"  #nom="ngModel" [(ngModel)]="service.formData3.nom">
+                  <input class="form-control" type="text" name="last-name" placeholder="Last name"  #nom="ngModel" [(ngModel)]="service.formData3.nom" required>
                   <span class="focus-input100"></span>
                 </div>
-
-                <div class="wrap-input100 rs1 validate-input">
-                  <input class="form-control" type="text" name="phone" placeholder="N° Tag"  #idtag="ngModel" [(ngModel)]="service.formData3.idtag">
-                  <span class="focus-input100"></span>
+                <div *ngIf="nom.invalid && (nom.dirty || nom.touched)" class="alert alert-danger">
+                  <div *ngIf="nom.errors.required">
+                    Name is required.
+                  </div>
                 </div>
+                <div class="wrap-input100 rs1 validate-input">
+                  <input class="form-control" type="text" name="idtag" placeholder="N° Tag"  #idtag="ngModel" [(ngModel)]="service.formData3.idtag" required pattern="[0-9]*">
+                  <span class="focus-input100"></span>
 
+                </div>
+                <div *ngIf="idtag.invalid && (idtag.dirty || idtag.touched)" class="alert alert-danger">
+                  <div *ngIf="idtag.errors.required">
+                    Tag code is required.
+                  </div>
+                  <div *ngIf="idtag.errors.pattern">
+                   Tag code number should contain only numbers
+                  </div>
+                </div>
 
 
                 <button class="btn btn-accent" type="submit" style="margin-left: 40%">

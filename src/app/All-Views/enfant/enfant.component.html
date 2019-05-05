@@ -63,7 +63,7 @@
                   <h3 align="center" style="color: #ffffff">Ajout de l'enfant </h3>
                   <br>
                   <fieldset>
-                    <input name ="nom" #nom="ngModel" class="form-control" [(ngModel)]="service.formData.nom" placeholder="Nom"  tabindex="1"required>
+                    <input name ="nom" #nom="ngModel" class="form-control" [(ngModel)]="service.formData.nom" placeholder="Nom"  tabindex="1"required style="background-color: white">
                   </fieldset>
                   <div *ngIf="nom.invalid && (nom.dirty || nom.touched)" class="alert alert-danger">
                     <div *ngIf="nom.errors.required">
@@ -74,7 +74,7 @@
                     </div>
                   </div>
                   <fieldset>
-                    <input name ="prenom" #prenom="ngModel" class="form-control" [(ngModel)]="service.formData.prenom" placeholder="Prénom" required>
+                    <input name ="prenom" #prenom="ngModel" class="form-control" [(ngModel)]="service.formData.prenom" placeholder="Prénom" style="background-color: white" required>
                   </fieldset>
                   <div *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)" class="alert alert-danger">
                     <div *ngIf="prenom.errors.required">
@@ -86,7 +86,7 @@
                   </div>
 
                   <fieldset>
-                    <input name ="idtag" #idtag="ngModel" class="form-control" [(ngModel)]="service.formData.idtag"  placeholder="N° Tag" required>
+                    <input name ="idtag" #idtag="ngModel" class="form-control" [(ngModel)]="service.formData.idtag"  placeholder="N° Tag" required style="background-color: white">
                   </fieldset>
                   <div *ngIf="idtag.invalid && (idtag.dirty || idtag.touched)" class="alert alert-danger">
                     <div *ngIf="idtag.errors.required">

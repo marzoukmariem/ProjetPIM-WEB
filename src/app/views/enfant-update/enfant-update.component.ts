@@ -18,6 +18,7 @@ import {environment} from '../../../environments/environment';
   styleUrls: ['./enfant-update.component.css']
 })
 export class EnfantUpdateComponent implements OnInit {
+  _codeNum_: number;
    imageUrl = '/assets/img/pro.png';
   file: File = null;
   fileToUpload: File = null;
@@ -101,9 +102,32 @@ export class EnfantUpdateComponent implements OnInit {
 
 
   }
+  hasNoDigitFind(_str_) {
+    this._codeNum_ = 10;  /*When empty string found*/
+    let _strArray = [];
 
+    if (_str_ !== '' || _str_ !== undefined || _str_ !== null) {
+      _strArray = _str_.split('');
+      for (let i = 0; i < _strArray.length; i++) {
+        if (!isNaN(parseInt(_strArray[i]))) {
+          this._codeNum_ = -1;
+        } else {
+          this._codeNum_ = 1;
+        }
+      }
+
+    }
+    return this._codeNum_;
+  }
 
   onSubmit(form?: NgForm) {
+    this.hasNoDigitFind(this.service.formData3.idtag);
+    console.log(this._codeNum_, 'oui');
+    if (this._codeNum_ === 1 || String(this.service.formData3.idtag).length === 0
+      || String(this.service.formData3.prenom).length === 0 || String(this.service.formData3.nom).length === 0 ) {
+      alert('Veuillez Remplir les champs');
+
+    } else {
 
     if ( this.fileToUpload !== null) {
 
@@ -142,7 +166,7 @@ export class EnfantUpdateComponent implements OnInit {
                 console.log(resp, 'res');
                 alert('Enfant a été modifié avec succès');
 
-                 this.router.navigate(['KidsPay/Aceuilparent/']);
+                this.router.navigate(['KidsPay/Aceuilparent/']);
               },
               error => {
                 console.log(error, 'error');
@@ -195,4 +219,4 @@ export class EnfantUpdateComponent implements OnInit {
       }
     }
 
-}
+}}

@@ -87,7 +87,7 @@ export class LoginComponent implements OnInit {
           if (resp['0'].fields.photo === 'null') {resp['0'].fields.photo = 'images/2107985170_1556841583.jpeg'; }
           localStorage.setItem('photouser', resp['0'].fields.photo);
           localStorage.setItem('numuser', resp['0'].fields.numTel);
-          localStorage.setItem('login', resp['0'].fields.numTel);
+          localStorage.setItem('login', resp['0'].fields.email);
           if (resp['0'].fields.role == 'Parent') {
             console.log('hello parent', 'heloo');
 

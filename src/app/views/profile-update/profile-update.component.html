@@ -167,36 +167,65 @@
                 <fieldset>
 
                   <div class="wrap-input100 rs1 validate-input">
-                    <input id="first-name" class="form-control" type="text" name="first-name" placeholder="First name" #prenom="ngModel" [(ngModel)]="service.formData1.prenom">
+                    <input id="first-name" class="form-control" type="text" name="first-name" placeholder="First name" #prenom="ngModel" [(ngModel)]="service.formData1.prenom" required>
                     <span class="focus-input100"></span>
                   </div>
                 </fieldset>
+                <div *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)" class="alert alert-danger">
+                  <div *ngIf="prenom.errors.required">
+                   Last is required.
+                  </div>
+                </div>
                 <div class="wrap-input100 rs1 validate-input">
-                  <input class="form-control" type="text" name="last-name" placeholder="Last name" #nom="ngModel" [(ngModel)]="service.formData1.nom">
+                  <input class="form-control" type="text" name="last-name" placeholder="Last name" #nom="ngModel" [(ngModel)]="service.formData1.nom" required>
                   <span class="focus-input100"></span>
+                </div>
+                <div *ngIf="nom.invalid && (nom.dirty || nom.touched)" class="alert alert-danger">
+                  <div *ngIf="nom.errors.required">
+                    Name is required.
+                  </div>
                 </div>
 
 
 
                 <div class="wrap-input100 rs1 validate-input">
-                  <input id="phone" class="form-control" type="text" name="phone" placeholder="Eg. +216000000" #numTel="ngModel" [(ngModel)]="service.formData1.numTel">
+                  <input id="phone" class="form-control" type="text" name="phone" placeholder="Eg. +216000000" #numTel="ngModel" [(ngModel)]="service.formData1.numTel" required>
                   <span class="focus-input100"></span>
+                </div>
+                <div *ngIf="numTel.invalid && (numTel.dirty || numTel.touched)" class="alert alert-danger">
+                  <div *ngIf="numTel.errors.required">
+                   Num tel is required.
+                  </div>
                 </div>
 
                 <div class="wrap-input100 rs1 validate-input">
-                  <input class="form-control" type="text" name="cin" placeholder="CIN" #cin="ngModel" [(ngModel)]="service.formData1.cin">
+                  <input class="form-control" type="text" name="cin" placeholder="CIN" #cin="ngModel" [(ngModel)]="service.formData1.cin" required>
                   <span class="focus-input100"></span>
                 </div>
-                <div class="wrap-input100 rs1 validate-input">
-                  <input class="form-control" type="email" name="email" placeholder="Email" #email="ngModel" [(ngModel)]="service.formData1.email">
-                  <span class="focus-input100"></span>
+                <div *ngIf="cin.invalid && (cin.dirty || cin.touched)" class="alert alert-danger">
+                  <div *ngIf="cin.errors.required">
+                    cin is required.
+                  </div>
                 </div>
                 <div class="wrap-input100 rs1 validate-input">
-                  <input class="form-control" type="password" name="password" placeholder="password" #password="ngModel" [(ngModel)]="service.formData1.password">
+                  <input class="form-control" type="email" name="email" placeholder="Email" #email="ngModel" [(ngModel)]="service.formData1.email" required>
+                  <span class="focus-input100"></span>
+                </div>
+                <div *ngIf="email.invalid && (email.dirty ||email.touched)" class="alert alert-danger">
+                  <div *ngIf="email.errors.required">
+                    email is required.
+                  </div>
+                </div>
+                <div class="wrap-input100 rs1 validate-input">
+                  <input class="form-control" type="password" name="password" placeholder="password" #password="ngModel" [(ngModel)]="service.formData1.password"required>
                   <span class="focus-input100"></span>
                 </div>
 
-
+                <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                  <div *ngIf="password.errors.required">
+                    password is required.
+                  </div>
+                </div>
 
                 <button class="btn btn-accent" type="submit" style="margin-left: 40%">
 						<span>
