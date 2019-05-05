@@ -21,7 +21,7 @@
                               </thead>
                               <tbody>
                                 <tr style="cursor: pointer;" *ngFor="let emp of service.listhist2.slice().reverse() | paginate:{ itemsPerPage: 5, currentPage: p}" >
-                                    <td (click)="detailCommande(emp.id)" >{{emp.dateachat}} </td>
+                                    <td (click)="detailCommande(emp.id)" >{{emp.dateachat.substr(0,10)}}  /  <b style="color: red"> {{emp.dateachat.substr(11,18).substr(0,2)}}{{emp.dateachat.substr(11,18).substr(2,3)}}</b> </td>
                                     <td (click)="detailCommande(emp.id)">{{emp.enfant.nom}} {{emp.enfant.prenom}} </td>
                                     <td (click)="detailCommande(emp.id)">{{emp.prixcommande}} DT</td>
                                   </tr>
@@ -48,7 +48,7 @@
                                     <thead class=" text-info">
                                         <th>Photo</th>
                                         <th>Nom</th>
-                                        
+                                        <th>Quantité</th>
                                        
         
                                     </thead>
@@ -61,8 +61,8 @@
                                                 <img class="img" src="{{service.rootURL2}}{{emp2.photo}}" />
         
                                             </td>
-                                            <td>{{emp2.nom }}</td>
-                                            
+                                            <td><b>{{emp2.nom }}</b></td>
+                                            <td>{{emp2.quantite }}</td>
                                         </tr>
                                     </tbody>
                                 </table>
