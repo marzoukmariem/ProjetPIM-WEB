@@ -661,7 +661,7 @@ export class DashboardComponent implements OnInit {
                                 /* ----------==========     Emails Subscription Chart initialization    ==========---------- */
 
                                 const datawebsiteViewsChart = {
-                                  labels: ['', '', '', '', '', 'aujourd\'hui', ''],
+                                  labels: ['', '', '', '', '','', "aujourd'hui"],
                                   series: [
                                     [this.listeSommeParJour[6], this.listeSommeParJour[5], this.listeSommeParJour[4], this.listeSommeParJour[3], this.listeSommeParJour[2], this.listeSommeParJour[1], this.listeSommeParJour[0]]
 
