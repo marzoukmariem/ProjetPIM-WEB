@@ -9,8 +9,8 @@ declare interface RouteInfo {
 }
 export const ROUTES: RouteInfo[] = [
   
-    { path: '/KidsPay/AceuilComerçant/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
-    { path: '/KidsPay/AceuilComerçant/user-profile', title: 'User Profile',  icon:'person', class: '' },
+    { path: '/KidsPay/AceuilComerçant/dashboard', title: 'Accueil',  icon: 'dashboard', class: '' },
+    { path: '/KidsPay/AceuilComerçant/user-profile', title: 'Mon Profil',  icon:'person', class: '' },
     { path: '/KidsPay/login', title: 'Déconnecter',  icon:'content_paste', class: '' },
     
 ];

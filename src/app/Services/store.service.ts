@@ -42,6 +42,7 @@ export class StoreService {
   listeLastTransactionsRecentes: Historique[] = []
   enfant3: Enfant;
   k:number=0;
+  email: any;
 
   
 
@@ -287,7 +288,7 @@ export class StoreService {
         this.balance = 0;
         this.balance = resp[i]["fields"]["balance"];
         this.nomEtPrenom = resp[i]["fields"]["nom"] + " " + resp[i]["fields"]["prenom"];
-
+        this.email = resp[i]["fields"]["email"]
 
       }
 
@@ -353,7 +354,7 @@ export class StoreService {
           }
 
 
-          this.historique.dateachat = (resp2[i]["fields"]["dateCommande"]).substring(0, 10);
+          this.historique.dateachat = (resp2[i]["fields"]["dateCommande"]);
           this.historique.prixcommande = resp2[i]["fields"]["prixTotal"];
           this.historique.id = resp2[i]["pk"];
 
@@ -516,9 +517,12 @@ export class StoreService {
               this.product5 = {
                 id: null,
                 nom: '',
-                photo: ''
-              }
+                photo: '',
+                quantite:''
 
+              }
+              
+              this.product5.quantite=resp2[i]["fields"]["quantite"]
               this.product5.nom = this.listeProduit[j].nom
               this.product5.photo = this.listeProduit[j].photo
               this.product2 = this.product5

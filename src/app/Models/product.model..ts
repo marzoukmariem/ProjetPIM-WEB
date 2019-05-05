@@ -7,6 +7,7 @@ export class Product {
   public code: string;
   public Store: number;
   public prix: number;
+  public quantite: String
 
 }
 
