@@ -16,7 +16,7 @@ export class AlimentationComponent implements OnInit {
   photouser = '';
   prenomuser = '';
   nomuser = '';
-
+  _codeNum_: number;
   constructor(private service: ParentService, private route: ActivatedRoute, private router: Router) {
     this.route.queryParams.subscribe(params => {
       console.log(params); // {order: "popular"}
@@ -66,13 +66,32 @@ export class AlimentationComponent implements OnInit {
     };
 
   }
+  hasNoDigitFind(_str_) {
+    this._codeNum_ = 10;  /*When empty string found*/
+    let _strArray = [];
+
+    if (_str_ !== '' || _str_ !== undefined || _str_ !== null) {
+      _strArray = _str_.split('');
+      for (let i = 0; i < _strArray.length; i++) {
+        if (!isNaN(parseInt(_strArray[i]))) {
+          this._codeNum_ = -1;
+        } else {
+          this._codeNum_ = 1;
+        }
+      }
+
+    }
+    return this._codeNum_;
+  }
 
   onSubmit(form?: NgForm) {
+    this.hasNoDigitFind(this.service.formData3.Montant);
+    console.log(this._codeNum_, 'oui');
+    if (String(this.service.formData3.Montant).length === 0 || String(this.service.formData3.password).length === 0 || this._codeNum_ === 1) { alert('Veuillez remplir les champs correctement correcte ' ); } else {
+
+      this.service.updateparent2(this.parentnumber, this.enfantnumber, this.service.formData3.Montant, this.service.formData3.password);
 
 
-this.service.updateparent2(this.parentnumber, this.enfantnumber, this.service.formData3.Montant, this.service.formData3.password);
-
-
-
+    }
   }
 }

@@ -65,17 +65,42 @@
                   <fieldset>
                     <input name ="nom" #nom="ngModel" class="form-control" [(ngModel)]="service.formData.nom" placeholder="Nom"  tabindex="1"required>
                   </fieldset>
+                  <div *ngIf="nom.invalid && (nom.dirty || nom.touched)" class="alert alert-danger">
+                    <div *ngIf="nom.errors.required">
+                      Name is required.
+                    </div>
+                    <div *ngIf="nom.errors.pattern">
+                      Name should not contain numbers or symbols.
+                    </div>
+                  </div>
                   <fieldset>
                     <input name ="prenom" #prenom="ngModel" class="form-control" [(ngModel)]="service.formData.prenom" placeholder="Prénom" required>
                   </fieldset>
+                  <div *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)" class="alert alert-danger">
+                    <div *ngIf="prenom.errors.required">
+                      lastname is required.
+                    </div>
+                    <div *ngIf="prenom.errors.pattern">
+                      lastname should not contain numbers or symbols.
+                    </div>
+                  </div>
 
                   <fieldset>
                     <input name ="idtag" #idtag="ngModel" class="form-control" [(ngModel)]="service.formData.idtag"  placeholder="N° Tag" required>
                   </fieldset>
-
+                  <div *ngIf="idtag.invalid && (idtag.dirty || idtag.touched)" class="alert alert-danger">
+                    <div *ngIf="idtag.errors.required">
+                      idtag is required.
+                    </div>
+                    <div *ngIf="idtag.errors.pattern">
+                      idtag should not contain numbers or symbols.
+                    </div>
+                  </div>
                   <fieldset>
                     <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">ajouter</button>
                   </fieldset>
+
+
                 </form>
 
 

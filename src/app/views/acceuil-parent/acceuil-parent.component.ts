@@ -211,7 +211,7 @@ for (let i = 1; i < 8; i++) {
             tension: 0
           }),
           low: 0,
-          high: 1500, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+          high: 500, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
           chartPadding: {top: 0, right: 0, bottom: 0, left: 4},
         };
 

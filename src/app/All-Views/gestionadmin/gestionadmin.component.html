@@ -70,21 +70,64 @@
                     <label>Nom</label>
                     <input type="text" name ="nom"  #nom="ngModel" [(ngModel)]="service.formData6.nom" required pattern="[A-Za-z ]*">
                   </div>
+
+
+                  <div *ngIf="nom.invalid && (nom.dirty || nom.touched)" class="alert alert-danger">
+                    <div *ngIf="nom.errors.required">
+                      name is required.
+                    </div>
+                    <div *ngIf="nom.errors.pattern">
+                      name should not contain numbers or symbols.
+                    </div>
+                  </div>
+
+
                   <div class="form-group">
                     <label>Prenom</label>
                     <input type="text" name ="prenom"  #prenom="ngModel" [(ngModel)]="service.formData6.prenom" required pattern="[A-Za-z ]*">
                   </div>
 
+                  <div *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)" class="alert alert-danger">
+                    <div *ngIf="prenom.errors.required">
+                      lastname is required.
+                    </div>
+                    <div *ngIf="prenom.errors.pattern">
+                      lastname should not contain numbers or symbols.
+                    </div>
+                  </div>
+
+
+
                   <div class="form-group">
                     <label>Email</label>
                     <input type="text" name ="email" #email="ngModel" [(ngModel)]="service.formData6.email" required pattern="[A-Za-z ]*">
                   </div>
+
+                  <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                    <div *ngIf="email.errors.required">
+                      Email is required.
+                    </div>
+                    <div *ngIf="email.errors.pattern">
+                      Email should not contain numbers or symbols.
+                    </div>
+                  </div>
+
+
                   <div class="form-group">
                     <label>Password</label>
                     <input type="password" name ="password" #password="ngModel" [(ngModel)]="service.formData6.password" required pattern="[A-Za-z ]*">
                   </div>
 
-              <div class="form-group">
+
+                  <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                    <div *ngIf="password.errors.required">
+                      Password is required.
+                    </div>
+                  </div>
+
+
+
+                  <div class="form-group">
                 <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> modifier</button>
              </div></div></div>
             </form>

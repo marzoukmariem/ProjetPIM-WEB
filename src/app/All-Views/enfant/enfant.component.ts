@@ -11,7 +11,9 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class EnfantComponent implements OnInit {
 parentnumber: number;
-
+  _code_: number;
+  _codeNum_: number;
+  _codeNom_: number;
   constructor(private service: EnfantService, private route: ActivatedRoute, private router: Router) {
     this.route.queryParams.subscribe(params => {
       console.log(params); // {order: "popular"}
@@ -43,7 +45,11 @@ parentnumber: number;
   }
 
   onSubmit(form?: NgForm) {
-    {
+    { this.hasDigitNomFind(this.service.formData.nom);
+      this.hasDigitNomFind(this.service.formData.prenom);
+      this.hasDigitNomFind(this.service.formData.idtag);
+
+      if ( this._codeNom_ === 11) { alert('Veuillez remplir le formulaire'); } else {
       try {
 
 
@@ -77,5 +83,55 @@ parentnumber: number;
 
     }
 
+  }}
+
+  hasDigitNomFind(_str_) {
+    this._codeNom_ = 10;  /*When empty string found*/
+
+
+    if (_str_ == '' || _str_ == undefined || _str_ == null) {
+
+      this._codeNom_ = 11;
+    }
+    return this._codeNom_;
   }
+
+  hasDigitFind(_str_) {
+    this._code_ = 10;  /*When empty string found*/
+    let _strArray = [];
+
+    if (_str_ !== '' || _str_ !== undefined || _str_ !== null) {
+      _strArray = _str_.split('');
+      for (let i = 0; i < _strArray.length; i++) {
+        if (!isNaN(parseInt(_strArray[i]))) {
+          this._code_ = -1;
+        } else {
+          this._code_ = 1;
+        }
+      }
+
+    }
+    return this._code_;
+  }
+
+  hasNoDigitFind(_str_) {
+    this._codeNum_ = 10;  /*When empty string found*/
+    let _strArray = [];
+
+    if (_str_ !== '' || _str_ !== undefined || _str_ !== null) {
+      _strArray = _str_.split('');
+      for (let i = 0; i < _strArray.length; i++) {
+        if (!isNaN(parseInt(_strArray[i]))) {
+          this._codeNum_ = -1;
+        } else {
+          this._codeNum_ = 1;
+        }
+      }
+
+    }
+    return this._codeNum_;
+  }
+
+
+
 }

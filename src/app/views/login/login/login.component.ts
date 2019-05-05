@@ -86,6 +86,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('balance', resp['0'].fields.balance);
           localStorage.setItem('photouser', resp['0'].fields.role);
           localStorage.setItem('numuser', resp['0'].fields.numTel);
+          localStorage.setItem('login', resp['0'].fields.numTel);
           if (resp['0'].fields.role == 'Parent') {
             console.log('hello parent', 'heloo');
 

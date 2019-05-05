@@ -61,46 +61,45 @@ export class GestionadminComponent implements OnInit {
     }
 
     onSubmit(form?: NgForm) {
-      {try {
+if (String(this.service.formData6.nom).length === 0 ||
+  String(this.service.formData6.prenom).length === 0 ||
+  String(this.service.formData6.email).length === 0 ||
+  String(this.service.formData6.password).length === 0) {alert('veuillez valider tous les champs'); } else {
 
 
-        const user = {
-          id: this.parentnumber,
-          nom: this.service.formData6.nom,
-          prenom: this.service.formData6.prenom,
-          numTel: this.service.formData6.numTel,
-          role: 'admin',
-          cin: this.service.formData6.cin,
-          email: this.service.formData6.email,
-          password: this.service.formData6.password
-        };
+        {
+          try {
 
 
-        // console.log(author,"author")
-        this.service.updateparent(user, this.parentnumber)
-          .subscribe(resp => {
-              console.log(resp, 'res');
-              alert('Admin a été modifié avec succès');
-
-            },
-            error => {
-              console.log(error, 'error');
-            });
-
-      } catch (e) {
-        console.log(e);
-      }
-
-      }}
+            const user = {
+              id: this.parentnumber,
+              nom: this.service.formData6.nom,
+              prenom: this.service.formData6.prenom,
+              numTel: this.service.formData6.numTel,
+              role: 'admin',
+              cin: this.service.formData6.cin,
+              email: this.service.formData6.email,
+              password: this.service.formData6.password
+            };
 
 
+            // console.log(author,"author")
+            this.service.updateparent(user, this.parentnumber)
+              .subscribe(resp => {
+                  console.log(resp, 'res');
+                  alert('Admin a été modifié avec succès');
+
+                },
+                error => {
+                  console.log(error, 'error');
+                });
+
+          } catch (e) {
+            console.log(e);
+          }
+
+        }}}}
 
 
-
-
-
-
-
-  }
 
 

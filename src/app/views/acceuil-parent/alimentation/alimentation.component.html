@@ -152,12 +152,19 @@
         <form     #form="ngForm" autocomplete="off" (submit)="onSubmit(form)" >
 
           <div class="wrap-input100 rs1 validate-input">
-            <input name ="Montant" #Montant="ngModel" class="form-control" [(ngModel)]="service.formData3.Montant" placeholder="Montant" required>
+            <input name ="Montant" #Montant="ngModel" class="form-control" [(ngModel)]="service.formData3.Montant" placeholder="Montant" required pattern="[0-9]*">
 
             <span class="focus-input100"></span>
           </div>
 
-
+          <div *ngIf="Montant.invalid && (Montant.dirty || Montant.touched)" class="alert alert-danger">
+            <div *ngIf="Montant.errors.required">
+              Montant is required.
+            </div>
+            <div *ngIf="Montant.errors.pattern">
+              Montant  should contain only numbers
+            </div>
+          </div>
 
 
           <div class="wrap-input100 rs1 validate-input">
@@ -165,6 +172,12 @@
           <input type='password' name ="password" #password="ngModel" class="form-control" [(ngModel)]="service.formData3.password"  placeholder="password" required>
 
             <span class="focus-input100"></span>
+          </div>
+
+          <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+            <div *ngIf="password.errors.required">
+              Password is required.
+            </div>
           </div>
 
 

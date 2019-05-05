@@ -59,29 +59,90 @@
 
 
       <div align="center" id="divupdate">
-        <form  id="contact"   #form="ngForm" autocomplete="off" *ngIf="service.formData"  (submit)="onSubmit(form)">
+        <form  id="contact" method="post"  #form="ngForm"  *ngIf="service.formData"  (submit)="onSubmit(form)">
           <h3 align="center" style="color: #ffffff">Ajout du parent </h3>
           <br>
           <fieldset>
-            <input  type="text" name ="nom" #nom="ngModel" [(ngModel)]="service.formData.nom" class="form-control" placeholder="Nom"  tabindex="1"required>
+            <input  type="text" name ="nom" #nom="ngModel" [(ngModel)]="service.formData.nom" class="form-control" placeholder="Nom"  tabindex="1" required pattern="[A-Za-z ]*">
           </fieldset>
+          <div *ngIf="nom.invalid && (nom.dirty || nom.touched)" class="alert alert-danger">
+            <div *ngIf="nom.errors.required">
+              Name is required.
+            </div>
+            <div *ngIf="nom.errors.pattern">
+              Name should not contain numbers or symbols.
+            </div>
+          </div>
           <fieldset>
-            <input type="text" name ="prenom"  #prenom="ngModel" [(ngModel)]="service.formData.prenom" class="form-control" placeholder="Prénom" required>
+            <input type="text" name ="prenom"  #prenom="ngModel" [(ngModel)]="service.formData.prenom" class="form-control" placeholder="Prénom" required pattern="[A-Za-z ]*">
           </fieldset>
+          <div *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)" class="alert alert-danger">
+            <div *ngIf="prenom.errors.required">
+              lastname is required.
+            </div>
+            <div *ngIf="prenom.errors.pattern">
+              lastname should not contain numbers or symbols.
+            </div>
+          </div>
           <fieldset>
-            <input type="email" name ="email" #email="ngModel" [(ngModel)]="service.formData.email" class="form-control" placeholder="Email"required>
+            <input type="email" name ="email" #email="ngModel" [(ngModel)]="service.formData.email" class="form-control" placeholder="Email"required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
           </fieldset>
+          <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+            <div *ngIf="email.errors.required">
+              Email is required.
+            </div>
+            <div *ngIf="email.errors.pattern">
+              This Email is invalid.
+            </div>
+          </div>
+
+
+
+
           <fieldset>
-            <input type="text" name ="numTel" #numTel="ngModel" [(ngModel)]="service.formData.numTel" class="form-control" placeholder="N° Tel" required>
+            <input type="text" name ="numTel" #numTel="ngModel" [(ngModel)]="service.formData.numTel" class="form-control" placeholder="N° Tel" required pattern="[0-9]*" minlength="8">
           </fieldset>
+          <div *ngIf="numTel.invalid && (numTel.dirty || numTel.touched)" class="alert alert-danger">
+            <div *ngIf="numTel.errors.required">
+              Numero is required.
+            </div>
+            <div *ngIf="numTel.errors.pattern">
+              Phone number should contain only numbers
+            </div>
+            <div *ngIf="numTel.errors.minlength">
+              Phone number should contain at least 8 numbers numbers
+            </div>
+          </div>
+
           <fieldset>
-            <input type="text" name ="cin"  #cin="ngModel" [(ngModel)]="service.formData.cin" class="form-control" placeholder="CIN" required>
+            <input type="text" name ="cin"  #cin="ngModel" [(ngModel)]="service.formData.cin" class="form-control" placeholder="CIN" required minlength="8" maxlength="8" required pattern="[0-9]*">
 
           </fieldset>
+          <div *ngIf="cin.invalid && (cin.dirty || cin.touched)" class="alert alert-danger">
+            <div *ngIf="cin.errors.required">
+              CIN is required.
+            </div>
+            <div *ngIf="cin.errors.minlength || cin.errors.maxlengh ">
+              CIN should be 8 numbers.
+            </div>
+            <div *ngIf="cin.errors.pattern">
+              CIN number should contain only numbers
+            </div>
+          </div>
+
+
+
+
+
           <fieldset>
             <input name ="password"  type="password"  #password="ngModel" [(ngModel)]="service.formData.password" class="form-control" placeholder="Password" required>
 
           </fieldset>
+          <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+            <div *ngIf="password.errors.required">
+              Password is required.
+            </div>
+          </div>
           <fieldset>
             <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">ajouter</button>
           </fieldset>
